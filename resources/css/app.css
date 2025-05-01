@@ -12,17 +12,14 @@ html {
 }
 
 .hamburger-line {
-    @apply w-[30px] h-[2px] my-2 block bg-black;
+    @apply w-[30px] h-[3px] my-2 block bg-primary transition duration-300 ease-in-out;
 }
-
 .hamburger-active > span:nth-child(1) {
-    @apply rotate-45;
+    @apply rotate-45 translate-y-[11px];
 }
-
 .hamburger-active > span:nth-child(2) {
-    @apply scale-0;
+    @apply opacity-0;
 }
-
 .hamburger-active > span:nth-child(3) {
-    @apply -rotate-45;
+    @apply -rotate-45 -translate-y-[11px];
 }

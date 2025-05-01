@@ -3,5 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('landing/home');
+    return view('landing/home', [
+        'title' => 'Home'
+    ]);
 });

@@ -20,38 +20,55 @@
                  </a>
              </div>
 
-             <div class="flex items-center px-4 order-2 lg:order-1">
-                 <button id="hamburger" class="block absolute lg:hidden right-4">
-                     <span class="hamburger-line origin-bottom-left trasition duration-300 ease-in-out"></span>
-                     <span class="hamburger-line duration-300 ease-in-out"></span>
-                     <span class="hamburger-line origin-top-left duration-300 ease-in-out"></span>
-                 </button>
-                 <!-- nav menu -->
-                 <nav id="nav-menu"
-                     class="hidden bg-white dark:bg-dark lg:dark:bg-transparent max-w-[250px] w-full rounded-lg shadow-lg absolute right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none">
-                     <ul class="block lg:flex">
+             <div class="hidden lg:block lg:order-2">
+                 <nav id="nav-menu-desktop" class="bg-transparent">
+                     <ul class="flex">
                          <li class="group">
                              <a href="#home"
-                                 class="group-hover:text-primary  font-medium hover:underline px-8 py-4 h-full flex rounded-lg transition duration-300 ease-in-out text-base">Home</a>
+                                 class="group-hover:text-primary font-medium hover:underline px-8 py-4 h-full flex rounded-lg transition duration-300 ease-in-out text-base">Home</a>
                          </li>
                          <li class="group">
                              <a href="#dokter"
-                                 class="group-hover:text-primary  font-medium hover:underline px-8 py-4 h-full flex rounded-lg transition duration-300 ease-in-out text-base">Dokter</a>
+                                 class="group-hover:text-primary font-medium hover:underline px-8 py-4 h-full flex rounded-lg transition duration-300 ease-in-out text-base">Dokter</a>
                          </li>
                          <li class="group">
                              <a href="#FAQs"
-                                 class="group-hover:text-primary  font-medium hover:underline px-8 py-4 h-full flex rounded-lg transition duration-300 ease-in-out text-base">FAQ's</a>
+                                 class="group-hover:text-primary font-medium hover:underline px-8 py-4 h-full flex rounded-lg transition duration-300 ease-in-out text-base">FAQ's</a>
                          </li>
                      </ul>
                  </nav>
              </div>
 
-             <div class=" order-1 lg:order-2">
+             <div class="flex items-center space-x-2 px-4 lg:order-3">
                  <button
                      class="bg-gradient-to-t from-[#7CBCFF] to-[#329EFF] hover:bg-opacity-90 text-white font-medium rounded-lg px-8 py-2 transition duration-300 ease-in-out">
                      Login
                  </button>
+
+                 <button id="hamburger" class="block lg:hidden text-center 2">
+                     <span class="hamburger-line origin-center transition duration-300 ease-in-out"></span>
+                     <span class="hamburger-line origin-center transition duration-300 ease-in-out"></span>
+                     <span class="hamburger-line origin-center transition duration-300 ease-in-out"></span>
+                 </button>
              </div>
+
+             <nav id="nav-menu"
+                 class="hidden bg-white dark:bg-dark max-w-[250px] w-full rounded-lg shadow-lg absolute right-4 top-full lg:hidden">
+                 <ul class="block">
+                     <li class="group">
+                         <a href="#home"
+                             class="group-hover:text-primary font-medium hover:underline px-8 py-4 h-full flex rounded-lg transition duration-300 ease-in-out text-base">Home</a>
+                     </li>
+                     <li class="group">
+                         <a href="#dokter"
+                             class="group-hover:text-primary font-medium hover:underline px-8 py-4 h-full flex rounded-lg transition duration-300 ease-in-out text-base">Dokter</a>
+                     </li>
+                     <li class="group">
+                         <a href="#FAQs"
+                             class="group-hover:text-primary font-medium hover:underline px-8 py-4 h-full flex rounded-lg transition duration-300 ease-in-out text-base">FAQ's</a>
+                     </li>
+                 </ul>
+             </nav>
          </div>
      </div>
  </header>
