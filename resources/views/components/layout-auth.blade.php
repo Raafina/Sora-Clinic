@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="icon" type="svg" href="{{ asset('LokapathLogo.svg') }}">
+    <link rel="icon" type="svg" href="{{ asset('/images/logo/favicon.svg') }}">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <title>Lokapath | {{ $title }}</title>
+    <title>{{ $title }}</title>
 </head>
 
 <body class="h-full">

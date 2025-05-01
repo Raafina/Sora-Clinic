@@ -15,7 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../js/scripts.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="icon" type="svg" href="{{ asset('LokapathLogo.svg') }}">
+    <link rel="icon" type="svg" href="{{ asset('/images/logo/favicon.svg') }}">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>{{ $title }}</title>
 </head>

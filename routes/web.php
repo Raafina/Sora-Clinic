@@ -7,3 +7,11 @@ Route::get('/', function () {
         'title' => 'Home'
     ]);
 });
+
+Route::get('/pasien/login', function () {
+    return view('pasien/auth/login', ['title' => 'Masuk Pasien']);
+});
+
+Route::get('/pasien/register', function () {
+    return view('pasien/auth/register', ['title' => 'Daftar Pasien']);
+});
