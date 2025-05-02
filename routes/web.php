@@ -8,10 +8,18 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/pasien/login', function () {
-    return view('pasien/auth/login', ['title' => 'Masuk Pasien']);
+
+Route::prefix('pasien')->group(function () {
+    Route::get('/login', function () {
+        return view('pasien/auth/login', ['title' => 'Masuk Pasien']);
+    });
+    Route::get('/register', function () {
+        return view('pasien/auth/register', ['title' => 'Daftar Pasien']);
+    });
 });
 
-Route::get('/pasien/register', function () {
-    return view('pasien/auth/register', ['title' => 'Daftar Pasien']);
+Route::prefix('admin')->group(function () {
+    Route::get('/dokter', function () {
+        return view('/admin/dokter/index', ['title' => 'Dashboard']);
+    });
 });

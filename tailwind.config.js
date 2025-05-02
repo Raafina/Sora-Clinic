@@ -1,6 +1,5 @@
-import defaultTheme from "tailwindcss/defaultTheme";
-
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
     content: [
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
@@ -8,6 +7,7 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js",
     ],
     theme: {
         extend: {
@@ -23,5 +23,5 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [require("flowbite/plugin")],
 };
