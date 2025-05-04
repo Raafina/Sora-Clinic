@@ -1,15 +1,16 @@
 <x-layout-admin-dashboard>
     <h1 class="text-3xl font-medium">Pengelolaan Dokter</h1>
     <div class="flex justify-between py-4">
-        <form class="flex items-center w-1/2">
+        <form class="flex items-center w-1/2" method="GET" action="/admin/dokter">
             <label for="simple-search" class="sr-only">Search</label>
             <div class="relative w-full">
                 <input type="text" id="simple-search"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    placeholder="Cari nama dokter" required />
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder:text-secondary"
+                    placeholder="Cari nama dokter" type="search" id="search" name='search'
+                    value="{{ request('search') }}" />
             </div>
             <button type="submit"
-                class="p-2.5 ms-2 text-sm font-medium text-white bg-primary rounded-full border border-blue-300 hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+                class="p-2.5 ms-2 text-sm font-medium text-white bg-primary rounded-lg border border-blue-300 hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -43,7 +44,7 @@
                     </th>
                 </tr>
             </thead>
-            @foreach ($dokters as $dokter)
+            @forelse ($dokters as $dokter)
                 <tbody>
                     <tr class="bg-white  hover:bg-gray-50 ">
                         <th scope="row" class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap ">
@@ -89,7 +90,11 @@
                         </td>
                     </tr>
                 </tbody>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="5" class="px-6 py-40 text-center">Tidak ada data</td>
+                </tr>
+            @endforelse
         </table>
     </div>
 
