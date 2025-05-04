@@ -9,7 +9,7 @@
                     placeholder="Cari nama dokter" required />
             </div>
             <button type="submit"
-                class="p-2.5 ms-2 text-sm font-medium text-white bg-primary rounded-full border border-blue-300 hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+                class="p-2.5 ms-2 text-sm font-medium text-white bg-primary rounded-full border border-blue-300 hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -18,7 +18,7 @@
                 <span class="sr-only">Search</span>
             </button>
         </form>
-        <button class="bg-primary hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-xl">Tambah
+        <button class="bg-primary hover:bg-opacity-80 text-white font-medium py-2 px-4 rounded-xl">Tambah
             Dokter
         </button>
     </div>
@@ -27,75 +27,69 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-200">
                 <tr>
                     <th scope="col" class="px-6 py-3 rounded-l-lg">
-                        Product name
+                        Nama
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Color
+                        Alamat
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Category
+                        No Telp
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Price
+                        Poli
                     </th>
                     <th scope="col" class="px-6 py-3 rounded-r-lg">
-                        <span class="sr-only">Edit</span>
+                        Aksi
                     </th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="bg-white  hover:bg-gray-50 ">
-                    <th scope="row" class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap ">
-                        Apple MacBook Pro 17"
-                    </th>
-                    <td class="px-6 py-3">
-                        Silver
-                    </td>
-                    <td class="px-6 py-3">
-                        Laptop
-                    </td>
-                    <td class="px-6 py-3">
-                        $2999
-                    </td>
-                    <td class="px-6 py-3 text-right">
-                        <a href="#" class="font-medium text-blue-600  hover:underline">Edit</a>
-                    </td>
-                </tr>
-                <tr class="bg-white  hover:bg-gray-50 ">
-                    <th scope="row" class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap ">
-                        Microsoft Surface Pro
-                    </th>
-                    <td class="px-6 py-3">
-                        White
-                    </td>
-                    <td class="px-6 py-3">
-                        Laptop PC
-                    </td>
-                    <td class="px-6 py-3">
-                        $1999
-                    </td>
-                    <td class="px-6 py-3 text-right">
-                        <a href="#" class="font-medium text-blue-600  hover:underline">Edit</a>
-                    </td>
-                </tr>
-                <tr class="bg-white hover:bg-gray-50 ">
-                    <th scope="row" class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap ">
-                        Magic Mouse 2
-                    </th>
-                    <td class="px-6 py-3">
-                        Black
-                    </td>
-                    <td class="px-6 py-3">
-                        Accessories
-                    </td>
-                    <td class="px-6 py-3">
-                        $99
-                    </td>
-                    <td class="px-6 py-3 text-right">
-                        <a href="#" class="font-medium text-blue-600  hover:underline">Edit</a>
-                    </td>
-                </tr>
-            </tbody>
+            @foreach ($dokters as $dokter)
+                <tbody>
+                    <tr class="bg-white  hover:bg-gray-50 ">
+                        <th scope="row" class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap ">
+                            {{ $dokter->nama }}
+                        </th>
+                        <td class="px-6 py-3">
+                            {{ $dokter->alamat }}
+                        </td>
+                        <td class="px-6 py-3">
+                            {{ $dokter->no_telp }}
+                        </td>
+                        <td class="px-6 py-3">
+                            {{ $dokter->id_poli }}
+                        </td>
+                        <td class="px-6 py-3 flex flex-row gap-2">
+                            <div class="bg-yellow-500 p-1 rounded-md hover:opacity-75">
+                                <a href="">
+                                    <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28" />
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <div class="bg-red-500 p-1 rounded-md hover:opacity-75">
+                                <form action="" method="POST" class="flex justify-center">
+                                    @csrf
+                                    @method('delete')
+                                    <button onclick="return confirm('Are you sure to delete this post?')">
+                                        <svg class="w-6 h-6 text-white" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            @endforeach
         </table>
     </div>
 

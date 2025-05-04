@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Dokter;
 
 class DokterController extends Controller
 {
@@ -12,7 +13,8 @@ class DokterController extends Controller
      */
     public function index()
     {
-        return view('/admin/dokter/index', ['title' => 'Dashboard']);
+        $dokters = Dokter::all();
+        return view('/admin/dokter/index', ['title' => 'Dashboard', 'dokters' => $dokters]);
     }
 
     /**
