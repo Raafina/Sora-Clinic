@@ -97,5 +97,6 @@
             @endforelse
         </table>
     </div>
+    {{ $dokters->links() }}
 
 </x-layout-admin-dashboard>
