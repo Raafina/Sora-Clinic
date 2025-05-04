@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\DokterController as AdminDokterController;
 
 Route::get('/', function () {
     return view('landing/home', [
@@ -10,16 +12,11 @@ Route::get('/', function () {
 
 
 Route::prefix('pasien')->group(function () {
-    Route::get('/login', function () {
-        return view('pasien/auth/login', ['title' => 'Masuk Pasien']);
-    });
-    Route::get('/register', function () {
-        return view('pasien/auth/register', ['title' => 'Daftar Pasien']);
-    });
+    Route::get('/login', [AuthController::class, 'pasienLoginView']);
+    Route::get('/register', [AuthController::class, 'pasienRegisterView']);
 });
 
 Route::prefix('admin')->group(function () {
-    Route::get('/dokter', function () {
-        return view('/admin/dokter/index', ['title' => 'Dashboard']);
-    });
+    Route::get('/login', [AuthController::class, 'adminLoginView']);
+    Route::get('/dokter', [AdminDokterController::class, 'index']);
 });
