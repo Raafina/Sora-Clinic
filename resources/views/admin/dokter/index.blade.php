@@ -1,7 +1,7 @@
-<x-layout-dashboard>
-    <h1 class="text-3xl font-medium">Dokter</h1>
+<x-layout-admin-dashboard>
+    <h1 class="text-3xl font-medium">Pengelolaan Dokter</h1>
     <div class="flex justify-between py-4">
-        <form class="flex items-center max-w-sm">
+        <form class="flex items-center w-1/2">
             <label for="simple-search" class="sr-only">Search</label>
             <div class="relative w-full">
                 <input type="text" id="simple-search"
@@ -99,4 +99,4 @@
         </table>
     </div>
 
-</x-layout-dashboard>
+</x-layout-admin-dashboard>

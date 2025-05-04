@@ -32,9 +32,10 @@
             </button>
 
             <aside id="logo-sidebar"
-                class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+                class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 "
                 aria-label="Sidebar">
-                <div class="h-full px-3 py-4 overflow-y-auto bg-white flex flex-col justify-between">
+                <div
+                    class="h-full px-3 py-4 overflow-y-auto bg-white flex flex-col justify-between border-r border-gray-200 shadow-md">
                     <div>
                         <a href="/" class="flex items-center ps-2.5 mb-5 justify-center">
                             <img src="{{ asset('/images/logo/primary.svg') }}" class="h-6 me-3 sm:h-14"
@@ -91,7 +92,7 @@
                             </li>
                         </ul>
                     </div>
-                    <form action="/logout-admin" method="POST" class="">
+                    <form action="/logout" method="POST" class="">
                         @csrf
                         <button type="submit"
                             class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 w-full font-medium">
