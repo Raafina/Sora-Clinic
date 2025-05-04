@@ -1,7 +1,7 @@
+@import "flowbite/src/themes/default";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "flowbite/src/themes/default";
 
 html {
     scroll-behavior: smooth;
