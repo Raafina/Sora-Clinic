@@ -25,18 +25,6 @@
                                 </div>
                                 <div>
                                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900">
-                                        Alamat</label>
-                                    <input type="name" name="name" id="name"
-                                        class="bg-gray-50 border border-gray-300  text-gray-900 placeholder:text-gray-400 rounded-lg
-                                 focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
-                                 {{ $errors->has('name') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
-                                        placeholder="Masukkan alamat" required value="{{ old('name') }}">
-                                    @error('name')
-                                        <p class="text-sm text-red-600 mt-1"> {{ $message }}</p>
-                                    @enderror
-                                </div>
-                                <div>
-                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900">
                                         No HP</label>
                                     <input type="name" name="name" id="name"
                                         class="bg-gray-50 border border-gray-300  text-gray-900 placeholder:text-gray-400 rounded-lg
@@ -55,6 +43,18 @@
                                  focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
                                  {{ $errors->has('name') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
                                         placeholder="Masukkan no KTP" required value="{{ old('name') }}">
+                                    @error('name')
+                                        <p class="text-sm text-red-600 mt-1"> {{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div>
+                                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900">
+                                        Alamat</label>
+                                    <textarea type="name" name="name" id="name"
+                                        class="bg-gray-50 border border-gray-300  text-gray-900 placeholder:text-gray-400 rounded-lg
+                                 focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
+                                 {{ $errors->has('name') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
+                                        placeholder="Masukkan alamat" required value="{{ old('name') }}"></textarea>
                                     @error('name')
                                         <p class="text-sm text-red-600 mt-1"> {{ $message }}</p>
                                     @enderror
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col md:justify-center md:items-center space-y-4">
+                        <div class="flex flex-col space-y-4">
                             <button type="submit"
                                 class="w-full md:w-1/2 bg-primary text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Daftar</button>
                             <p class="text-sm font-light text-gray-500 ">
