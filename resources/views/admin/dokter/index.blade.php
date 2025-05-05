@@ -128,7 +128,7 @@
                                                     </button>
                                                     <button type="button"
                                                         data-modal-hide="deleteModal-{{ $dokter->id }}"
-                                                        class="w-1/2 text-red-500 border-2 border-red-500 hover:bg-red-100  focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5">
+                                                        class="w-1/2 text-red-500 border-2 border-red-500 hover:bg-red-100  focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg text-sm font-medium px-5 py-2.5">
                                                         Batal
                                                     </button>
                                                 </form>
