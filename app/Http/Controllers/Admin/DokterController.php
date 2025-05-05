@@ -13,7 +13,7 @@ class DokterController extends Controller
      */
     public function index()
     {
-        $dokters = Dokter::filter(request(['search']))->latest()->paginate(10)->withQueryString();
+        $dokters = Dokter::filter(request(['search']))->latest()->paginate(4)->withQueryString();
 
         return view('/admin/dokter/index', ['title' => 'Dashboard', 'dokters' => $dokters]);
     }
