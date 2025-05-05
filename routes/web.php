@@ -19,4 +19,5 @@ Route::prefix('pasien')->group(function () {
 Route::prefix('admin')->group(function () {
     Route::get('/login', [AuthController::class, 'adminLoginView']);
     Route::get('/dokter', [AdminDokterController::class, 'index']);
+    Route::delete('/dokter/{dokter}', [AdminDokterController::class, 'destroy']);
 });

@@ -10,7 +10,7 @@
                     value="{{ request('search') }}" />
             </div>
             <button type="submit"
-                class="p-2.5 ms-2 text-sm font-medium text-white bg-primary rounded-lg border border-blue-300 hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+                class="p-2.5 ms-2 text-sm font-medium text-white bg-primary rounded-lg borderlue-300 hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -19,7 +19,7 @@
                 <span class="sr-only">Search</span>
             </button>
         </form>
-        <button class="bg-primary hover:bg-opacity-80 text-white font-medium py-2 px-4 rounded-xl">Tambah
+        <button class="bg-primary hover:bg-opacity-90 text-white font-medium py-2 px-4 rounded-xl">Tambah
             Dokter
         </button>
     </div>
@@ -71,21 +71,71 @@
                                     </svg>
                                 </a>
                             </div>
-
                             <div class="bg-red-500 p-1 rounded-md hover:opacity-75">
-                                <form action="" method="POST" class="flex justify-center">
-                                    @csrf
-                                    @method('delete')
-                                    <button onclick="return confirm('Are you sure to delete this post?')">
-                                        <svg class="w-6 h-6 text-white" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            fill="none" viewBox="0 0 24 24">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
-                                        </svg>
-                                    </button>
-                                </form>
+                                <button type="button" data-modal-target="deleteModal-{{ $dokter->id }}"
+                                    data-modal-toggle="deleteModal-{{ $dokter->id }}"
+                                    class="flex justify-center w-full">
+                                    <svg class="w-6 h-6 text-white" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                        viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Modal Konfirmasi Hapus -->
+                            <div id="deleteModal-{{ $dokter->id }}" tabindex="-1" aria-hidden="true"
+                                class="fixed top-0 left-0 right-0 z-50 hidden w-full p-2 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full ">
+                                <div class="relative w-full max-w-md max-h-full">
+                                    <div class="relative bg-white rounded-lg shadow ">
+                                        <div class="relative bg-white rounded-lg shadow-sm ">
+                                            <!-- Modal header -->
+                                            <div class="flex items-center justify-between p-4 md:p-5 rounded-t">
+                                                <h3 class="text-xl font-semibold text-gray-900 ">
+                                                    Hapus Dokter
+                                                </h3>
+                                                <button type="button"
+                                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
+                                                    data-modal-hide="deleteModal-{{ $dokter->id }}">
+                                                    <svg class="w-3 h-3" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                        viewBox="0 0 14 14">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                                    </svg>
+                                                    <span class="sr-only">Close modal</span>
+                                                </button>
+                                            </div>
+                                            <!-- Modal body -->
+                                            <div class="px-4 md:px-5 ">
+                                                <p class="text-base leading-relaxed text-gray-500">
+                                                    Apakah anda yakin menghapus data dokter ini?
+                                                </p>
+                                            </div>
+                                            <!-- Modal footer -->
+                                            <div
+                                                class="flex items-center justify-center p-4 md:p-5 rounded-b w-full gap-2">
+                                                <form action="/admin/dokter/{{ $dokter->id }}" method="POST"
+                                                    class="flex w-full gap-2">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="w-1/2 text-white bg-primary hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                                        Ya, Hapus
+                                                    </button>
+                                                    <button type="button"
+                                                        data-modal-hide="deleteModal-{{ $dokter->id }}"
+                                                        class="w-1/2 text-red-500 border-2 border-red-500 hover:bg-red-100  focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5">
+                                                        Batal
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </td>
                     </tr>
