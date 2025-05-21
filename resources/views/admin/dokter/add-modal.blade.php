@@ -40,15 +40,9 @@
                 </select>
             </div>
 
-            <div class="flex items-center justify-center w-full gap-2 pt-4">
-                <button type="submit"
-                    class="w-1/2 text-white bg-primary hover:bg-opacity-90 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                    Tambah
-                </button>
-                <button type="button" data-modal-hide="addModal"
-                    class="w-1/2 text-red-500 border-2 border-red-500 hover:bg-red-100 rounded-lg text-sm font-medium px-5 py-2.5">
-                    Batal
-                </button>
+            <div class="flex items-center justify-center w-full gap-2 pt-2">
+                <x-button label="Batal" variant="danger" type="button" halfWidth data-modal-hide="addModal" />
+                <x-button label="Tambah" variant="primary" type="submit" halfWidth />
             </div>
         </div>
     </form>
