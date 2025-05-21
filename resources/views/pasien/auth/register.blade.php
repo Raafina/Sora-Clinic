@@ -1,5 +1,6 @@
 <x-layout-auth>
     <x-slot:title>{{ $title }}</x-slot:title>
+
     <section class="py-4 md:py-0">
         <div class="flex flex-col items-center justify-center md:px-6 md:py-8 mx-auto md:h-screen lg:py-10">
             <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-xl xl:p-0">
@@ -7,9 +8,9 @@
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                         Daftar Akun Pasien
                     </h1>
-                    <form class="space-y-4 " action="/register" method="post">
+                    <form class="space-y-4 " action="/pasien/register" method="post">
                         @csrf
-                        <div class="grid md:grid-cols-2 gap-2">
+                        <div class="grid md:grid-cols-2 gap-4">
                             <div class="space-y-4">
                                 <div>
                                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900">
