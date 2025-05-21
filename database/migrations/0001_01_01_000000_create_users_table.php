@@ -13,12 +13,19 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->enum('role', ['pasien', 'dokter', 'admin']);
+            $table->enum('role', ['pasien', 'dokter']);
             $table->string('username')->unique();
+            $table->string('nama')->unique();
+            $table->string('email')->unique();
             $table->string('password');
+            $table->longText('alamat')->nullable();
+            $table->string('no_ktp')->nullable();
+            $table->string('no_hp')->nullable();
+            $table->char('no_rm', 10)->nullable();
+            $table->string('poli')->nullable();
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
-            $table->softDeletes();
         });
 
         // Schema::create('password_reset_tokens', function (Blueprint $table) {
