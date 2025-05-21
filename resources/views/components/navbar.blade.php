@@ -80,7 +80,7 @@
              </div>
 
              <nav id="nav-menu"
-                 class="hidden bg-white dark:bg-dark max-w-[250px] w-full rounded-lg shadow-lg absolute right-4 top-full lg:hidden">
+                 class="hidden bg-white max-w-[250px] w-full rounded-lg shadow-lg absolute right-4 top-full lg:hidden">
                  <ul class="block">
                      <li class="group">
                          <a href="#home"

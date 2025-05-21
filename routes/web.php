@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DokterController as AdminDokterController;
 
+Route::get('/', function () {
+    return view('/landing/home');
+});
 Route::get('/', function () {
     return view('landing/home', [
         'title' => 'Home'
@@ -14,7 +18,6 @@ Route::get('/', function () {
 Route::prefix('pasien')->group(function () {
     Route::get('/login', [AuthController::class, 'pasienLoginView']);
     Route::get('/register', [AuthController::class, 'pasienRegisterView']);
-    Route::post('/register', [AuthController::class, 'pasienRegisterStore']);
 });
 
 Route::prefix('admin')->group(function () {
@@ -22,3 +25,15 @@ Route::prefix('admin')->group(function () {
     Route::get('/dokter', [AdminDokterController::class, 'index']);
     Route::delete('/dokter/{dokter}', [AdminDokterController::class, 'destroy']);
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__ . '/auth.php';
