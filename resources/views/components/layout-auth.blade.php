@@ -16,7 +16,11 @@
     <div class="min-h-full">
         <main>
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                {{ $slot }}
+                <section class="py-4 md:py-0">
+                    <div class="flex flex-col items-center justify-center md:px-6 md:py-8 mx-auto md:h-screen lg:py-10">
+                        {{ $slot }}
+                    </div>
+                </section>
             </div>
         </main>
     </div>
