@@ -1,7 +1,7 @@
 @props([
     'type' => 'button',
     'variant' => 'primary',
-    'label' => '',
+    'label',
     'modalTarget' => '',
     'modalToggle' => '',
     'class' => '',
