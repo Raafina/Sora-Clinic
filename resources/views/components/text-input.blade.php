@@ -1,4 +1,4 @@
-@props(['disabled' => false, 'label', 'id', 'placeholder', 'message', 'type' => 'text'])
+@props(['disabled' => false, 'label' => '', 'id' => '', 'placeholder' => '', 'message' => '', 'type' => 'text'])
 
 <div>
     <label class="block mb-2 text-sm font-medium text-gray-900" for="{{ $id }}">

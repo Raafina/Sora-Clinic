@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dokters', function (Blueprint $table) {
+        Schema::create('jadwal_periksas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger("id_poli");
-            $table->string('nama');
-            $table->longText('alamat');
-            $table->string('no_telp');
             $table->timestamps();
+            $table->unsignedBigInteger("id_dokter");
+            $table->enum('hari', ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']);
+            $table->time('jam_mulai');
+            $table->time('jam_selesai');
+            $table->boolean("isAktif");
             $table->softDeletes();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dokters');
+        Schema::dropIfExists('jadwal_periksas');
     }
 };
