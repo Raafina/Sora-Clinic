@@ -1,4 +1,4 @@
-<x-layout-auth>
+<x-auth-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
     <section class=" py-4 md:py-0">
         <div class="flex flex-col items-center justify-center md:px-6 md:py-8 mx-auto md:h-screen lg:py-10">
@@ -93,4 +93,4 @@
             </div>
         </div>
     </section>
-</x-layout-auth>
+</x-auth-layout>

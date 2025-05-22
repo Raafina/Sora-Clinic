@@ -1,4 +1,4 @@
-<x-layout-landing>
+<x-landing-layout>
     <x-slot:title>Sora Clinic</x-slot:title>
     {{-- Home --}}
     <section id="home" class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 bg-white">
@@ -218,4 +218,4 @@
             </div>
         </div>
     </section>
-</x-layout-landing>
+</x-landing-layout>

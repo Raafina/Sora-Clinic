@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended(route('dashboard'));
+            return redirect()->intended('/pasien/daftar-poli');
         }
 
         return back()->with('loginError', 'Login gagal! Email atau Kata Sandi salah.')->withInput();

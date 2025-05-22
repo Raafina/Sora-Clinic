@@ -1,7 +1,7 @@
-<x-layout-admin-dashboard>
-    <h1 class="text-3xl font-medium">Pengelolaan Dokter</h1>
+<x-dokter-layout>
+    <h1 class="text-3xl font-medium">Daftar Poliklinik</h1>
 
-    <div class="flex justify-between py-4">
+    {{-- <div class="flex justify-between py-4">
         <x-search-input route="/admin/dokter" placeholder="Cari nama dokter" />
         <x-button label="Tambah Dokter" modal-target="addModal" modal-toggle="addModal" variant="primary" />
         @include('admin.dokter.add-modal')
@@ -26,5 +26,5 @@
         @include('admin.dokter.edit-modal', ['dokter' => $dokter])
     @endforeach
 
-    {{ $dokters->links() }}
-</x-layout-admin-dashboard>
+    {{ $dokters->links() }} --}}
+</x-dokter-layout>

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Pasien;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Dokter;
 
-class DokterController extends Controller
+class DaftarPoliController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class DokterController extends Controller
     {
         // $dokters = Dokter::filter(request(['search']))->latest()->paginate(4)->withQueryString();
 
-        return view('/dokter/dokter/index', ['title' => 'Dashboard']);
+        return view('/pasien/daftar-poli/index', ['title' => 'Daftar Poli']);
     }
 
     /**
