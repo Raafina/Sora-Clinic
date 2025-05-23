@@ -11,108 +11,151 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" type="svg" href="{{ asset('/images/logo/favicon.svg') }}">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-
     <title>Sora Clinic</title>
 </head>
 
 <body class="h-full">
-    <div class="min-h-full">
-        <main>
-            <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
-                type="button"
-                class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 ">
-                <span class="sr-only">Open sidebar</span>
-                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path clip-rule="evenodd" fill-rule="evenodd"
-                        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-                    </path>
-                </svg>
-            </button>
+    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
+        <div class="px-3 py-3 lg:px-5 lg:pl-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center justify-start rtl:justify-end">
+                    <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar"
+                        aria-controls="logo-sidebar" type="button"
+                        class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                        <span class="sr-only">Open sidebar</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" fill-rule="evenodd"
+                                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                            </path>
+                        </svg>
+                    </button>
+                    <a href="/" class="flex ms-2 md:me-24">
+                        <img src="{{ asset('/images/logo/primary.svg') }}" class="h-9 me-3 sm:h-11" alt="Sora Clinic" />
 
-            <aside id="logo-sidebar"
-                class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 "
-                aria-label="Sidebar">
-                <div
-                    class="h-full px-3 py-4 overflow-y-auto bg-white flex flex-col justify-between border-r border-gray-200 shadow-md">
-                    <div>
-                        <a href="/" class="flex items-center ps-2.5 mb-5 justify-center">
-                            <img src="{{ asset('/images/logo/primary.svg') }}" class="h-6 me-3 sm:h-14"
-                                alt="Sora Clinic" />
-                        </a>
-                        <ul class="space-y-2 font-medium">
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('admin/dokter') ? 'bg-primary text-white hover:bg-primary' : '' }}">
-                                    <svg width="24" height="24" viewBox="0 0 38 42" fill="none"
-                                        class="{{ Request()->is('admin/dokter') ? 'text-white' : '' }}"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M37.3034 19.5219C37.3034 16.4099 34.6604 13.7819 31.5494 13.7819C28.2544 13.7819 25.6394 16.4099 25.6394 19.5219C25.6394 22.4629 27.7574 24.7649 30.5554 25.2479V31.3279C30.5554 36.0739 26.6334 39.8409 21.8734 39.8409C17.2694 39.8409 13.3214 36.0739 13.3214 31.3279V24.4369C15.6234 24.1109 17.7675 22.8019 19.7285 20.5019C20.0685 20.1749 20.2244 19.8479 20.0684 19.3519C22.6834 16.0819 24.1484 11.4929 24.1484 7.88391C24.1484 2.47091 21.6895 1.98692 17.7675 0.99292C17.4275 0.50992 16.9294 0.180908 16.4584 0.180908C15.4654 0.180908 14.8124 0.834912 14.8124 1.65991C14.8124 2.47091 15.4654 3.29492 16.4584 3.29492C16.7724 3.29492 17.0864 3.12491 17.2684 2.79691C21.1924 3.79091 22.3424 3.94791 22.3424 7.88391C22.3424 10.9959 20.8774 15.0879 18.5764 18.2129C18.2624 18.2129 17.9224 18.3709 17.5824 18.6969C16.4574 20.0169 14.6274 21.4819 12.5094 21.4819C10.3654 21.4819 8.40344 20.0169 7.25244 18.6969C7.09644 18.3709 6.5994 18.2129 6.2594 18.2129C3.9574 15.2579 2.65143 10.9959 2.65143 7.88391C2.65143 3.94791 3.64444 3.79091 7.56744 2.79691C7.90744 3.12491 8.0634 3.29492 8.5614 3.29492C9.3714 3.29492 10.0515 2.47091 10.0515 1.65991C10.0515 0.835912 9.3714 0.180908 8.5614 0.180908C7.9074 0.180908 7.41044 0.50892 7.09644 0.99292C3.14744 1.98592 0.689453 2.47091 0.689453 7.88391C0.689453 11.4919 2.15341 16.0819 4.79541 19.3519C4.79541 19.8479 4.79541 20.1749 5.13641 20.5019C7.09741 22.8029 9.21546 24.1109 11.5175 24.4369V31.3279C11.5175 37.0559 16.1194 41.8139 22.0294 41.8139C27.7564 41.8139 32.3594 37.0549 32.3594 31.3279V25.2479C35.1584 24.7649 37.3034 22.4629 37.3034 19.5219ZM31.5494 23.4569C29.4054 23.4569 27.6004 21.6519 27.6004 19.5219C27.6004 17.5599 29.4054 15.7559 31.5494 15.7559C33.5104 15.7559 35.3154 17.5599 35.3154 19.5219C35.3154 21.6519 33.5104 23.4569 31.5494 23.4569ZM31.5494 16.7359C33.0144 16.7359 34.3214 18.0429 34.3214 19.5209C34.3214 21.1559 33.0144 22.4619 31.5494 22.4619C29.9024 22.4619 28.5944 21.1549 28.5944 19.5209C28.5944 18.0429 29.9014 16.7359 31.5494 16.7359Z"
-                                            fill="currentColor" />
-                                    </svg>
-                                    <span class="ms-3">Dokter</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 ">
-                                    <svg width="24" height="24" viewBox="0 0 36 42" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M22.0315 34.4431C23.0255 34.2731 24.0195 34.1161 25.0125 33.9461C25.1695 34.2731 25.3265 34.6001 25.4835 35.0971C23.0255 38.8631 18.7625 41.4911 13.8195 41.4911C6.28846 41.4911 0.0644531 35.2541 0.0644531 27.7231C0.0644531 22.3091 3.33346 17.8771 7.59546 15.5891V19.1981C5.13746 21.1591 3.17645 24.2711 3.17645 27.7231C3.17645 33.6201 7.93646 38.3791 13.8195 38.3791C17.1145 38.3781 20.2275 36.9011 22.0315 34.4431ZM19.2595 5.1011C19.2595 2.3161 16.9585 0.184082 14.3175 0.184082C11.5455 0.184082 9.40146 2.3151 9.40146 5.1011C9.40146 7.7161 11.5455 10.0181 14.3175 10.0181C16.9575 10.0181 19.2595 7.7161 19.2595 5.1011ZM35.6565 37.3851L30.5835 25.4211C29.9035 24.1131 28.4395 23.2901 26.9745 23.6161L16.6185 26.0741V14.9341C16.6185 13.1291 15.1545 11.6521 13.3495 11.6521C11.7025 11.6521 10.2115 13.1301 10.2115 14.9341V30.0101C10.2115 30.9901 10.7085 31.8141 11.3885 32.4681C12.1995 32.9651 13.1935 33.2921 14.1605 33.1221L25.8245 30.3371L29.9035 39.8431C30.4265 41.1631 31.5505 41.8171 32.7015 41.8171C33.1985 41.8171 33.6955 41.6471 34.0345 41.4901C35.6565 40.8371 36.3105 39.0201 35.6565 37.3851Z"
-                                            fill="#595959" />
-                                    </svg>
-                                    <span class="ms-3">Pasien</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
-                                    <svg width="24" height="24" viewBox="0 0 42 36" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M35.5644 8.00108H29.0014V0.299072H13.0884V8.00108H6.68143C3.22943 8.00108 0.274414 10.7861 0.274414 14.3941V29.1431C0.274414 32.7521 3.22943 35.7071 6.68143 35.7071H35.5654C39.0174 35.7071 41.9724 32.7521 41.9724 29.1431V14.3941C41.9724 10.7861 39.0174 8.00108 35.5644 8.00108ZM16.0434 3.25407H26.0594V8.00108H16.0434V3.25407ZM36.0614 23.7441H31.3024V28.4911H27.5234V23.7441H22.7634V19.9651H27.5234V15.2191H31.3024V19.9651H36.0614V23.7441Z"
-                                            fill="#595959" />
-                                    </svg>
-                                    <span class="ms-3">Poliklinik</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
-                                    <svg width="24" height="24" viewBox="0 0 42 32" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M0.503365 24.2C0.817365 26.488 2.15137 28.619 4.11237 29.927C5.57637 30.907 7.38137 31.405 9.02937 31.405C11.9844 31.405 14.7824 29.927 16.4034 27.469L25.4514 14.198C26.7594 12.223 27.2564 9.93496 26.7594 7.47696C26.2624 5.18796 24.9284 3.21398 22.9674 1.90698C21.6594 0.912982 19.8554 0.428955 18.2084 0.428955C15.2534 0.428955 12.4814 1.90696 10.8344 4.36496L1.81137 17.637C0.503368 19.61 0.00736549 21.898 0.503365 24.2ZM7.87837 26.161C8.03537 26.161 9.99636 26.488 11.6444 24.2L13.9454 20.591C14.2854 20.094 14.7824 19.937 15.0954 19.937C15.4354 19.937 15.7494 20.094 16.0894 20.25C16.7434 20.59 16.9004 21.571 16.4024 22.225L13.9444 25.834C11.1724 29.927 7.22337 28.946 7.06637 28.946C6.22937 28.619 5.91637 27.796 6.07237 27.142C6.23037 26.331 7.06737 25.834 7.87837 26.161ZM13.2914 5.99896C14.2854 4.36396 16.2464 3.38397 18.2084 3.38397C19.3584 3.38397 20.5094 3.69798 21.3204 4.36398C22.6544 5.18798 23.6484 6.65197 23.9614 8.12997C24.1184 9.60797 23.9614 11.242 22.9674 12.563L19.3584 17.807C18.8874 18.618 17.7114 18.787 16.9004 18.291L10.1794 13.701C9.68237 13.374 9.52537 13.047 9.36837 12.563C9.36837 12.066 9.36837 11.569 9.68237 11.243L13.2914 5.99896ZM23.8044 22.395C23.8044 27.312 27.7274 31.404 32.8264 31.574C37.7424 31.574 41.8484 27.638 42.0054 22.552C42.0054 17.636 38.0834 13.543 32.9834 13.543C28.0674 13.373 23.9614 17.309 23.8044 22.395ZM27.9104 20.918L38.0834 21.075C38.8944 21.245 39.3904 21.899 39.3904 22.553C39.3904 23.534 38.7374 24.031 37.9264 24.031L27.7274 23.861C26.9164 23.704 26.4194 23.05 26.4194 22.227C26.4194 21.571 27.0734 20.918 27.9104 20.918Z"
-                                            fill="#595959" />
-                                    </svg>
-                                    <span class="ms-3">Obat</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <form action="/logout" method="POST" class="">
-                        @csrf
-                        <button type="submit"
-                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 w-full font-medium">
-                            <svg class="w-6 h-6 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
-                            </svg>
-                            <span class="ms-3 text-red-500">Logout</span>
-                        </button>
-                    </form>
+                    </a>
                 </div>
-            </aside>
+                {{-- Profile Button --}}
+                <div class="flex items-center">
+                    <div class="flex items-center ms-3">
+                        <div>
+                            <button data-dropdown-toggle="dropdown-user" type="button"
+                                class="inline-flex items-center px-3 py-2 border border-transparent  leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                <span class="sr-only">Open user menu</span>
+                                <div>{{ Auth::user()->nama }}</div>
+                                <div class="ms-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="z-50 hidden my-4 text-base list-none rounded-xl bg-white divide-y divide-gray-100 shadow-md"
+                            id="dropdown-user">
+                            <ul class="py-1" role="none">
+                                <li>
+                                    <a href="{{ route('profile.edit') }}"
+                                        class="block px-4 py-2  text-gray-900 hover:bg-gray-100 hover:cursor-pointer"
+                                        role="menuitem">{{ __('Pengaturan') }}</a>
+                                </li>
 
-            <div class="p-4 sm:ml-64">
-                {{ $slot }}
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                        <a href="route('logout')"
+                                            class="block px-4 py-2  text-gray-900 hover:bg-red-500 hover:text-white hover:cursor-pointer
+                                            role="menuitem"
+                                            onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                            {{ __('Keluar') }}
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </nav>
 
-        </main>
+    <aside id="logo-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0"
+        aria-label="Sidebar">
+        <div class="h-full px-3 pb-4 overflow-y-auto bg-white ">
+            <ul class="space-y-2 font-medium">
+                <li>
+                    <a href="#"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('dokter/jadwal-periksa') ? 'bg-primary text-white hover:bg-primary' : '' }}">
+                        <svg width="25" height="25" viewBox="0 0 24 24"
+                            class="{{ Request()->is('dokter/jadwal-periksa') ? 'text-white' : '' }}"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.7" d=" M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1
+                            1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4
+                            0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z" />
+                        </svg>
+
+
+                        {{-- <svg width="24" height="24" viewBox="0 0 38 42" fill="none"
+                            class="{{ Request()->is('admin/dokter') ? 'text-white' : '' }}"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M37.3034 19.5219C37.3034 16.4099 34.6604 13.7819 31.5494 13.7819C28.2544 13.7819 25.6394 16.4099 25.6394 19.5219C25.6394 22.4629 27.7574 24.7649 30.5554 25.2479V31.3279C30.5554 36.0739 26.6334 39.8409 21.8734 39.8409C17.2694 39.8409 13.3214 36.0739 13.3214 31.3279V24.4369C15.6234 24.1109 17.7675 22.8019 19.7285 20.5019C20.0685 20.1749 20.2244 19.8479 20.0684 19.3519C22.6834 16.0819 24.1484 11.4929 24.1484 7.88391C24.1484 2.47091 21.6895 1.98692 17.7675 0.99292C17.4275 0.50992 16.9294 0.180908 16.4584 0.180908C15.4654 0.180908 14.8124 0.834912 14.8124 1.65991C14.8124 2.47091 15.4654 3.29492 16.4584 3.29492C16.7724 3.29492 17.0864 3.12491 17.2684 2.79691C21.1924 3.79091 22.3424 3.94791 22.3424 7.88391C22.3424 10.9959 20.8774 15.0879 18.5764 18.2129C18.2624 18.2129 17.9224 18.3709 17.5824 18.6969C16.4574 20.0169 14.6274 21.4819 12.5094 21.4819C10.3654 21.4819 8.40344 20.0169 7.25244 18.6969C7.09644 18.3709 6.5994 18.2129 6.2594 18.2129C3.9574 15.2579 2.65143 10.9959 2.65143 7.88391C2.65143 3.94791 3.64444 3.79091 7.56744 2.79691C7.90744 3.12491 8.0634 3.29492 8.5614 3.29492C9.3714 3.29492 10.0515 2.47091 10.0515 1.65991C10.0515 0.835912 9.3714 0.180908 8.5614 0.180908C7.9074 0.180908 7.41044 0.50892 7.09644 0.99292C3.14744 1.98592 0.689453 2.47091 0.689453 7.88391C0.689453 11.4919 2.15341 16.0819 4.79541 19.3519C4.79541 19.8479 4.79541 20.1749 5.13641 20.5019C7.09741 22.8029 9.21546 24.1109 11.5175 24.4369V31.3279C11.5175 37.0559 16.1194 41.8139 22.0294 41.8139C27.7564 41.8139 32.3594 37.0549 32.3594 31.3279V25.2479C35.1584 24.7649 37.3034 22.4629 37.3034 19.5219ZM31.5494 23.4569C29.4054 23.4569 27.6004 21.6519 27.6004 19.5219C27.6004 17.5599 29.4054 15.7559 31.5494 15.7559C33.5104 15.7559 35.3154 17.5599 35.3154 19.5219C35.3154 21.6519 33.5104 23.4569 31.5494 23.4569ZM31.5494 16.7359C33.0144 16.7359 34.3214 18.0429 34.3214 19.5209C34.3214 21.1559 33.0144 22.4619 31.5494 22.4619C29.9024 22.4619 28.5944 21.1549 28.5944 19.5209C28.5944 18.0429 29.9014 16.7359 31.5494 16.7359Z"
+                                fill="currentColor" />
+                        </svg> --}}
+                        <span class="ms-3">Jadwal Periksa</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 ">
+                        <svg width="25" height="25" viewBox="0 0 24 24" class="text-gray-900 "
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.7"
+                                d="M12 8v4l3 3M3.22302 14C4.13247 18.008 7.71683 21 12 21c4.9706 0 9-4.0294 9-9 0-4.97056-4.0294-9-9-9-3.72916 0-6.92858 2.26806-8.29409 5.5M7 9H3V5" />
+                        </svg>
+
+                        <span class="ms-3">Riwayat Periksa</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        <svg width="25" height="25" viewBox="0 0 24 24" class="text-gray-900 "
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.7" d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z" />
+                        </svg>
+
+                        <span class="ms-3">Telemedicine</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        <svg width="24" height="24" viewBox="0 0 42 32" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.503365 24.2C0.817365 26.488 2.15137 28.619 4.11237 29.927C5.57637 30.907 7.38137 31.405 9.02937 31.405C11.9844 31.405 14.7824 29.927 16.4034 27.469L25.4514 14.198C26.7594 12.223 27.2564 9.93496 26.7594 7.47696C26.2624 5.18796 24.9284 3.21398 22.9674 1.90698C21.6594 0.912982 19.8554 0.428955 18.2084 0.428955C15.2534 0.428955 12.4814 1.90696 10.8344 4.36496L1.81137 17.637C0.503368 19.61 0.00736549 21.898 0.503365 24.2ZM7.87837 26.161C8.03537 26.161 9.99636 26.488 11.6444 24.2L13.9454 20.591C14.2854 20.094 14.7824 19.937 15.0954 19.937C15.4354 19.937 15.7494 20.094 16.0894 20.25C16.7434 20.59 16.9004 21.571 16.4024 22.225L13.9444 25.834C11.1724 29.927 7.22337 28.946 7.06637 28.946C6.22937 28.619 5.91637 27.796 6.07237 27.142C6.23037 26.331 7.06737 25.834 7.87837 26.161ZM13.2914 5.99896C14.2854 4.36396 16.2464 3.38397 18.2084 3.38397C19.3584 3.38397 20.5094 3.69798 21.3204 4.36398C22.6544 5.18798 23.6484 6.65197 23.9614 8.12997C24.1184 9.60797 23.9614 11.242 22.9674 12.563L19.3584 17.807C18.8874 18.618 17.7114 18.787 16.9004 18.291L10.1794 13.701C9.68237 13.374 9.52537 13.047 9.36837 12.563C9.36837 12.066 9.36837 11.569 9.68237 11.243L13.2914 5.99896ZM23.8044 22.395C23.8044 27.312 27.7274 31.404 32.8264 31.574C37.7424 31.574 41.8484 27.638 42.0054 22.552C42.0054 17.636 38.0834 13.543 32.9834 13.543C28.0674 13.373 23.9614 17.309 23.8044 22.395ZM27.9104 20.918L38.0834 21.075C38.8944 21.245 39.3904 21.899 39.3904 22.553C39.3904 23.534 38.7374 24.031 37.9264 24.031L27.7274 23.861C26.9164 23.704 26.4194 23.05 26.4194 22.227C26.4194 21.571 27.0734 20.918 27.9104 20.918Z"
+                                fill="#595959" />
+                        </svg>
+                        <span class="ms-3">Obat</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </aside>
+
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 mt-14">
+            {{ $slot }}
+        </div>
     </div>
 </body>
 

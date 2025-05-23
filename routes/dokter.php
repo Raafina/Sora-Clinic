@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DokterController as DokterDokterController;
+use App\Http\Controllers\Dokter\DokterController as DokterDokterController;
+use App\Http\Controllers\Dokter\JadwalPeriksaController;
 
 Route::middleware('auth')->group(
     function () {}
@@ -10,4 +11,6 @@ Route::middleware('auth')->group(
 Route::prefix('dokter')->group(function () {
     Route::get('/dokter', [DokterDokterController::class, 'index']);
     Route::delete('/dokter/{dokter}', [DokterDokterController::class, 'destroy']);
+
+    Route::get('/jadwal-periksa', [JadwalPeriksaController::class, 'index']);
 });
