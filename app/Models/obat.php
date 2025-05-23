@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class obat extends Model
+class Obat extends Model
 {
     //
 }

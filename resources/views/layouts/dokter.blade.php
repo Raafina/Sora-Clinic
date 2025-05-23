@@ -89,7 +89,7 @@
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white ">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a href="#"
+                    <a href="/dokter/jadwal-periksa"
                         class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('dokter/jadwal-periksa') ? 'bg-primary text-white hover:bg-primary' : '' }}">
                         <svg width="25" height="25" viewBox="0 0 24 24"
                             class="{{ Request()->is('dokter/jadwal-periksa') ? 'text-white' : '' }}"
@@ -153,7 +153,7 @@
     </aside>
 
     <div class="p-4 sm:ml-64">
-        <div class="p-4 mt-14">
+        <div class="p-4 mt-16">
             {{ $slot }}
         </div>
     </div>

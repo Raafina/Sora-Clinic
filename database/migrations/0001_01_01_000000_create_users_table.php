@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('no_hp')->nullable();
             $table->char('no_rm', 10)->nullable();
             $table->string('poli')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

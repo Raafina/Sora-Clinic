@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         User::create([
             'nama' => 'Dr. Anisa Farida, Sp.A',
             'username' => 'anisa_farida',
-            'email' => 'anisa_farida@example.com',
+            'email' => 'raafinakkeren16@gmail.com',
             'alamat' => 'Semarang Kota, Jawa Tengah',
             'no_ktp' => '1234567890123456',
             'no_hp' => '08123456789',

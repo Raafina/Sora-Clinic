@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class periksa extends Model
+class Periksa extends Model
 {
     //
 }

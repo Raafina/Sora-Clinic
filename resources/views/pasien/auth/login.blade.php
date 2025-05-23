@@ -18,11 +18,17 @@
                         <x-text-input label='Email' id="email" placeholder="Masukkan email" type="email" />
                         <x-text-input label='Kata Sandi' id="password" placeholder="*********" type="password" />
 
-                        <label for="remember_me" class="inline-flex items-center">
-                            <input id="remember_me" type="checkbox"
-                                class="rounded border-gray-300 text-primary shadow-sm" name="remember">
-                            <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                        </label>
+                        <div class="grid grid-cols-2"> <label for="remember_me" class="inline-flex items-center">
+                                <input id="remember_me" type="checkbox"
+                                    class="rounded border-gray-300 text-primary shadow-sm" name="remember">
+                                <span class="ms-2 text-sm text-gray-600">{{ __('Ingat saya') }}</span>
+                            </label>
+                            <p class="text-sm text-right">
+                                <a href="/forgot-password"
+                                    class="text-sm font-medium text-primary hover:underline ">Lupa kata sandi?</a>
+                            </p>
+                        </div>
+
                     </div>
 
                     <div class="flex flex-col space-y-4">

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class janji_periksa extends Model
+class DetaiPeriksa extends Model
 {
     //
 }
