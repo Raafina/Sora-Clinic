@@ -3,9 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\JanjiPeriksa;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -51,5 +52,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function janji_periksa()
+    {
+        return $this->hasMany(JanjiPeriksa::class, 'id_pasien', 'id');
+    }
+
+    public function jadwal_periksa()
+    {
+        return $this->hasMany(JadwalPeriksa::class, 'id_dokter', 'id');
     }
 }

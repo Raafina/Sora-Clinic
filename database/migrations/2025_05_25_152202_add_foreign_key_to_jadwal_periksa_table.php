@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('obats', function (Blueprint $table) {
-            $table->id();
-            $table->string("nama_obat");
-            $table->string("kemasan");
-            $table->bigInteger("harga");
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table("jadwal_periksas", function (Blueprint $table) {
+            $table->foreign("id_dokter")->references("id")->on("users");
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('obats');
+        Schema::table("jadwal_periksas", function (Blueprint $table) {
+            $table->dropForeign(['id_dokter']);
+        });
     }
 };

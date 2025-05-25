@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Obat extends Model
+class DetailPeriksa extends Model
 {
     /** @use HasFactory<\Database\Factories\DetailPeriksaFactory> */
     use HasFactory, SoftDeletes;
@@ -14,8 +14,13 @@ class Obat extends Model
         'id'
     ];
 
-    public function detail_periksa()
+    public function janji_periksa()
     {
-        $this->hasMany(DetailPeriksa::class, 'id_obat', 'id');
+        return $this->belongsTo(JanjiPeriksa::class, 'id_periksa', 'id');
+    }
+
+    public function obat()
+    {
+        return $this->belongsTo(DetailPeriksa::class, 'id_obat', 'id');
     }
 }
