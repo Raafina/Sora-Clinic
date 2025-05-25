@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Dokter;
 
 use Illuminate\Http\Request;
+use App\Models\JadwalPeriksa;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class JadwalPeriksaController extends Controller
 {
@@ -12,7 +14,13 @@ class JadwalPeriksaController extends Controller
      */
     public function index()
     {
-        return view('/dokter/jadwal-periksa/index', ['title' => 'Jadwal Periksa']);
+        $jadwalPeriksas = JadwalPeriksa::filter(request(['search']))
+            ->where('id_dokter', Auth::user()->id)
+            ->latest()
+            ->paginate(5)
+            ->withQueryString();
+
+        return view('/dokter/jadwal-periksa/index', ['title' => 'Jadwal Periksa', 'jadwalPeriksas' => $jadwalPeriksas]);
     }
 
     /**

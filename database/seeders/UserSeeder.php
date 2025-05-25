@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         User::create([
             'nama' => 'Dr. Anisa Farida, Sp.A',
             'username' => 'anisa_farida',
-            'email' => 'raafinakkeren16@gmail.com',
+            'email' => 'anisa_farida@example.com',
             'alamat' => 'Semarang Kota, Jawa Tengah',
             'no_ktp' => '1234567890123456',
             'no_hp' => '08123456789',
@@ -25,6 +25,19 @@ class UserSeeder extends Seeder
             'poli' => '1',
             'role' => 'dokter',
             'password' => Hash::make('12345678')
+        ]);
+
+        User::create([
+            'nama' => 'Raafi DEV',
+            'username' => 'RaafiDEV',
+            'email' => 'raafinakkeren16@gmail.com',
+            'alamat' => 'Semarang Kota, Jawa Tengah',
+            'no_ktp' => '1234567890123456',
+            'no_hp' => '08123456789',
+            'no_rm' => '',
+            'poli' => '1',
+            'role' => 'dokter',
+            'password' => Hash::make('123')
         ]);
     }
 }

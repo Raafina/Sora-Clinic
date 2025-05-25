@@ -15,7 +15,7 @@
 </head>
 
 <body class="h-full">
-    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
+    <nav class="fixed top-0 w-full bg-white border-b border-gray-200">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start rtl:justify-end">
@@ -30,10 +30,7 @@
                             </path>
                         </svg>
                     </button>
-                    <a href="/" class="flex ms-2 md:me-24">
-                        <img src="{{ asset('/images/logo/primary.svg') }}" class="h-9 me-3 sm:h-11" alt="Sora Clinic" />
 
-                    </a>
                 </div>
                 {{-- Profile Button --}}
                 <div class="flex items-center">
@@ -61,7 +58,6 @@
                                         class="block px-4 py-2  text-gray-900 hover:bg-gray-100 hover:cursor-pointer"
                                         role="menuitem">{{ __('Pengaturan') }}</a>
                                 </li>
-
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -84,10 +80,15 @@
     </nav>
 
     <aside id="logo-sidebar"
-        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0"
+        class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0"
         aria-label="Sidebar">
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white ">
             <ul class="space-y-2 font-medium">
+                <div class="flex flex-row w-full justify-center pt-5 pb-3  items-center">
+                    <a href="/" class="">
+                        <img src="{{ asset('/images/logo/primary.svg') }}" class="h-9 me-3 sm:h-12" alt="Sora Clinic" />
+                    </a>
+                </div>
                 <li>
                     <a href="/dokter/jadwal-periksa"
                         class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('dokter/jadwal-periksa') ? 'bg-primary text-white hover:bg-primary' : '' }}">
@@ -153,7 +154,7 @@
     </aside>
 
     <div class="p-4 sm:ml-64">
-        <div class="p-4 mt-16">
+        <div class="p-4 mt-12">
             {{ $slot }}
         </div>
     </div>
