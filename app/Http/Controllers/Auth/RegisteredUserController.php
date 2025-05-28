@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Validation\ValidationException;
 
 class RegisteredUserController extends Controller
 {
@@ -31,7 +32,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'nama' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:' . User::class, 'max:5'],
+            'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'alamat' => ['required', 'string', 'max:255'],
@@ -39,17 +40,17 @@ class RegisteredUserController extends Controller
             'no_hp' => ['required', 'string', 'max:20', 'unique:' . User::class],
         ]);
 
-        $currentMonth = date('Ym');
-        $patientCount = User::where('no_rm', 'like', $currentMonth . '%')->count();
+        $existingPatient = User::where('no_ktp', $request->no_ktp)->first();
 
-        $year = date('Y');
-        $month = date('m');
-        $no_rm = "{$year}{$month} - " . ($patientCount + 1);
+        if ($existingPatient) {
+            throw ValidationException::withMessages([
+                'email' => trans('auth.failed'),
+            ]);
+        }
 
-        $request->merge([
-            'role' => 'pasien',
-            'no_rm' => $no_rm,
-        ]);
+        $currentYearMonth = date('Ym');
+        $patientCount = User::where('no_rm', 'like', $currentYearMonth . '-%')->count();
+        $no_rm = $currentYearMonth . '-' . str_pad($patientCount + 1, 3, '0', STR_PAD_LEFT);
 
         $user = User::create([
             'nama' => $request->nama,
