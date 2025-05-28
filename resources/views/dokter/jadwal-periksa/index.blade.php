@@ -4,7 +4,6 @@
     <div class="flex justify-between py-4">
         <x-search-input route="/dokter/jadwal-periksa" placeholder="Cari berdasarkan hari" />
         <x-button label="Tambah Jadwal" modal-target="addModal" modal-toggle="addModal" variant="primary" />
-        @include('dokter.jadwal-periksa.modal-add')
     </div>
 
     <x-table :headers="['Hari', 'Jam Mulai', 'Jam, Selesai', 'Aksi']">

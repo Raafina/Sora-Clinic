@@ -14,7 +14,7 @@ class DaftarPoliController extends Controller
     {
         // $dokters = Dokter::filter(request(['search']))->latest()->paginate(4)->withQueryString();
 
-        return view('/pasien/daftar-poli/index', ['title' => 'Daftar Poli']);
+        return view('pasien.daftar-poli.index', ['title' => 'Daftar Poli']);
     }
 
     /**

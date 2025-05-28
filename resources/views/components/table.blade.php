@@ -1,6 +1,6 @@
 @props(['headers' => [], 'emptyMessage' => 'Tidak ada data'])
 
-<div class="relative overflow-x-auto shadow-md border border-gray-300 rounded-xl bg-white p-5">
+<div class="relative overflow-x-auto shadow border border-gray-300 rounded-xl bg-white p-5">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-200">
             <tr>

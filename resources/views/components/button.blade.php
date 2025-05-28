@@ -6,6 +6,7 @@
     'modalToggle' => '',
     'class' => '',
     'halfWidth' => false,
+    'href' => null,
 ])
 
 @php
@@ -19,8 +20,14 @@
     $classes = $baseClasses . ' ' . ($variantClasses[$variant] ?? $variantClasses['primary']) . ' ' . $class;
 @endphp
 
-<button type="{{ $type }}" @if ($modalTarget) data-modal-target="{{ $modalTarget }}" @endif
-    @if ($modalToggle) data-modal-toggle="{{ $modalToggle }}" @endif
-    {{ $attributes->merge(['class' => $classes]) }}>
-    {{ $label ?? $slot }}
-</button>
+@if ($href)
+    <a href="{{ $href }}" {{ $attributes->merge(['class' => $classes]) }}>
+        {{ $label ?? $slot }}
+    </a>
+@else
+    <button type="{{ $type }}" @if ($modalTarget) data-modal-target="{{ $modalTarget }}" @endif
+        @if ($modalToggle) data-modal-toggle="{{ $modalToggle }}" @endif
+        {{ $attributes->merge(['class' => $classes]) }}>
+        {{ $label ?? $slot }}
+    </button>
+@endif

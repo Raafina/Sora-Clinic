@@ -20,7 +20,7 @@ class JadwalPeriksaController extends Controller
             ->paginate(5)
             ->withQueryString();
 
-        return view('/dokter/jadwal-periksa/index', ['title' => 'Jadwal Periksa', 'jadwalPeriksas' => $jadwalPeriksas]);
+        return view('dokter.jadwal-periksa.index', ['title' => 'Jadwal Periksa', 'jadwalPeriksas' => $jadwalPeriksas]);
     }
 
     /**
