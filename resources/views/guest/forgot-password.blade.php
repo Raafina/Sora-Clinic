@@ -22,7 +22,7 @@
             </div>
         </form>
         <p class="text-sm font-light text-gray-500 ">
-            Ingat kata sandi? <a href="/pasien/login" class="font-medium text-primary hover:underline">Login</a>
+            Ingat kata sandi? <a href="{{ route('login') }}" class="font-medium text-primary hover:underline">Login</a>
         </p>
     </div>
 </x-guest-layout>

@@ -17,7 +17,7 @@ use App\Http\Controllers\AuthController;
 Route::middleware('guest')->group(function () {
     Route::get('/pasien/register', [RegisteredUserController::class, 'create']);
     Route::post('/pasien/register/store', [RegisteredUserController::class, 'store']);
-    Route::get('/pasien/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
         ->name('password.request');

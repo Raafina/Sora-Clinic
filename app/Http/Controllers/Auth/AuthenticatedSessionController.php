@@ -16,7 +16,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('pasien.auth.login', ['title' => 'Login Pasien']);
+        return view('guest.login', ['title' => 'Login Pasien']);
     }
 
     /**
@@ -30,15 +30,11 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerate();
 
             $user = Auth::user();
-
             if ($user->role === 'dokter') {
-                return redirect()->intended('/dokter/jadwal-periksa');
-            } elseif ($user->role === 'pasien') {
-                return redirect()->intended('/pasien/daftar-poli');
-            } else {
-                Auth::logout();
-                return back()->with('loginError', 'Login gagal! Email atau Kata Sandi salah.')->withInput();
+                return redirect()->intended(route('dokter.jadwal-periksa.index', absolute: false));
             }
+
+            return redirect()->intended(route('pasien.daftar-poli.index', absolute: false));
         }
 
         return back()->with('loginError', 'Login gagal! Email atau Kata Sandi salah.')->withInput();
@@ -54,6 +50,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('login');
     }
 }

@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('pasien.auth.register', ['title' => 'Daftar Pasien']);
+        return view('guest.register', ['title' => 'Daftar Pasien']);
     }
 
     /**
