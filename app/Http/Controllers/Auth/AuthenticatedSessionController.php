@@ -37,7 +37,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(route('pasien.daftar-poli.index', absolute: false));
         }
 
-        return back()->with('loginError', 'Login gagal! Email atau Kata Sandi salah.')->withInput();
+        return back()->with('error', 'Login gagal! Email atau Kata Sandi salah.')->withInput();
     }
     /**
      * Destroy an authenticated session.
