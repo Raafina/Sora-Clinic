@@ -39,8 +39,8 @@
                 </div>
             @endif
         </div>
-        <x-text-input label='Alamat' id="alamat" placeholder="Masukkan alamat" value="{{ $user->alamat }}" />
         <x-text-input label='No HP' id="no_hp" placeholder="Masukkan nomor HP" value="{{ $user->no_hp }}" />
+        <x-text-area label='Alamat' id="alamat" placeholder="Masukkan alamat" value="{{ $user->alamat }}" />
         <div class="flex items-center gap-4">
             <x-button type="submit">{{ __('Simpan') }}</x-button>
 
