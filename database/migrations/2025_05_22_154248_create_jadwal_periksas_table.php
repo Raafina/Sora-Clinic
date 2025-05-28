@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('hari', ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']);
             $table->time('jam_mulai');
             $table->time('jam_selesai');
-            $table->boolean("isAktif");
+            $table->boolean("status");
             $table->softDeletes();
         });
     }

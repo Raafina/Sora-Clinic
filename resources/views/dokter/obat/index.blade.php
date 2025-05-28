@@ -1,5 +1,5 @@
 <x-dokter-layout>
-    <x-toast-success />
+    <x-toast />
     <h1 class="text-3xl font-medium">Daftar Obat</h1>
 
     <div class="flex justify-between py-4">

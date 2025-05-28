@@ -18,4 +18,22 @@
             }
         });
     </script>
+@elseif (session('error'))
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'error',
+            title: @json(session('error')),
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            background: '#ef4444',
+            iconColor: '#ffffff',
+            color: '#ffffff',
+            customClass: {
+                popup: 'shadow-lg rounded-md'
+            }
+        });
+    </script>
 @endif
