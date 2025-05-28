@@ -12,12 +12,14 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-4">
         @csrf
         @method('patch')
-        <x-text-input label='Nama lengkap' id="nama" placeholder="Masukkan nama lengkap" />
+        <x-text-input label='Nama lengkap' id="nama" placeholder="Masukkan nama lengkap"
+            value="{{ $user->nama }}" />
         <div>
-            <x-text-input label='Email' id="email" placeholder="Masukkan email" type="email" />
+            <x-text-input label='Email' id="email" placeholder="Masukkan email" type="email"
+                value="{{ $user->email }}" />
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800">
@@ -37,7 +39,8 @@
                 </div>
             @endif
         </div>
-
+        <x-text-input label='Alamat' id="alamat" placeholder="Masukkan alamat" value="{{ $user->alamat }}" />
+        <x-text-input label='No HP' id="no_hp" placeholder="Masukkan nomor HP" value="{{ $user->no_hp }}" />
         <div class="flex items-center gap-4">
             <x-button type="submit">{{ __('Simpan') }}</x-button>
 

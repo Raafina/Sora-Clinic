@@ -8,7 +8,7 @@
             {{ __('Gunakan kata sandi yang kuat dan unik untuk melindungi akun Anda.') }}
         </p>
     </header>
-    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-4">
         @csrf
         @method('put')
         <x-text-input label='Kata Sandi Saat Ini' id="current_password" placeholder="*********" type="password" />

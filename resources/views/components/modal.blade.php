@@ -1,4 +1,3 @@
-{{-- Create this file at resources/views/components/modal.blade.php --}}
 @props(['id', 'title', 'maxWidth' => 'md', 'showFooter' => true])
 
 @php

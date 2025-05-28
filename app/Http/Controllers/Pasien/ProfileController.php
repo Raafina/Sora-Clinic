@@ -17,9 +17,11 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $user = Auth::user();
         return view('dokter.profile.pengaturan', [
             'user' => $request->user(),
             'title' => 'Profile',
+            'user' => $user
         ]);
     }
 
