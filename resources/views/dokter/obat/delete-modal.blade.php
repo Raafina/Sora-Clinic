@@ -1,6 +1,6 @@
 @props(['id'])
 
-<x-modal2 :id="'deleteModal-' . $id" title="Hapus Obat">
+<x-modal :id="'deleteModal-' . $id" title="Hapus Obat">
     <p class="text-base leading-relaxed ">
         Apakah anda yakin menghapus data obat ini? Data yang telah dihapus tidak dapat dikembalikan.
     </p>
@@ -14,4 +14,4 @@
         </div>
         </div>
     </form>
-</x-modal2>
+</x-modal>
