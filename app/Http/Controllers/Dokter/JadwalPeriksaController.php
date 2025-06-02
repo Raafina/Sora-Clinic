@@ -17,7 +17,7 @@ class JadwalPeriksaController extends Controller
         $jadwalPeriksas = JadwalPeriksa::filter(request(['search']))
             ->where('id_dokter', Auth::user()->id)
             ->latest()
-            ->paginate(5)
+            ->paginate(10)
             ->withQueryString();
 
         return view('dokter.jadwal-periksa.index', ['title' => 'Jadwal Periksa', 'jadwalPeriksas' => $jadwalPeriksas]);

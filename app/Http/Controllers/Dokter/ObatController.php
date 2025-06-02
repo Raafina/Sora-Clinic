@@ -16,7 +16,7 @@ class ObatController extends Controller
     {
         $obats = Obat::filter(request(['search']))
             ->latest()
-            ->paginate(5)
+            ->paginate(10)
             ->withQueryString();
 
         return view('dokter.obat.index', ['title' => 'Daftar Obat', 'obats' => $obats]);

@@ -1,5 +1,5 @@
 <x-dokter-layout id="addx-dokter-layout" title="Tambah Jadwal Periksa" maxWidth="md">
-    <x-toast-success />
+    <x-toast />
     <div class="flex items-center gap-3 mb-6">
         <x-button class="!px-3" href="{{ route('dokter.obat.index') }}">
             <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
