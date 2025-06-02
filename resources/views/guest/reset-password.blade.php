@@ -9,8 +9,8 @@
 
             <!-- Password Reset Token -->
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
+            <input type="hidden" name="email" value="{{ $request->query('email') }}">
             <div class="space-y-4">
-                <x-text-input label='Email' id="email" placeholder="Masukkan email" type="email" />
                 <x-text-input label='Kata Sandi' id="password" placeholder="*********" type="password" />
                 <x-text-input label='Konfirmasi Kata Sandi' id="password_confirmation" placeholder="*********"
                     type="password" />

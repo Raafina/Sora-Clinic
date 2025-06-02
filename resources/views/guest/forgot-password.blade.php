@@ -4,12 +4,9 @@
             Lupa Kata Sandi
         </h1>
         <div class="mb-4 text-gray-600">
-            {{ __('Lupa kata sandi Anda? Tidak masalah. Cukup beri tahu kami alamat email Anda dan kami akan mengirimkan tautan pengaturan ulang kata sandi melalui email yang memungkinkan Anda memilih kata sandi baru.') }}
+            {{ __('Lupa kata sandi? Tidak masalah. Cukup beri tahu kami alamat email akun Anda dan kami akan mengirimkan tautan pengaturan ulang kata sandi melalui email.') }}
         </div>
-
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
+        <x-toast />
         <form method="POST" action="{{ route('password.email') }}">
             @csrf
             <div class="flex flex-col gap-4">

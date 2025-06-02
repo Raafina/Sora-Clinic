@@ -14,7 +14,7 @@
     </label>
     <input @disabled($disabled) type="{{ $type }}" name="{{ $id }}" id="{{ $id }}"
         placeholder="{{ $placeholder }}" required value="{{ old($id, $value) }}"
-        class="bg-gray-50 border border-gray-300  text-gray-900 placeholder:text-gray-400 rounded-lg focus:ring-primary-600 focus:border-primary-600 
+        class="{{ $disabled ? 'bg-gray-300 text-gray-900' : 'bg-gray-50 text-gray-900' }} border border-gray-300  placeholder:text-gray-400 rounded-lg focus:ring-primary-600 focus:border-primary-600 
     block w-full p-2.5 {{ $errors->has($id) ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}">
 
     @error($id)

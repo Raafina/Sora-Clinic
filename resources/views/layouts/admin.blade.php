@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-gray-100">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-100">
 
 <head>
     <meta charset="UTF-8">
@@ -52,7 +52,7 @@
                                             fill="currentColor" />
                                     </svg>
                                     <span class="ms-3">Dokter</span>
-                            </a>
+                                </a>
                             </li>
                             <li>
                                 <a href="#"

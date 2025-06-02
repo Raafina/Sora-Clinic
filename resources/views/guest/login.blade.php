@@ -1,6 +1,11 @@
 <x-auth-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
     <x-toast />
+    <div class="flex items-center justify-center pb-3 sm:pb-5">
+        <a href="/">
+            <img src="{{ asset('/images/logo/primary.svg') }}" class="h-9 me-3 sm:h-16" alt="Sora Clinic" />
+        </a>
+    </div>
     <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">

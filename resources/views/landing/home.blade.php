@@ -124,8 +124,8 @@
                         </button>
                         <div x-show="activeAccordion==id" x-collapse x-cloak>
                             <div class="p-5 pt-0 opacity-70">
-                                Klinik Soko Rahayu adalah tempat pelayanan kesehatan yang berkomitmen menjadi pilar bagi
-                                kesejahteraan pasien. Dengan layanan medis terpercaya dan penuh perhatian, kami
+                                Sora Clinic adalah tempat pelayanan kesehatan yang berkomitmen menjadi pilar bagi
+                                kesehatan pasien kami. Dengan layanan medis terpercaya dan penuh perhatian, kami
                                 mendukung setiap langkah Anda menuju hidup yang lebih sehat dan sejahtera.
                             </div>
                         </div>
@@ -154,7 +154,7 @@
                             <div class="p-5 pt-0 opacity-70">
                                 Anda dapat mendaftar antrian secara online melalui website kami. Masuk akun, Pilih
                                 klinik tujuan, pilih layanan yang dibutuhkan, lalu pilih jadwal yang tersedia. Setelah
-                                konfirmasi, Anda akan menerima tiket antrian digital yang dapat ditunjukkan saat datang
+                                konfirmasi, Anda akan menerima antrian yang dapat ditunjukkan saat datang
                                 ke klinik.
                             </div>
                         </div>
