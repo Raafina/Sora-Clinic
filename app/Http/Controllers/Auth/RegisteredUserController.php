@@ -18,8 +18,18 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): View
+    public function create(): View|RedirectResponse
     {
+        if (Auth::check()) {
+            $user = Auth::user();
+
+            $dashboardRoute = match ($user->role) {
+                'dokter' => '/dokter/jadwal-periksa',
+                default => '/pasien/daftar-poli'
+            };
+
+            return redirect($dashboardRoute);
+        }
         return view('guest.register', ['title' => 'Daftar Pasien']);
     }
 
@@ -31,7 +41,7 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'nama' => ['required', 'string', 'max:255'],
+            'nama' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
@@ -68,6 +78,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('login', absolute: false));
+
+        return redirect(route('pasien.daftar-poli.index', absolute: false));
     }
 }

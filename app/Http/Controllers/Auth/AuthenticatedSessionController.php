@@ -14,8 +14,18 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
-    public function create(): View
+    public function create(): View|RedirectResponse
     {
+        if (Auth::check()) {
+            $user = Auth::user();
+
+            $dashboardRoute = match ($user->role) {
+                'dokter' => '/dokter/jadwal-periksa',
+                default => '/pasien/daftar-poli'
+            };
+
+            return redirect($dashboardRoute);
+        }
         return view('guest.login', ['title' => 'Login Pasien']);
     }
 
