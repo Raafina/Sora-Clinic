@@ -14,10 +14,10 @@
                 <label for="dokterSelect" class="block mb-2 text-sm font-medium text-gray-900">Pilih Dokter</label>
                 <select
                     class="bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded-lg
-                focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5
-                {{ $errors->has('id_dokter') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
+                            focus:ring-primary-600 focus:border-primary-600 block w-full !my-2 p-2.5
+                            {{ $errors->has('id_dokter') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
                     name="id_dokter" id="dokterSelect" required>
-                    <option>Pilih Dokter</option>
+                    <option value="">Pilih Dokter</option>
                     @foreach ($dokters as $dokter)
                         @foreach ($dokter->jadwalPeriksas as $jadwal)
                             <option value="{{ $dokter->id }}">

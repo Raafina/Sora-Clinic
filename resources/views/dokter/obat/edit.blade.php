@@ -25,6 +25,7 @@
                         href="{{ route('dokter.obat.index') }}" />
                     <x-button label="Simpan" variant="primary" type="submit" />
                 </div>
+            </div>
         </form>
     </div>
 </x-dokter-layout>

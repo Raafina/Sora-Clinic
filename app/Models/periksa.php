@@ -14,6 +14,17 @@ class Periksa extends Model
         'id'
     ];
 
+    protected $fillable = [
+        'id_janji_periksa',
+        'tgl_periksa',
+        'catatan',
+        'biaya_periksa',
+    ];
+
+    protected $casts = [
+        'tgl_periksa' => 'datetime',
+    ];
+
     public function janjiPeriksas()
     {
         return $this->belongsTo(JanjiPeriksa::class, 'id_janji_periksa', 'id');

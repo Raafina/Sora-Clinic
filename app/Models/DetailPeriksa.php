@@ -14,13 +14,18 @@ class DetailPeriksa extends Model
         'id'
     ];
 
-    public function janjiPeriksas()
+    protected $fillable = [
+        'id_periksa',
+        'id_obat'
+    ];
+
+    public function periksa()
     {
-        return $this->belongsTo(JanjiPeriksa::class, 'id_periksa', 'id');
+        return $this->belongsTo(Periksa::class, 'id_periksa', 'id');
     }
 
     public function obats()
     {
-        return $this->belongsTo(DetailPeriksa::class, 'id_obat', 'id');
+        return $this->belongsTo(Obat::class, 'id_obat', 'id');
     }
 }

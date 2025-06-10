@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Dokter;
 
 use Illuminate\Http\Request;
 use App\Models\JadwalPeriksa;
+use App\Models\Obat;
 use App\Http\Controllers\Controller;
+use App\Models\DetailPeriksa;
 use App\Models\JanjiPeriksa;
+use App\Models\Periksa;
 use Illuminate\Support\Facades\Auth;
 
 class MemeriksaController extends Controller
@@ -37,26 +40,46 @@ class MemeriksaController extends Controller
         //
     }
 
+    public function periksa(string $id)
+    {
+        $janjiPeriksa = JanjiPeriksa::findOrFail($id);
+        $obats = Obat::all();
+        return view('dokter.memeriksa.periksa', [
+            'title' => 'Periksa Pasien',
+            'janjiPeriksa' => $janjiPeriksa,
+            'obats' => $obats
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'tgl_periksa' => ['required', 'date'],
+            'catatan' => ['nullable'],
+            'biaya_periksa' => ['required', 'numeric', 'min:0'],
+            'obats' => ['array'],
+            'obats.*' => ['exists:obats,id'],
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $janjiPeriksa = JanjiPeriksa::findOrFail($id);
 
-    public function periksa(string $id)
-    {
-        return view('dokter.memeriksa.periksa', ['title' => 'Periksa Pasien',]);
+        $periksa = Periksa::create([
+            'id_janji_periksa' => $janjiPeriksa->id,
+            'tgl_periksa' => $validatedData['tgl_periksa'],
+            'catatan' => $validatedData['catatan'],
+            'biaya_periksa' => $validatedData['biaya_periksa'],
+        ]);
+
+        foreach ($validatedData['obats'] as $obatId) {
+            DetailPeriksa::create([
+                'id_periksa' => $periksa->id,
+                'id_obat' => $obatId,
+            ]);
+        }
+        return redirect()->route('dokter.memeriksa.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan.');
     }
 
     /**

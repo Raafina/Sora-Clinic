@@ -29,5 +29,6 @@ Route::middleware(['role:dokter'])->prefix('dokter')->group(function () {
     Route::prefix('/memeriksa')->group(function () {
         Route::get('/', [MemeriksaController::class, 'index'])->name('dokter.memeriksa.index');
         Route::get('/{id}', [MemeriksaController::class, 'periksa'])->name('dokter.memeriksa.periksa');
+        Route::post('/{id}', [MemeriksaController::class, 'store'])->name('dokter.memeriksa.store');
     });
 });

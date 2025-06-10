@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-medium">Periksa Pasien</h1>
 
     <div class="flex justify-between py-4">
-        <x-search-input route="/dokter/memeriksa" placeholder="Cari berdasarkan hari" />
+        <x-search-input route="/dokter/memeriksa" placeholder="Cari berdasarkan nama pasien" />
     </div>
 
     <x-table :headers="['No Antrian', 'Nama Pasien', 'Keluhan', 'Aksi']">
@@ -17,7 +17,7 @@
                         <a href="{{ route('dokter.memeriksa.periksa', $janjiPeriksa->id) }}"
                             class="bg-primary text-white font-medium w-1/2 text-center py-2 px-4 rounded-lg">Periksa</a>
                     @else
-                        <a href="{{ route('') }}"
+                        <a href=""
                             class="bg-yellow-500 text-white font-medium w-1/2 text-center py-2 px-4 rounded-lg">Edit</a>
                     @endif
                 </x-table-cell>

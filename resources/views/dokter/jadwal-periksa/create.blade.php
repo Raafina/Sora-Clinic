@@ -31,6 +31,7 @@
                         href="{{ route('dokter.jadwal-periksa.index') }}" />
                     <x-button label="Tambah" variant="primary" type="submit" />
                 </div>
+            </div>
         </form>
     </div>
 </x-dokter-layout>
