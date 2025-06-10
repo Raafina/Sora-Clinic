@@ -20,7 +20,7 @@ class JadwalPeriksaController extends Controller
             ->first();
 
         // get janji periksa list where jadwal periksa
-        $janjiPeriksa = JadwalPeriksa::where('id_jadwaL_periksa', $jadwalPeriksa->id)
+        $janjiPeriksa = JadwalPeriksa::where('id_jadwal_periksa', $jadwalPeriksa->id)
             ->get();
 
         return view('dokter.jadwal-periksa.index', ['title' => 'Janji Periksa', 'janjiPeriksa' => $janjiPeriksa]);

@@ -5,7 +5,7 @@
     </div>
 
     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-        <form action="{{ route('dokter.jadwal-periksa.store') }}" method="POST">
+        <form action="{{ route('pasien.daftar-poli.store') }}" method="POST">
             @csrf
             <div class="space-y-4 max-w-xl ">
                 <x-text-input label='Nomor Rekam Medis' id="no_rm" type="text" value="{{ $no_rm }}"

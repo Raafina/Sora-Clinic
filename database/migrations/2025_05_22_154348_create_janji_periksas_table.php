@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('janji_periksas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("id_pasien");
-            $table->unsignedBigInteger("id_jadwal");
+            $table->unsignedBigInteger("id_jadwal_periksa");
             $table->longText("keluhan");
             $table->integer("no_antrian");
             $table->softDeletes();

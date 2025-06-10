@@ -30,7 +30,7 @@ class JadwalPeriksa extends Model
 
     public function janjiPeriksas()
     {
-        return $this->hasMany(JanjiPeriksa::class, 'id_jadwal', 'id');
+        return $this->hasMany(JanjiPeriksa::class, 'id_jadwal_periksa', 'id');
     }
 
     public function scopeFilter(Builder $query, array $filters): void

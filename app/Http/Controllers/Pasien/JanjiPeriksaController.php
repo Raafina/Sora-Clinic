@@ -57,8 +57,8 @@ class JanjiPeriksaController extends Controller
 
         JanjiPeriksa::create([
             'id_pasien' => Auth::user()->id,
-            'id_jadwal_periksa' => $jadwalPeriksa,
-            'keluhan' => '',
+            'id_jadwal_periksa' => $jadwalPeriksa->id,
+            'keluhan' => $request->keluhan,
             'no_antrian' => $noAntrian
         ]);
 

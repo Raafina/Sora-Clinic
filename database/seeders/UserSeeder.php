@@ -39,5 +39,18 @@ class UserSeeder extends Seeder
             'role' => 'dokter',
             'password' => Hash::make('123')
         ]);
+
+        User::create([
+            'nama' => 'Pasien DEV',
+            'username' => 'PasienDEV',
+            'email' => 'dev@example.com',
+            'alamat' => 'Semarang Kota, Jawa Tengah',
+            'no_ktp' => '1234567890123456',
+            'no_hp' => '08123456789',
+            'no_rm' => '12345-001',
+            'poli' => '',
+            'role' => 'pasien',
+            'password' => Hash::make('123')
+        ]);
     }
 }
