@@ -33,6 +33,4 @@
                 </div>
         </form>
     </div>
-    </form>
-    </div>
 </x-dokter-layout>

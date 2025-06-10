@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pasien\ProfileController;
-use App\Http\Controllers\Dokter\DokterController as DokterDokterController;
 use App\Http\Controllers\Dokter\JadwalPeriksaController;
+use App\Http\Controllers\Dokter\MemeriksaController;
 use App\Http\Controllers\Dokter\ObatController;
 
 Route::middleware(['role:dokter'])->prefix('dokter')->group(function () {
@@ -25,5 +25,9 @@ Route::middleware(['role:dokter'])->prefix('dokter')->group(function () {
         Route::get('/{id}/edit', [ObatController::class, 'edit'])->name('dokter.obat.edit');
         Route::put('/{id}', [ObatController::class, 'update'])->name('dokter.obat.update');
         Route::delete('/{id}', [ObatController::class, 'destroy'])->name('dokter.obat.destroy');
+    });
+    Route::prefix('/memeriksa')->group(function () {
+        Route::get('/', [MemeriksaController::class, 'index'])->name('dokter.memeriksa.index');
+        Route::get('/{id}', [MemeriksaController::class, 'periksa'])->name('dokter.memeriksa.periksa');
     });
 });

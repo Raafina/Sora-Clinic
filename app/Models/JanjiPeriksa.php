@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -14,9 +15,9 @@ class JanjiPeriksa extends Model
         'id'
     ];
 
-    public function user()
+    public function pasien()
     {
-        return $this->belongsTo(User::class, 'id_pasien', 'id');
+        return $this->belongsTo(User::class, 'id_pasien');
     }
 
     public function jadwalPeriksas()
@@ -32,5 +33,16 @@ class JanjiPeriksa extends Model
     public function periksas()
     {
         return $this->hasOne(Periksa::class, 'id_janji_periksa', 'id');
+    }
+
+    public function scopeFilter(Builder $query, array $filters): void
+    {
+        $query->when(
+            $filters['search'] ?? false,
+            fn($query, $search) =>
+            $query->whereHas('pasien', function ($q) use ($search) {
+                $q->where('nama', 'like', '%' . $search . '%');
+            })
+        );
     }
 }

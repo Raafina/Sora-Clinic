@@ -37,6 +37,4 @@
                 </div>
         </form>
     </div>
-    </form>
-    </div>
 </x-pasien-layout>

@@ -104,6 +104,19 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('dokter.memeriksa.index') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('dokter/memeriksa*') ? 'bg-primary text-white hover:bg-primary' : '' }}">
+                        <svg width="25" height="25" viewBox="0 0 24 24"
+                            class="{{ Request()->is('dokter/memeriksa*') ? 'text-white' : '' }}"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+                        </svg>
+                        <span class="ms-3">Periksa Pasien</span>
+                    </a>
+                </li>
+                {{-- <li>
                     <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 ">
                         <svg width="25" height="25" viewBox="0 0 24 24" class="text-gray-900 "
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -115,7 +128,7 @@
 
                         <span class="ms-3">Riwayat Periksa</span>
                     </a>
-                </li>
+                </li> --}}
                 {{-- <li>
                     <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                         <svg width="25" height="25" viewBox="0 0 24 24" class="text-gray-900 "
