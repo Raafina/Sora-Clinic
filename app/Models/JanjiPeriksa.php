@@ -19,17 +19,17 @@ class JanjiPeriksa extends Model
         return $this->belongsTo(User::class, 'id_pasien', 'id');
     }
 
-    public function jadwal_periksa()
+    public function jadwalPeriksas()
     {
         return $this->belongsTo(JadwalPeriksa::class, 'id_jadwal', 'id');
     }
 
-    public function detail_periksa()
+    public function detailPeriksas()
     {
         return $this->hasMany(DetailPeriksa::class, 'id_periksa', 'id');
     }
 
-    public function periksa()
+    public function periksas()
     {
         return $this->hasOne(Periksa::class, 'id_janji_periksa', 'id');
     }

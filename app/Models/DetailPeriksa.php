@@ -14,12 +14,12 @@ class DetailPeriksa extends Model
         'id'
     ];
 
-    public function janji_periksa()
+    public function janjiPeriksas()
     {
         return $this->belongsTo(JanjiPeriksa::class, 'id_periksa', 'id');
     }
 
-    public function obat()
+    public function obats()
     {
         return $this->belongsTo(DetailPeriksa::class, 'id_obat', 'id');
     }

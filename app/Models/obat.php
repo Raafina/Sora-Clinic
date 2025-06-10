@@ -15,7 +15,7 @@ class Obat extends Model
         'id'
     ];
 
-    public function detail_periksa()
+    public function detailPeriksas()
     {
         $this->hasMany(DetailPeriksa::class, 'id_obat', 'id');
     }

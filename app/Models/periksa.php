@@ -14,7 +14,7 @@ class Periksa extends Model
         'id'
     ];
 
-    public function janji_periksa()
+    public function janjiPeriksas()
     {
         return $this->belongsTo(JanjiPeriksa::class, 'id_janji_periksa', 'id');
     }

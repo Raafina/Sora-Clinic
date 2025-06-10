@@ -14,13 +14,16 @@ class JadwalPeriksaController extends Controller
      */
     public function index()
     {
-        $jadwalPeriksas = JadwalPeriksa::filter(request(['search']))
-            ->where('id_dokter', Auth::user()->id)
-            ->latest()
-            ->paginate(10)
-            ->withQueryString();
+        // get jadwal periksa where id_dokter is authenticated user  and status is true/active
+        $jadwalPeriksa = JadwalPeriksa::where('id_dokter', Auth::user()->id)
+            ->where('status', true)
+            ->first();
 
-        return view('dokter.jadwal-periksa.index', ['title' => 'Jadwal Periksa', 'jadwalPeriksas' => $jadwalPeriksas]);
+        // get janji periksa list where jadwal periksa
+        $janjiPeriksa = JadwalPeriksa::where('id_jadwaL_periksa', $jadwalPeriksa->id)
+            ->get();
+
+        return view('dokter.jadwal-periksa.index', ['title' => 'Janji Periksa', 'janjiPeriksa' => $janjiPeriksa]);
     }
 
     public function create()
@@ -77,22 +80,20 @@ class JadwalPeriksaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // find id $jadwalPeriksa
+        // see jadwal periksa depending on id
         $jadwalPeriksa = JadwalPeriksa::findOrFail($id);
 
-        // if $jadwalPeriksa is non active, then active it
+        // if jadwal periksa id is true, then false it
         if (!$jadwalPeriksa->status) {
-            // change status except in $jadwalPeriksa to false
-            JadwalPeriksa::where('id_dokter', Auth::user()->id)->update(['status' => false]);
-
-            // change status jadwalPeriksa to true 
             $jadwalPeriksa->update(['status' => true]);
 
+            // change status except in jadwalPeriksa to false
+            JadwalPeriksa::where('id_dokter', Auth::user()->id)->update(['status' => false]);
             $jadwalPeriksa->save();
             return redirect()->route('dokter.jadwal-periksa.index')->with('success', 'Status jadwal periksa berhasil diubah');
         }
 
-        // if $jadwalPeriksa is active, then false it
+        // if jadwal periksa id is false, then false it
         $jadwalPeriksa->status = false;
         $jadwalPeriksa->save();
         return redirect()->route('dokter.jadwal-periksa.index')->with('success', 'Status jadwal periksa berhasil diubah');

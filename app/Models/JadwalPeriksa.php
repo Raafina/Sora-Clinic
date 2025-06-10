@@ -28,7 +28,7 @@ class JadwalPeriksa extends Model
         return $this->belongsTo(User::class, 'id_dokter', 'id');
     }
 
-    public function janji_periksa()
+    public function janjiPeriksas()
     {
         return $this->hasMany(JanjiPeriksa::class, 'id_jadwal', 'id');
     }
