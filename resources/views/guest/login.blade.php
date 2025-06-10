@@ -11,7 +11,6 @@
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                 Masuk Akun Pasien
             </h1>
-            <x-auth-session-status class="mb-4" :status="session('status')" />
             <form action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="flex flex-col gap-4">

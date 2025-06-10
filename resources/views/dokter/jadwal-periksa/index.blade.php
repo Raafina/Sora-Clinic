@@ -36,7 +36,6 @@
                                 Aktifkan</button>
                         @endif
                     </form>
-
                 </x-table-cell>
             </x-table-row>
         @empty

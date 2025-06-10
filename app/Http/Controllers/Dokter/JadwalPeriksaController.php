@@ -40,7 +40,16 @@ class JadwalPeriksaController extends Controller
             'jam_selesai' => ['required', 'date_format:H:i', 'after:jam_mulai'],
         ]);
 
-        if (JadwalPeriksa::where('id_dokter', Auth::user()->id)->where('hari', $validated['hari'])->where('jam_mulai', $validated['jam_mulai'])->where('jam_selesai', $validated['jam_selesai'])->exists()) {
+        if (JadwalPeriksa::where('id_dokter', Auth::user()->id)->where(
+            'hari',
+            $validated['hari']
+        )->where(
+            'jam_mulai',
+            $validated['jam_mulai']
+        )->where(
+            'jam_selesai',
+            $validated['jam_selesai']
+        )->exists()) {
             return back()->withInput()->with('error', 'Jadwal periksa sudah ada');
         }
 
@@ -71,11 +80,12 @@ class JadwalPeriksaController extends Controller
         // see jadwal periksa depending on id
         $jadwalPeriksa = JadwalPeriksa::findOrFail($id);
 
-        // change status except in jadwal periksa to false
+        // if jadwal periksa id is true, then false it
         if (!$jadwalPeriksa->status) {
-            JadwalPeriksa::where('id_dokter', Auth::user()->id)->update(['status' => false]);
-
             $jadwalPeriksa->update(['status' => true]);
+
+            // change status except in jadwalPeriksa to false
+            JadwalPeriksa::where('id_dokter', Auth::user()->id)->update(['status' => false]);
             $jadwalPeriksa->save();
             return redirect()->route('dokter.jadwal-periksa.index')->with('success', 'Status jadwal periksa berhasil diubah');
         }
