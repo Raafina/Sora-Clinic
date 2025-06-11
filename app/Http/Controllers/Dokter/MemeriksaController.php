@@ -11,6 +11,8 @@ use App\Models\JanjiPeriksa;
 use App\Models\Periksa;
 use Illuminate\Support\Facades\Auth;
 
+use function Ramsey\Uuid\v1;
+
 class MemeriksaController extends Controller
 {
     /**
@@ -33,11 +35,6 @@ class MemeriksaController extends Controller
             'title' => 'Periksa Pasien',
             'janjiPeriksas' => $janjiPeriksas
         ]);
-    }
-
-    public function create()
-    {
-        //
     }
 
     public function periksa(string $id)
@@ -82,12 +79,49 @@ class MemeriksaController extends Controller
         return redirect()->route('dokter.memeriksa.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan.');
     }
 
+    public function edit(Request $request, string $id)
+    {
+        $obats = Obat::all();
+        $janjiPeriksa = JanjiPeriksa::findOrFail($id);
+        return view('dokter.memeriksa.edit', [
+            'obats' => $obats,
+            'janjiPeriksa' => $janjiPeriksa
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'tgl_periksa' => ['required', 'date'],
+            'catatan' => ['nullable'],
+            'biaya_periksa' => ['required', 'numeric', 'min:0'],
+            'obats' => ['array'],
+            'obats.*' => ['exists:obats,id'],
+        ]);
+
+        $janjiPeriksa = JanjiPeriksa::findOrFail($id);
+
+        $periksa = Periksa::where('id_janji_periksa', $janjiPeriksa->id)->first();
+        $periksa->update([
+            'tgl_periksa' => $validatedData['tgl_periksa'],
+            'catatan' => $validatedData['catatan'],
+            'biaya_periksa' => $validatedData['biaya_periksa'],
+        ]);
+
+        // Delete existing detail periksa
+        DetailPeriksa::where('id_periksa', $periksa->id)->delete();
+
+        // Create new detail periksa
+        foreach ($validatedData['obats'] as $obatId) {
+            DetailPeriksa::create([
+                'id_periksa' => $periksa->id,
+                'id_obat' => $obatId,
+            ]);
+        }
+        return redirect()->route('dokter.memeriksa.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan.');
     }
 
     /**

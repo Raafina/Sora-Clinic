@@ -30,7 +30,7 @@ class JanjiPeriksa extends Model
         return $this->hasMany(DetailPeriksa::class, 'id_periksa', 'id');
     }
 
-    public function periksas()
+    public function periksa()
     {
         return $this->hasOne(Periksa::class, 'id_janji_periksa', 'id');
     }

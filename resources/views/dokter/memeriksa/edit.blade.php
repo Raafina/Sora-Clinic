@@ -7,17 +7,20 @@
                     d="M5 12h14M5 12l4-4m-4 4 4 4" />
             </svg>
         </x-button>
-        <h1 class="text-3xl font-semibold text-gray-800">{{ __('Periksa Pasien') }}</h1>
+        <h1 class="text-3xl font-semibold text-gray-800">{{ __('Ubah Data Periksa Pasien') }}</h1>
     </div>
 
     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-        <form action="{{ route('dokter.memeriksa.store', $janjiPeriksa->id) }}" method="POST">
+        <form action="{{ route('dokter.memeriksa.update', $janjiPeriksa->id) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="space-y-4 max-w-xl ">
                 <x-text-input label='Nama' id="nama" placeholder="Nama pasien" readonly
                     value="{{ $janjiPeriksa->pasien->nama }}" />
-                <x-text-input label='Tanggal Periksa' id="tgl_periksa" type="datetime-local" />
-                <x-text-area label='Catatan' id="catatan" placeholder="Masukkan catatan" />
+                <x-text-input label='Tanggal Periksa' id="tgl_periksa" type="datetime-local"
+                    value="{{ $janjiPeriksa->periksa->tgl_periksa }}" />
+                <x-text-area label='Catatan' id="catatan" placeholder="Masukkan catatan"
+                    value="{{ $janjiPeriksa->periksa->catatan }}" />
                 {{-- select obat --}}
                 <label for="obatSelect" class="block text-sm font-medium text-gray-900">Pilih Obat</label>
                 <select
@@ -26,7 +29,9 @@
                             {{ $errors->has('obat') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
                     name="obats[]" id="obatSelect" required multiple onchange="hitungBiayaPeriksa()">
                     @foreach ($obats as $obat)
-                        <option value="{{ $obat->id }}" data-harga="{{ $obat->harga }}">{{ $obat->nama_obat }} -
+                        <option value="{{ $obat->id }}" data-harga="{{ $obat->harga }}"
+                            {{ in_array($obat->id, $janjiPeriksa->periksa->detailPeriksas->pluck('id_obat')->toArray()) ? 'selected' : '' }}>
+                            {{ $obat->nama_obat }} -
                             {{ $obat->kemasan }} (Rp.{{ number_format($obat->harga, 0, ',', '.') }})
                         </option>
                     @endforeach
@@ -34,9 +39,8 @@
                 <small>
                     Tekan Ctrl (Windows) atau Command (Mac) untuk memilih lebih dari satu obat
                 </small>
-
                 <x-text-input label='Biaya Pemeriksaan' id="biaya_periksa" placeholder="Biaya Pemeriksaan" readonly
-                    value="150000" />
+                    value="{{ $janjiPeriksa->periksa->biaya_periksa }}" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
                         href="  " />
