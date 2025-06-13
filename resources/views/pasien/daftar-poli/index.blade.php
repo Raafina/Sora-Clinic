@@ -29,9 +29,7 @@
                 </select>
                 <x-text-area label='Keluhan' id="keluhan" placeholder="Masukkan keluhan" />
                 <div class="mt-6 flex justify-start gap-2">
-                    <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
-                        href="{{ route('dokter.jadwal-periksa.index') }}" />
-                    <x-button label="Tambah" variant="primary" type="submit" />
+                    <x-button label="Daftar" variant="primary" type="submit" />
                 </div>
         </form>
     </div>

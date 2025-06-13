@@ -56,11 +56,11 @@
                         <div class="z-50 hidden my-4 text-base list-none rounded-xl bg-white divide-y divide-gray-100 shadow-md"
                             id="dropdown-user">
                             <ul class="py-1" role="none">
-                                <li>
+                                {{-- <li>
                                     <a href="{{ route('profile.edit') }}"
                                         class="block px-4 py-2  text-gray-900 hover:bg-gray-100 hover:cursor-pointer"
                                         role="menuitem">{{ __('Pengaturan') }}</a>
-                                </li>
+                                </li> --}}
 
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">

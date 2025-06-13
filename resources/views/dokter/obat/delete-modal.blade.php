@@ -9,7 +9,7 @@
         @method('DELETE')
         <div class="flex items-center justify-center w-full gap-2 pt-2 space-y-2">
             <x-button label="Batal" variant="danger" type="button" halfWidth
-                data-modal-hide="editModal-{{ $id }}" />
+                data-modal-hide="deleteModal-{{ $id }}" />
             <x-button label="Ya, Hapus" variant="primary" type="submit" halfWidth />
         </div>
         </div>

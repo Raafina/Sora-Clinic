@@ -43,7 +43,7 @@
                     value="{{ $janjiPeriksa->periksa->biaya_periksa }}" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
-                        href="  " />
+                        href="{{ route('dokter.memeriksa.index') }}" />
                     <x-button label="Simpan" variant="primary" type="submit" />
                 </div>
         </form>
