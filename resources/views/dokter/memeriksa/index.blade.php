@@ -1,6 +1,6 @@
 <x-dokter-layout>
     <x-toast />
-    <h1 class="text-3xl font-medium">Periksa Pasien</h1>
+    <h1 class="text-3xl font-medium ">Periksa Pasien</h1>
 
     <div class="flex justify-between py-4">
         <x-search-input route="/dokter/memeriksa" placeholder="Cari berdasarkan nama pasien" />

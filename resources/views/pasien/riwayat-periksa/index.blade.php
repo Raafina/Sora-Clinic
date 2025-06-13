@@ -1,12 +1,6 @@
 <x-pasien-layout>
     <x-toast />
-    <h1 class="text-3xl font-medium">Riwayat Periksa</h1>
-
-    {{-- <div class="flex justify-between py-4">
-        <x-search-input route="/dokter/obat" placeholder="Cari berdasarkan nama obat" />
-        <x-button label="Tambah Obat" modal-target="addModal" modal-toggle="addModal" variant="primary"
-            href="{{ route('dokter.obat.create') }}" />
-    </div> --}}
+    <h1 class="text-3xl font-medium pb-7">Riwayat Periksa</h1>
 
     <x-table :headers="['No', 'Poliklinik', 'Dokter', 'Hari', 'Mulai', 'Selesai', 'Antrian', 'Status', 'Aksi']">
         @forelse ($janjiPeriksas as $janjiPeriksa)

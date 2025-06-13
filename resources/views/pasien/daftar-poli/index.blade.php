@@ -1,10 +1,8 @@
 <x-pasien-layout>
     <x-toast />
-    <div class="flex items-center gap-3 mb-6">
-        <h1 class="text-3xl font-semibold text-gray-800">{{ __('Daftar Poliklinik') }}</h1>
-    </div>
+    <h1 class="text-3xl font-medium pb-7">Daftar Poliklinik</h1>
 
-    <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+    <div class="p-4 sm:p-5 shadow border border-gray-300 rounded-xl bg-white">
         <form action="{{ route('pasien.daftar-poli.store') }}" method="POST">
             @csrf
             <div class="space-y-4 max-w-xl ">

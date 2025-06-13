@@ -29,7 +29,7 @@ class RiwayatPeriksaController extends Controller
         $janjiPeriksa = JanjiPeriksa::with(['jadwalPeriksas.dokter'])->findOrFail($id);
         return view('pasien.riwayat-periksa.riwayat', [
             'title' => 'Riwayat Periksa',
-            'janjiPeriksas' => $janjiPeriksa
+            'janjiPeriksa' => $janjiPeriksa
         ]);
     }
 
@@ -38,7 +38,7 @@ class RiwayatPeriksaController extends Controller
         $janjiPeriksa = JanjiPeriksa::with(['jadwalPeriksas.dokter'])->findOrFail($id);
         return view('pasien.riwayat-periksa.detail', [
             'title' => 'Riwayat Periksa',
-            'janjiPeriksas' => $janjiPeriksa
+            'janjiPeriksa' => $janjiPeriksa
         ]);
     }
 }

@@ -13,34 +13,34 @@
     <div class="p-4 sm:p-6 bg-white shadow sm:rounded-lg">
         <div class="flex flex-col sm:flex-row gap-4 h-full">
             <div class="w-full sm:w-8/12 flex flex-col gap-2">
-                <div class="px-4 py-3 border-0 rounded list-group-item bg-slate-100">
+                <div class="px-4 py-3 border-0 rounded bg-slate-100">
                     <div class="flex justify-between">
                         <span class="text-gray-700">Poliklinik</span>
-                        <span class="font-medium">Umum</span>
+                        <span class="font-medium">{{ $janjiPeriksa->jadwalPeriksas->dokter->poli }}</span>
                     </div>
                 </div>
-                <div class="px-4 py-3 border-0 rounded-md list-group-item bg-slate-100">
+                <div class="px-4 py-3 border-0 rounded-md bg-slate-100">
                     <div class="flex justify-between">
                         <span class="text-gray-700">Nama Dokter</span>
-                        <span class="font-medium">Dr. Ahmad</span>
+                        <span class="font-medium">{{ $janjiPeriksa->jadwalPeriksas->dokter->nama }}</span>
                     </div>
                 </div>
-                <div class="px-4 py-3 border-0 rounded-md list-group-item bg-slate-100">
+                <div class="px-4 py-3 border-0 rounded-md bg-slate-100">
                     <div class="flex justify-between">
                         <span class="text-gray-700">Hari Pemeriksaan</span>
-                        <span class="font-medium">Senin</span>
+                        <span class="font-medium">{{ $janjiPeriksa->jadwalPeriksas->hari }}</span>
                     </div>
                 </div>
-                <div class="px-4 py-3 border-0 rounded-md list-group-item bg-slate-100">
+                <div class="px-4 py-3 border-0 rounded-md bg-slate-100">
                     <div class="flex justify-between">
                         <span class="text-gray-700">Jam Mulai</span>
-                        <span class="font-medium">08.00</span>
+                        <span class="font-medium">{{ $janjiPeriksa->jadwalPeriksas->jam_mulai }}</span>
                     </div>
                 </div>
-                <div class="px-4 py-3 border-0 rounded-md list-group-item bg-slate-100">
+                <div class="px-4 py-3 border-0 rounded-md bg-slate-100">
                     <div class="flex justify-between">
                         <span class="text-gray-700">Jam Selesai</span>
-                        <span class="font-medium">10.00</span>
+                        <span class="font-medium">{{ $janjiPeriksa->jadwalPeriksas->jam_selesai }}</span>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     <h5 class="mb-3 text-gray-700">Nomor Antrian Anda</h5>
                     <div class="text-white rounded-lg bg-primary flex items-center justify-center"
                         style="width: 100px; height: 100px;">
-                        <span class="font-bold" style="font-size: 2.5rem;">5</span>
+                        <span class="font-bold text-4xl">{{ $janjiPeriksa->no_antrian }}</span>
                     </div>
                 </div>
             </div>
