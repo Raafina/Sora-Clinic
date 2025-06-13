@@ -23,7 +23,7 @@ class JadwalPeriksa extends Model
         'status',
     ];
 
-    public function user()
+    public function dokter()
     {
         return $this->belongsTo(User::class, 'id_dokter', 'id');
     }

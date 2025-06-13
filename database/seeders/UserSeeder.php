@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             'no_ktp' => '1234567890123456',
             'no_hp' => '08123456789',
             'no_rm' => '',
-            'poli' => '1',
+            'poli' => 'Dokter Anak',
             'role' => 'dokter',
             'password' => Hash::make('12345678')
         ]);

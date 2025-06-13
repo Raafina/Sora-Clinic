@@ -89,14 +89,28 @@
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white ">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                    <a href="{{ route('pasien.daftar-poli.index') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('pasien/daftar-poli*') ? 'bg-primary text-white hover:bg-primary' : '' }}">
                         <svg width="24" height="24" viewBox="0 0 42 36" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="{{ Request()->is('pasien/daftar-poli*') ? 'text-white' : '' }}">
+                            <path fill-rule="currentColor" clip-rule="evenodd"
                                 d="M35.5644 8.00108H29.0014V0.299072H13.0884V8.00108H6.68143C3.22943 8.00108 0.274414 10.7861 0.274414 14.3941V29.1431C0.274414 32.7521 3.22943 35.7071 6.68143 35.7071H35.5654C39.0174 35.7071 41.9724 32.7521 41.9724 29.1431V14.3941C41.9724 10.7861 39.0174 8.00108 35.5644 8.00108ZM16.0434 3.25407H26.0594V8.00108H16.0434V3.25407ZM36.0614 23.7441H31.3024V28.4911H27.5234V23.7441H22.7634V19.9651H27.5234V15.2191H31.3024V19.9651H36.0614V23.7441Z"
-                                fill="#595959" />
+                                fill="currentColor" />
                         </svg>
                         <span class="ms-3">Daftar Poliklinik</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('pasien.riwayat-periksa.index') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('pasien/riwayat-periksa*') ? 'bg-primary text-white hover:bg-primary' : '' }}">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            class="{{ Request()->is('pasien/riwayat-periksa*') ? 'text-white' : '' }}" width="25"
+                            height="25" fill="none" viewBox="0 0 25 25">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4" />
+                        </svg>
+                        <span class="ms-3">Riwayat Periksa</span>
                     </a>
                 </li>
             </ul>

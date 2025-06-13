@@ -81,13 +81,4 @@ class JanjiPeriksaController extends Controller
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    // public function destroy(Dokter $dokter)
-    // {
-    //     Dokter::destroy($dokter->id);
-    //     return redirect('admin/dokter')->with('success', 'Dokter berhasil dihapus');
-    // }
 }
