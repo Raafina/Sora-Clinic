@@ -12,7 +12,7 @@
 
     <div class="flex flex-col gap-4 p-4 sm:p-6 bg-white shadow sm:rounded-lg ">
         <p class="text-sm text-gray-600">
-            Silahkan menuju ke administarsi untuk pembayaran biaya pemeriksaan yang telah dilakukan.
+            Silahkan menuju ke loket jalaman untuk pembayaran biaya pemeriksaan yang telah dilakukan.
         </p>
 
         <div class="border-2 rounded-md">
@@ -22,14 +22,14 @@
                     <p class="font-semibold text-gray-700 ">Tanggal
                         Periksa</p>
                     <p>
-                        10 Juni 2025 14.30
+                        {{ \Carbon\Carbon::parse($janjiPeriksa->periksa->tgl_periksa)->locale('id')->translatedFormat('l, d F Y H.i') }}
                     </p>
                 </div>
 
                 <div class="w-full sm:w-1/2">
                     <p class="font-semibold text-gray-700">Catatan</p>
                     <p>
-                        Pasien disarankan istirahat penuh.
+                        {{ $janjiPeriksa->periksa->catatan }}
                     </p>
                 </div>
             </div>
@@ -38,14 +38,12 @@
         <div class="border-2 rounded-md">
             <h5 class="mb-0 font-semibold text-gray-800 p-4 border-b">Daftar Obat Diresepkan</h5>
             <ul class="p-4">
-                <li class="px-0 list-group-item d-flex justify-content-between align-items-center border-bottom">
-                    <span>Paracetamol</span>
-                    <span class="badge bg-slate-100 text-dark">10 tablet</span>
-                </li>
-                <li class="px-0 list-group-item d-flex justify-content-between align-items-center border-bottom">
-                    <span>Amoxicillin</span>
-                    <span class="badge bg-slate-100 text-dark">5 tablet</span>
-                </li>
+                @foreach ($janjiPeriksa->periksa->detailPeriksas as $detailPeriksa)
+                    <li class="px-0 list-group-item d-flex justify-content-between align-items-center border-bottom">
+                        <span>{{ $detailPeriksa->obats->nama_obat }}</span>
+                        <span class="badge bg-slate-100 text-dark">{{ $detailPeriksa->obats->kemasan }}</span>
+                    </li>
+                @endforeach
             </ul>
         </div>
 
@@ -54,7 +52,7 @@
                 <div class="p-4 flex justify-between items-center">
                     <span class="font-semibold text-gray-800">Biaya Periksa</span>
                     <span class="text-primary font-bold">
-                        Rp150.000
+                        Rp.{{ number_format($janjiPeriksa->periksa->biaya_periksa, 0, ',', '.') }}
                     </span>
                 </div>
             </div>
