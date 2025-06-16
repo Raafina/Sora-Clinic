@@ -5,6 +5,7 @@ use App\Http\Controllers\Pasien\ProfileController;
 use App\Http\Controllers\Dokter\JadwalPeriksaController;
 use App\Http\Controllers\Dokter\MemeriksaController;
 use App\Http\Controllers\Dokter\ObatController;
+use App\Http\Controllers\Dokter\RestoreObatController;
 
 Route::middleware(['role:dokter'])->prefix('dokter')->group(function () {
     Route::prefix('/profile')->group(function () {
@@ -18,6 +19,13 @@ Route::middleware(['role:dokter'])->prefix('dokter')->group(function () {
         Route::post('/', [JadwalPeriksaController::class, 'store'])->name('dokter.jadwal-periksa.store');
         Route::put('/{id}', [JadwalPeriksaController::class, 'update'])->name('dokter.jadwal-periksa.update');
     });
+    Route::prefix('/memeriksa')->group(function () {
+        Route::get('/', [MemeriksaController::class, 'index'])->name('dokter.memeriksa.index');
+        Route::get('/{id}', [MemeriksaController::class, 'periksa'])->name('dokter.memeriksa.periksa');
+        Route::post('/{id}', [MemeriksaController::class, 'store'])->name('dokter.memeriksa.store');
+        Route::get('/{id}/edit', [MemeriksaController::class, 'edit'])->name('dokter.memeriksa.edit');
+        Route::put('/{id}', [MemeriksaController::class, 'update'])->name('dokter.memeriksa.update');
+    });
     Route::prefix('/obat')->group(function () {
         Route::get('/', [ObatController::class, 'index'])->name('dokter.obat.index');
         Route::get('/tambah', [ObatController::class, 'create'])->name('dokter.obat.create');
@@ -26,11 +34,8 @@ Route::middleware(['role:dokter'])->prefix('dokter')->group(function () {
         Route::put('/{id}', [ObatController::class, 'update'])->name('dokter.obat.update');
         Route::delete('/{id}', [ObatController::class, 'destroy'])->name('dokter.obat.destroy');
     });
-    Route::prefix('/memeriksa')->group(function () {
-        Route::get('/', [MemeriksaController::class, 'index'])->name('dokter.memeriksa.index');
-        Route::get('/{id}', [MemeriksaController::class, 'periksa'])->name('dokter.memeriksa.periksa');
-        Route::post('/{id}', [MemeriksaController::class, 'store'])->name('dokter.memeriksa.store');
-        Route::get('/{id}/edit', [MemeriksaController::class, 'edit'])->name('dokter.memeriksa.edit');
-        Route::put('/{id}', [MemeriksaController::class, 'update'])->name('dokter.memeriksa.update');
+    Route::prefix('/restore-obat')->group(function () {
+        Route::get('/', [RestoreObatController::class, 'index'])->name('dokter.restore-obat.index');
+        Route::patch('/{id}/restore', [RestoreObatController::class, 'restore'])->name('dokter.restore-obat.restore');
     });
 });

@@ -154,6 +154,19 @@
                         <span class="ms-3">Obat</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('dokter.restore-obat.index') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('dokter/restore-obat*') ? 'bg-primary text-white hover:bg-primary' : '' }}">
+                        <svg class="{{ Request()->is('dokter/restore-obat*') ? 'text-white' : '' }}"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                            fill="none" viewBox="0 0 25 25">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 19V6a1 1 0 0 1 1-1h4.032a1 1 0 0 1 .768.36l1.9 2.28a1 1 0 0 0 .768.36H16a1 1 0 0 1 1 1v1M3 19l3-8h15l-3 8H3Z" />
+                        </svg>
+                        <span class="ms-3">Restore Obat</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </aside>
