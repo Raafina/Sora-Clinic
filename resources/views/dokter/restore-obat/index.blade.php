@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-medium">Daftar Obat Terhapus</h1>
 
     <div class="flex justify-between py-4">
-        <x-search-input route="/dokter/obat" placeholder="Cari berdasarkan nama obat" />
+        <x-search-input route="/dokter/restore-obat" placeholder="Cari berdasarkan nama obat" />
     </div>
 
     <x-table :headers="['No', 'Nama Obat', 'Kemasan', 'Harga', 'Penghapusan', 'Aksi']">
