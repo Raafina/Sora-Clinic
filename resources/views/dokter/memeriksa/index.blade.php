@@ -6,16 +6,19 @@
         <x-search-input route="/dokter/memeriksa" placeholder="Cari berdasarkan nama pasien" />
     </div>
 
-    <x-table :headers="['No Antrian', 'Nama Pasien', 'Keluhan', 'Aksi']">
+    <x-table :headers="['No', 'Nama Pasien', 'No Antrian', 'Keluhan', 'Aksi']">
         @forelse ($janjiPeriksas as $janjiPeriksa)
             <x-table-row>
-                <x-table-cell isHeader="true">{{ $janjiPeriksa->no_antrian }}</x-table-cell>
-                <x-table-cell>{{ $janjiPeriksa->pasien->nama }}</x-table-cell>
+                <x-table-cell>{{ $janjiPeriksas->firstItem() + $loop->index }}</x-table-cell>
+                <x-table-cell isHeader="true">{{ $janjiPeriksa->pasien->nama }}</x-table-cell>
+                <x-table-cell>
+                    <p class="bg-primary px-2 py-1 w-fit text-white rounded-lg">{{ $janjiPeriksa->no_antrian }}</p>
+                </x-table-cell>
                 <x-table-cell>{{ $janjiPeriksa->keluhan }}</x-table-cell>
                 <x-table-cell>
                     @if (is_null($janjiPeriksa->periksa))
                         <a href="{{ route('dokter.memeriksa.periksa', $janjiPeriksa->id) }}"
-                            class="bg-primary text-white font-medium w-1/2 text-center py-2 px-4 rounded-lg">Periksa</a>
+                            class="bg-green-500 text-white font-medium w-1/2 text-center py-2 px-4 rounded-lg">Periksa</a>
                     @else
                         <a href="{{ route('dokter.memeriksa.edit', $janjiPeriksa->id) }}"
                             class="bg-yellow-500 text-white font-medium w-1/2 text-center py-2 px-4 rounded-lg">Edit</a>

@@ -8,12 +8,13 @@
             href="{{ route('dokter.jadwal-periksa.create') }}" />
     </div>
 
-    <x-table :headers="['Hari', 'Jam Mulai', 'Jam Selesai', 'Status', 'Aksi']">
+    <x-table :headers="['No', 'Hari', 'Jam Mulai', 'Jam Selesai', 'Status', 'Aksi']">
         @forelse ($jadwalPeriksas as $jadwalPeriksa)
             <x-table-row>
+                <x-table-cell>{{ $jadwalPeriksas->firstItem() + $loop->index }}</x-table-cell>
                 <x-table-cell isHeader="true">{{ $jadwalPeriksa->hari }}</x-table-cell>
-                <x-table-cell>{{ $jadwalPeriksa->jam_mulai }}</x-table-cell>
-                <x-table-cell>{{ $jadwalPeriksa->jam_selesai }}</x-table-cell>
+                <x-table-cell>{{ \Carbon\Carbon::parse($jadwalPeriksa->jam_mulai)->format('H:i') }}</x-table-cell>
+                <x-table-cell>{{ \Carbon\Carbon::parse($jadwalPeriksa->jam_selesai)->format('H:i') }}</x-table-cell>
                 <x-table-cell>
                     @if ($jadwalPeriksa->status)
                         <p class="bg-green-500 text-white font-medium w-1/2 text-center py-1 rounded-lg"> Aktif</p>

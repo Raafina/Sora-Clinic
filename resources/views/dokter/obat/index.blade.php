@@ -8,12 +8,13 @@
             href="{{ route('dokter.obat.create') }}" />
     </div>
 
-    <x-table :headers="['Nama Obat', 'Kemasan', 'Harga', 'Aksi']">
+    <x-table :headers="['No', 'Nama Obat', 'Kemasan', 'Harga', 'Aksi']">
         @forelse ($obats as $obat)
             <x-table-row>
+                <x-table-cell>{{ $obats->firstItem() + $loop->index }}</x-table-cell>
                 <x-table-cell isHeader="true">{{ $obat->nama_obat }}</x-table-cell>
                 <x-table-cell>{{ $obat->kemasan }}</x-table-cell>
-                <x-table-cell>{{ $obat->harga }}</x-table-cell>
+                <x-table-cell> {{ 'Rp' . number_format($obat->harga, 0, ',', '.') }}</x-table-cell>
                 <x-table-action id="{{ $obat->id }}" deleteModalId="deleteModal-{{ $obat->id }}" />
             </x-table-row>
         @empty

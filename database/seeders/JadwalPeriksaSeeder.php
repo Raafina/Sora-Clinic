@@ -17,6 +17,7 @@ class JadwalPeriksaSeeder extends Seeder
 
         if ($dokter) {
             JadwalPeriksa::create([
+                'id' => '1',
                 'id_dokter' => $dokter->id,
                 'hari' => 'Senin',
                 'jam_mulai' => '08:00',
@@ -28,77 +29,77 @@ class JadwalPeriksaSeeder extends Seeder
                 'hari' => 'Senin',
                 'jam_mulai' => '12:00',
                 'jam_selesai' => '14:00',
-                'status' => true
+                'status' => false
             ]);
             JadwalPeriksa::create([
                 'id_dokter' => $dokter->id,
                 'hari' => 'Senin',
                 'jam_mulai' => '13:00',
                 'jam_selesai' => '15:00',
-                'status' => true
+                'status' => false
             ]);
             JadwalPeriksa::create([
                 'id_dokter' => $dokter->id,
                 'hari' => 'Selasa',
                 'jam_mulai' => '08:00',
                 'jam_selesai' => '10:00',
-                'status' => true
+                'status' => false
             ]);
             JadwalPeriksa::create([
                 'id_dokter' => $dokter->id,
                 'hari' => 'Selasa',
                 'jam_mulai' => '12:00',
                 'jam_selesai' => '14:00',
-                'status' => true
+                'status' => false
             ]);
             JadwalPeriksa::create([
                 'id_dokter' => $dokter->id,
                 'hari' => 'Selasa',
                 'jam_mulai' => '13:00',
                 'jam_selesai' => '15:00',
-                'status' => true
+                'status' => false
             ]);
             JadwalPeriksa::create([
                 'id_dokter' => $dokter->id,
                 'hari' => 'Rabu',
                 'jam_mulai' => '08:00',
                 'jam_selesai' => '10:00',
-                'status' => true
+                'status' => false
             ]);
             JadwalPeriksa::create([
                 'id_dokter' => $dokter->id,
                 'hari' => 'Rabu',
                 'jam_mulai' => '12:00',
                 'jam_selesai' => '14:00',
-                'status' => true
+                'status' => false
             ]);
             JadwalPeriksa::create([
                 'id_dokter' => $dokter->id,
                 'hari' => 'Rabu',
                 'jam_mulai' => '13:00',
                 'jam_selesai' => '15:00',
-                'status' => true
+                'status' => false
             ]);
             JadwalPeriksa::create([
                 'id_dokter' => $dokter->id,
                 'hari' => 'Kamis',
                 'jam_mulai' => '08:00',
                 'jam_selesai' => '10:00',
-                'status' => true
+                'status' => false
             ]);
             JadwalPeriksa::create([
                 'id_dokter' => $dokter->id,
                 'hari' => 'Kamis',
                 'jam_mulai' => '12:00',
                 'jam_selesai' => '14:00',
-                'status' => true
+                'status' => false
             ]);
             JadwalPeriksa::create([
                 'id_dokter' => $dokter->id,
                 'hari' => 'Kamis',
                 'jam_mulai' => '13:00',
                 'jam_selesai' => '15:00',
-                'status' => true
+                'status' => false
             ]);
         }
     }

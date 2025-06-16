@@ -5,13 +5,15 @@
     <x-table :headers="['No', 'Poliklinik', 'Dokter', 'Hari', 'Mulai', 'Selesai', 'Antrian', 'Status', 'Aksi']">
         @forelse ($janjiPeriksas as $janjiPeriksa)
             <x-table-row>
-                <x-table-cell>{{ $loop->iteration }}</x-table-cell>
-                <x-table-cell>{{ $janjiPeriksa->jadwalPeriksas->dokter->poli }}</x-table-cell>
+                <x-table-cell>{{ $janjiPeriksas->firstItem() + $loop->index }}</x-table-cell>
+                <x-table-cell>{{ $janjiPeriksa->jadwalPeriksas->dokter->poliklinik->nama }}</x-table-cell>
                 <x-table-cell>{{ $janjiPeriksa->jadwalPeriksas->dokter->nama }}</x-table-cell>
                 <x-table-cell>{{ $janjiPeriksa->jadwalPeriksas->hari }}</x-table-cell>
-                <x-table-cell>{{ $janjiPeriksa->jadwalPeriksas->jam_mulai }}</x-table-cell>
-                <x-table-cell>{{ $janjiPeriksa->jadwalPeriksas->jam_selesai }}</x-table-cell>
-                <x-table-cell>{{ $janjiPeriksa->no_antrian }}</x-table-cell>
+                <x-table-cell>{{ \Carbon\Carbon::parse($janjiPeriksa->jadwalPeriksas->jam_mulai)->format('H:i') }}</x-table-cell>
+                <x-table-cell>{{ \Carbon\Carbon::parse($janjiPeriksa->jadwalPeriksas->jam_selesai)->format('H:i') }}</x-table-cell>
+                <x-table-cell>
+                    <p class="bg-primary px-2 py-1 w-fit text-white rounded-lg">{{ $janjiPeriksa->no_antrian }}</p>
+                </x-table-cell>
                 <x-table-cell>
                     @if (is_null($janjiPeriksa->periksa))
                         <p class="bg-slate-400 text-white font-medium text-center py-2 px-2 rounded-lg">
@@ -38,5 +40,5 @@
         @empty
         @endforelse
     </x-table>
-    {{-- {{ $janjiPeriksas->links() }} --}}
+    {{ $janjiPeriksas->links() }}
 </x-pasien-layout>

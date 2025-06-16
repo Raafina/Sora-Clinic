@@ -17,7 +17,7 @@ class RiwayatPeriksaController extends Controller
      */
     public function index()
     {
-        $janjiPeriksas = JanjiPeriksa::where('id_pasien', Auth::user()->id)->get();
+        $janjiPeriksas = JanjiPeriksa::where('id_pasien', Auth::user()->id)->paginate(10);
         return view('pasien.riwayat-periksa.index', [
             'title' => 'Riwayat Periksa',
             'janjiPeriksas' => $janjiPeriksas

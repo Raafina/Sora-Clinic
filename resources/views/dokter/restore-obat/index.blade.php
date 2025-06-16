@@ -6,12 +6,13 @@
         <x-search-input route="/dokter/obat" placeholder="Cari berdasarkan nama obat" />
     </div>
 
-    <x-table :headers="['Nama Obat', 'Kemasan', 'Harga', 'Penghapusan', 'Aksi']">
+    <x-table :headers="['No', 'Nama Obat', 'Kemasan', 'Harga', 'Penghapusan', 'Aksi']">
         @forelse ($obats as $obat)
             <x-table-row>
+                <x-table-cell>{{ $obats->firstItem() + $loop->index }}</x-table-cell>
                 <x-table-cell isHeader="true">{{ $obat->nama_obat }}</x-table-cell>
                 <x-table-cell>{{ $obat->kemasan }}</x-table-cell>
-                <x-table-cell>{{ $obat->harga }}</x-table-cell>
+                <x-table-cell> {{ 'Rp' . number_format($obat->harga, 0, ',', '.') }}</x-table-cell>
                 <x-table-cell>
                     {{ \Carbon\Carbon::parse($obat->deleted_at)->locale('id')->translatedFormat('d F Y H.i') }}</x-table-cell>
                 <x-table-cell>
