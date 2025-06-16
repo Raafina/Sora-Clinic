@@ -27,6 +27,7 @@ class ProfileUpdateRequest extends FormRequest
             ],
             'alamat' => ['nullable', 'string', 'max:500'],
             'no_hp' => ['nullable', 'string', 'max:20'],
+            'id_poli' => ['required']
         ];
     }
 }

@@ -1,4 +1,5 @@
 <section>
+    <x-toast />
     <header>
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Informasi Akun') }}
@@ -7,7 +8,6 @@
             {{ __('Perbarui informasi profil dan alamat email akun Anda.') }}
         </p>
     </header>
-
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf
     </form>
@@ -40,14 +40,22 @@
             @endif
         </div>
         <x-text-input label='No HP' id="no_hp" placeholder="Masukkan nomor HP" value="{{ $user->no_hp }}" />
+        {{-- Select poliklinik --}}
+        <label for="poliklinikSelect" class="block mb-2 text-sm font-medium text-gray-900">Poliklinik</label>
+        <select
+            class="bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded-lg
+                    focus:ring-primary-600 focus:border-primary-600 block w-full !my-2 p-2.5
+                    {{ $errors->has('id_poli') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
+            name="id_poli" id="poliklinikSelect" required>
+            @foreach ($polikliniks as $poliklinik)
+                <option value="{{ $poliklinik->id }}" @if ($poliklinik->id == $user->id_poli) selected @endif>
+                    {{ $poliklinik->nama }}
+                </option>
+            @endforeach
+        </select>
         <x-text-area label='Alamat' id="alamat" placeholder="Masukkan alamat" value="{{ $user->alamat }}" />
         <div class="flex items-center gap-4">
             <x-button type="submit">{{ __('Simpan') }}</x-button>
-
-            @if (session('status') === 'profile-updated')
-                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600">{{ __('Tersimpan.') }}</p>
-            @endif
         </div>
     </form>
 </section>

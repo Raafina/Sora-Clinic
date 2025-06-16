@@ -29,6 +29,7 @@ class User extends Authenticatable
         'poli',
         'role',
         'password',
+        'id_poli'
     ];
 
     /**
@@ -62,5 +63,10 @@ class User extends Authenticatable
     public function jadwalPeriksas()
     {
         return $this->hasMany(JadwalPeriksa::class, 'id_dokter', 'id');
+    }
+
+    public function poliklinik()
+    {
+        return $this->belongsTo(Poliklinik::class, 'id_poli', 'id');
     }
 }

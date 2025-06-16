@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             'no_ktp' => '1234567890123456',
             'no_hp' => '08123456789',
             'no_rm' => '',
-            'poli' => 'Dokter Anak',
+            'id_poli' => '1',
             'role' => 'dokter',
             'password' => Hash::make('12345678')
         ]);
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
             'no_ktp' => '1234567890123456',
             'no_hp' => '08123456789',
             'no_rm' => '',
-            'poli' => '1',
+            'id_poli' => '2',
             'role' => 'dokter',
             'password' => Hash::make('123')
         ]);
@@ -48,7 +48,7 @@ class UserSeeder extends Seeder
             'no_ktp' => '1234567890123456',
             'no_hp' => '08123456789',
             'no_rm' => '12345-001',
-            'poli' => '',
+            'id_poli' => null,
             'role' => 'pasien',
             'password' => Hash::make('123')
         ]);
