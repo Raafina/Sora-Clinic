@@ -79,7 +79,7 @@ class MemeriksaController extends Controller
         return redirect()->route('dokter.memeriksa.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan.');
     }
 
-    public function edit(Request $request, string $id)
+    public function edit(string $id)
     {
         $obats = Obat::all();
         $janjiPeriksa = JanjiPeriksa::findOrFail($id);

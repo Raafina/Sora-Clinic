@@ -16,7 +16,7 @@
                 <div class="px-4 py-3 border-0 rounded bg-slate-100">
                     <div class="flex justify-between">
                         <span class="text-gray-700">Poliklinik</span>
-                        <span class="font-medium">{{ $janjiPeriksa->jadwalPeriksas->dokter->poli }}</span>
+                        <span class="font-medium">{{ $janjiPeriksa->jadwalPeriksas->dokter->poliklinik->nama }}</span>
                     </div>
                 </div>
                 <div class="px-4 py-3 border-0 rounded-md bg-slate-100">

@@ -39,8 +39,14 @@
                 <small>
                     Tekan Ctrl (Windows) atau Command (Mac) untuk memilih lebih dari satu obat
                 </small>
-                <x-text-input label='Biaya Pemeriksaan' id="biaya_periksa" placeholder="Biaya Pemeriksaan" readonly
-                    value="{{ $janjiPeriksa->periksa->biaya_periksa }}" />
+                {{-- Input untuk tampilan yang sudah diformat --}}
+                <x-text-input label='Biaya Pemeriksaan' id="biaya_periksa_display" placeholder="Biaya Pemeriksaan"
+                    readonly value="{{ number_format($janjiPeriksa->periksa->biaya_periksa, 0, ',', '.') }}" />
+
+                {{-- Input tersembunyi untuk dikirim ke server --}}
+                <input type="hidden" id="biaya_periksa" name="biaya_periksa"
+                    value="{{ $janjiPeriksa->periksa->biaya_periksa }}">
+
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
                         href="{{ route('dokter.memeriksa.index') }}" />
@@ -62,6 +68,13 @@
             });
 
             document.getElementById('biaya_periksa').value = totalBiaya;
+
+            const formatted = new Intl.NumberFormat('id-ID', {
+                minimumFractionDigits: 0
+            }).format(totalBiaya);
+
+            document.getElementById('biaya_periksa_display').value = formatted;
         }
     </script>
+
 </x-dokter-layout>
