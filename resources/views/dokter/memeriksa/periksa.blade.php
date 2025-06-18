@@ -35,11 +35,9 @@
                     Tekan Ctrl (Windows) atau Command (Mac) untuk memilih lebih dari satu obat
                 </small>
 
-                {{-- Input tampilan (formatted) --}}
                 <x-text-input label='Biaya Pemeriksaan' id="biaya_periksa_display" placeholder="Biaya Pemeriksaan"
                     readonly value="150.000" />
 
-                {{-- Input tersembunyi untuk nilai submit --}}
                 <input type="hidden" id="biaya_periksa" name="biaya_periksa" value="150000">
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
