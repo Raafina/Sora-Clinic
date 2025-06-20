@@ -15,7 +15,8 @@
                 <x-table-cell isHeader="true">{{ $obat->nama_obat }}</x-table-cell>
                 <x-table-cell>{{ $obat->kemasan }}</x-table-cell>
                 <x-table-cell> {{ 'Rp' . number_format($obat->harga, 0, ',', '.') }}</x-table-cell>
-                <x-table-action id="{{ $obat->id }}" deleteModalId="deleteModal-{{ $obat->id }}" />
+                <x-table-action id="{{ $obat->id }}" deleteModalId="deleteModal-{{ $obat->id }}"
+                    editRoute="dokter.obat.edit" />
             </x-table-row>
         @empty
         @endforelse

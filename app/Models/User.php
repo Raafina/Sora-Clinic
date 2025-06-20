@@ -69,4 +69,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Poliklinik::class, 'id_poli', 'id');
     }
+
+    public function konsultasisPasien()
+    {
+        return $this->hasMany(Konsultasi::class, 'id_user_pasien', 'id');
+    }
+
+    public function konsultasisDokter()
+    {
+        return $this->hasMany(Konsultasi::class, 'id_user_dokter', 'id');
+    }
 }

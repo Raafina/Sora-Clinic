@@ -6,6 +6,7 @@ use App\Http\Controllers\Dokter\JadwalPeriksaController;
 use App\Http\Controllers\Dokter\MemeriksaController;
 use App\Http\Controllers\Dokter\ObatController;
 use App\Http\Controllers\Dokter\RestoreObatController;
+use App\Http\Controllers\Dokter\KonsultasiController;
 
 Route::middleware(['role:dokter'])->prefix('dokter')->group(function () {
     Route::prefix('/profile')->group(function () {
@@ -37,5 +38,13 @@ Route::middleware(['role:dokter'])->prefix('dokter')->group(function () {
     Route::prefix('/restore-obat')->group(function () {
         Route::get('/', [RestoreObatController::class, 'index'])->name('dokter.restore-obat.index');
         Route::patch('/{id}/restore', [RestoreObatController::class, 'restore'])->name('dokter.restore-obat.restore');
+    });
+    Route::prefix('/konsultasi')->group(function () {
+        Route::get('/', [KonsultasiController::class, 'index'])->name('dokter.konsultasi.index');
+        Route::get('/tambah', [KonsultasiController::class, 'create'])->name('dokter.konsultasi.create');
+        Route::post('/', [KonsultasiController::class, 'store'])->name('dokter.konsultasi.store');
+        Route::get('/{id}/edit', [KonsultasiController::class, 'edit'])->name('dokter.konsultasi.edit');
+        Route::put('/{id}', [KonsultasiController::class, 'update'])->name('dokter.konsultasi.update');
+        Route::delete('/{id}', [KonsultasiController::class, 'destroy'])->name('dokter.konsultasi.destroy');
     });
 });

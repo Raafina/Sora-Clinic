@@ -15,7 +15,7 @@
                             focus:ring-primary-600 focus:border-primary-600 block w-full !my-2 p-2.5
                             {{ $errors->has('id_dokter') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
                     name="id_dokter" id="dokterSelect" required>
-                    <option value="">Pilih Dokter</option>
+                    <option value="" hidden>Pilih Dokter</option>
                     @foreach ($dokters as $dokter)
                         @foreach ($dokter->jadwalPeriksas as $jadwal)
                             <option value="{{ $dokter->id }}">

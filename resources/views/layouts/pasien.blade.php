@@ -32,7 +32,6 @@
                     </button>
                     <a href="/" class="flex ms-2 md:me-24">
                         <img src="{{ asset('/images/logo/primary.svg') }}" class="h-9 me-3 sm:h-11" alt="Sora Clinic" />
-
                     </a>
                 </div>
                 {{-- Profile Button --}}
@@ -111,6 +110,19 @@
                                 d="M5 19V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13H7a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M9 3v14m7 0v4" />
                         </svg>
                         <span class="ms-3">Riwayat Periksa</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('pasien.konsultasi.index') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('pasien/konsultasi*') ? 'bg-primary text-white hover:bg-primary' : '' }}">
+                        <svg class="{{ Request()->is('pasien/konsultasi*') ? 'text-white' : '' }}" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none"
+                            viewBox="0 0 25 25">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z" />
+                        </svg>
+
+                        <span class="ms-3">Konsultasi</span>
                     </a>
                 </li>
             </ul>

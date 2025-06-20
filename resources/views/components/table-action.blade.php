@@ -1,8 +1,8 @@
-@props(['id', 'editModalId', 'deleteModalId'])
+@props(['id', 'editModalId', 'deleteModalId', 'editRoute'])
 
 <td class="px-6 py-3 flex flex-row gap-2">
     <div class=" p-1 rounded-md hover:opacity-75">
-        <a href="{{ route('dokter.obat.edit', $id) }}" class="flex justify-center w-full">
+        <a href="{{ route($editRoute, $id) }}" class="flex justify-center w-full">
             <svg class="w-6 h-6 text-yellow-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                 height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

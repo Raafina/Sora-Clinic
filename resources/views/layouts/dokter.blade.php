@@ -129,18 +129,19 @@
                         <span class="ms-3">Riwayat Periksa</span>
                     </a>
                 </li> --}}
-                {{-- <li>
-                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
-                        <svg width="25" height="25" viewBox="0 0 24 24" class="text-gray-900 "
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
+                <li>
+                    <a href="{{ route('dokter.konsultasi.index') }}"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('dokter/konsultasi*') ? 'bg-primary text-white hover:bg-primary' : '' }}">
+                        <svg class="{{ Request()->is('dokter/konsultasi*') ? 'text-white' : '' }}" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none"
+                            viewBox="0 0 25 25">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="1.7" d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z" />
+                                stroke-width="2" d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z" />
                         </svg>
 
-                        <span class="ms-3">Telemedicine</span>
+                        <span class="ms-3">Konsultasi</span>
                     </a>
-                </li> --}}
+                </li>
                 <li>
                     <a href="{{ route('dokter.obat.index') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('dokter/obat*') ? 'bg-primary text-white hover:bg-primary' : '' }}">
