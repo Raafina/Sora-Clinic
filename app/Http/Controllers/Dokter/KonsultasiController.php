@@ -44,14 +44,21 @@ class KonsultasiController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'nama_obat' => ['required', 'string', 'max:255'],
-            'kemasan' => ['required', 'string', 'max:255'],
-            'harga' => ['required', 'numeric', 'min:0'],
+            'id_user_dokter' => ['required', 'string', 'max:255', 'exists:users,id'],
+            'subjek' => ['required', 'string', 'max:255'],
+            'pertanyaan' => ['required', 'string', 'min:0'],
+            'jawaban' => ['required', 'string', 'min:0'],
         ]);
 
-        $obat = Obat::findOrFail($id);
-        $obat->update($validated);
-        return redirect()->route('dokter.obat.index')->with('success', 'Obat berhasil diubah!');
+        Konsultasi::findOrFail($id)->update([
+            'id_user_pasien' => $request->id_user_pasien,
+            'id_user_dokter' => $validated['id_user_dokter'],
+            'pertanyaan' => $validated['pertanyaan'],
+            'subjek' => $validated['subjek'],
+            'jawaban' => $validated['jawaban'],
+        ]);
+
+        return redirect()->route('dokter.konsultasi.index')->with('success', 'Konsultasi berhasil dijawab!');
     }
 
     /**
@@ -59,9 +66,9 @@ class KonsultasiController extends Controller
      */
     public function destroy(string $id)
     {
-        $obat = Obat::findOrFail($id);
-        $obat->delete();
+        $konsultasi = Konsultasi::findOrFail($id);
+        $konsultasi->delete();
 
-        return redirect()->back()->with('success', 'Obat berhasil dihapus!');
+        return redirect()->back()->with('success', 'Konsultasi berhasil dihapus!');
     }
 }

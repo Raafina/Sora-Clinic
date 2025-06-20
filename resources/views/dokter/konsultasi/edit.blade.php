@@ -11,17 +11,21 @@
     </div>
 
     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-        <form action="{{ route('pasien.konsultasi.update', $konsultasi->id) }}" method="POST">
+        <form action="{{ route('dokter.konsultasi.update', $konsultasi->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="space-y-4 max-w-xl ">
-                <x-text-input label='Dokter' id="id_user_dokter" placeholder="Masukkan subjek"
-                    value="{{ $konsultasi->dokter->nama }}" disabled />
+                <input type="hidden" id="id_user_dokter" name="id_user_dokter"
+                    value="{{ $konsultasi->id_user_dokter }}">
+                <input type="hidden" id="id_user_pasien" name="id_user_pasien"
+                    value="{{ $konsultasi->id_user_pasien }}">
+                <x-text-input label='Dokter' id="show_dokter" placeholder="Masukkan dokter"
+                    value="{{ $konsultasi->dokter->nama }}" readonly />
                 <x-text-input label='Subjek' id="subjek" placeholder="Masukkan subjek"
-                    value="{{ $konsultasi->subjek }}" value="{{ $konsultasi->subjek }}" disabled />
-                <x-text-input label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan"
-                    value="{{ $konsultasi->pertanyaan }}" disabled />
-                <x-text-input label='Jawaban' id="jawaban" placeholder="Masukkan jawaban"
+                    value="{{ $konsultasi->subjek }}" readonly />
+                <x-text-area label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan"
+                    value="{{ $konsultasi->pertanyaan }}" readonly />
+                <x-text-area label='Jawaban' id="jawaban" placeholder="Masukkan jawaban"
                     value="{{ $konsultasi->jawaban }}" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
