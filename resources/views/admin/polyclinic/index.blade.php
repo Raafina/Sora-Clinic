@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-medium">Daftar Poliklinik</h1>
 
     <div class="flex justify-between py-4">
-        <x-search-input route="/admin/polyclinic" placeholder="Cari berdasarkan nama poliklinik" />
+        <x-search-input route="{{ route('admin.polyclinic.index') }}" placeholder="Cari berdasarkan nama poliklinik" />
         <x-button label="Tambah Poliklinik" variant="primary" href="{{ route('admin.polyclinic.create') }}" />
     </div>
 

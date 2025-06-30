@@ -14,7 +14,8 @@ class PolyclinicController extends Controller
      */
     public function index()
     {
-        $polyclinics = Polyclinic::latest()
+        $polyclinics = Polyclinic::filter(request(['search']))
+            ->latest()
             ->paginate(10)
             ->withQueryString();
 

@@ -17,7 +17,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = User::where('role', 'dokter')
+        $doctors = User::filter(request(['search']))
+            ->where('role', 'dokter')
             ->latest()
             ->paginate(10)
             ->withQueryString();

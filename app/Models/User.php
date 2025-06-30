@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\JanjiPeriksa;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -78,5 +79,13 @@ class User extends Authenticatable
     public function konsultasisDokter()
     {
         return $this->hasMany(Konsultasi::class, 'id_user_dokter', 'id');
+    }
+    public function scopeFilter(Builder $query, array $filters): void
+    {
+        $query->when(
+            $filters['search'] ?? false,
+            fn($query, $search) =>
+            $query->where('nama', 'like', '%' . $search . '%')
+        );
     }
 }
