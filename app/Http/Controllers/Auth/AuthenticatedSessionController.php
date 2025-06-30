@@ -21,6 +21,7 @@ class AuthenticatedSessionController extends Controller
 
             $dashboardRoute = match ($user->role) {
                 'dokter' => '/dokter/jadwal-periksa',
+                'admin' => '/admin/doctors',
                 default => '/pasien/daftar-poli'
             };
 

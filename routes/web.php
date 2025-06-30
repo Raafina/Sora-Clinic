@@ -13,3 +13,4 @@ Route::get('/', function () {
 require __DIR__ . '/auth.php';
 require __DIR__ . '/pasien.php';
 require __DIR__ . '/dokter.php';
+require __DIR__ . '/admin.php';

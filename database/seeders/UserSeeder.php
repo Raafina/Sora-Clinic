@@ -28,6 +28,19 @@ class UserSeeder extends Seeder
                 'role' => 'dokter',
                 'password' => Hash::make('123')
             ],
+            // Admin
+            [
+                'nama' => 'Admin',
+                'username' => 'Admin',
+                'email' => 'admin@example.com',
+                'alamat' => 'Semarang Kota, Jawa Tengah',
+                'no_ktp' => '1234567890123456',
+                'no_hp' => '08123456789',
+                'no_rm' => null,
+                'id_poli' => null,
+                'role' => 'admin',
+                'password' => Hash::make('123')
+            ],
             // Dokter
             [
                 'nama' => 'Dr. Rudi Santoso, Sp.PD',
@@ -39,7 +52,7 @@ class UserSeeder extends Seeder
                 'no_rm' => '',
                 'id_poli' => '2',
                 'role' => 'dokter',
-                'password' => Hash::make('12345678')
+                'password' => Hash::make('123')
             ],
             [
                 'nama' => 'Dr. Anisa Farida, Sp.A',
@@ -51,7 +64,7 @@ class UserSeeder extends Seeder
                 'no_rm' => '',
                 'id_poli' => '1',
                 'role' => 'dokter',
-                'password' => Hash::make('12345678')
+                'password' => Hash::make('123')
             ],
             [
                 'nama' => 'Dr. Siti Rahmawati, Sp.OG',
@@ -63,7 +76,7 @@ class UserSeeder extends Seeder
                 'no_rm' => '',
                 'id_poli' => '4',
                 'role' => 'dokter',
-                'password' => Hash::make('12345678')
+                'password' => Hash::make('123')
             ],
             [
                 'nama' => 'Dr. Andi Wijaya, Sp.JP',
@@ -75,7 +88,7 @@ class UserSeeder extends Seeder
                 'no_rm' => '',
                 'id_poli' => '3',
                 'role' => 'dokter',
-                'password' => Hash::make('12345678')
+                'password' => Hash::make('123')
             ],
             // Pasien
             [
