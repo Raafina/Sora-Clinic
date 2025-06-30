@@ -11,22 +11,22 @@
     </div>
 
     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-        <form action="{{ route('dokter.konsultasi.update', $konsultasi->id) }}" method="POST">
+        <form action="{{ route('dokter.konsultasi.update', $consultation->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="space-y-4 max-w-xl ">
                 <input type="hidden" id="id_user_dokter" name="id_user_dokter"
-                    value="{{ $konsultasi->id_user_dokter }}">
+                    value="{{ $consultation->id_user_dokter }}">
                 <input type="hidden" id="id_user_pasien" name="id_user_pasien"
-                    value="{{ $konsultasi->id_user_pasien }}">
+                    value="{{ $consultation->id_user_pasien }}">
                 <x-text-input label='Pasien' id="show_dokter" placeholder="Masukkan dokter"
-                    value="{{ $konsultasi->pasien->nama }}" readonly />
+                    value="{{ $consultation->pasien->nama }}" readonly />
                 <x-text-input label='Subjek' id="subjek" placeholder="Masukkan subjek"
-                    value="{{ $konsultasi->subjek }}" readonly />
+                    value="{{ $consultation->subjek }}" readonly />
                 <x-text-area label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan"
-                    value="{{ $konsultasi->pertanyaan }}" readonly />
+                    value="{{ $consultation->pertanyaan }}" readonly />
                 <x-text-area label='Jawaban' id="jawaban" placeholder="Masukkan jawaban"
-                    value="{{ $konsultasi->jawaban }}" />
+                    value="{{ $consultation->jawaban }}" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
                         href="{{ route('pasien.konsultasi.index') }}" />

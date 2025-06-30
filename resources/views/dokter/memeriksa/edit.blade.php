@@ -11,16 +11,16 @@
     </div>
 
     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-        <form action="{{ route('dokter.memeriksa.update', $janjiPeriksa->id) }}" method="POST">
+        <form action="{{ route('dokter.memeriksa.update', $checkupAppointment->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="space-y-4 max-w-xl ">
                 <x-text-input label='Nama' id="nama" placeholder="Nama pasien" readonly
-                    value="{{ $janjiPeriksa->pasien->nama }}" />
+                    value="{{ $checkupAppointment->patient->nama }}" />
                 <x-text-input label='Tanggal Periksa' id="tgl_periksa" type="datetime-local"
-                    value="{{ $janjiPeriksa->periksa->tgl_periksa }}" />
+                    value="{{ $checkupAppointment->checkup->tgl_periksa }}" />
                 <x-text-area label='Catatan' id="catatan" placeholder="Masukkan catatan"
-                    value="{{ $janjiPeriksa->periksa->catatan }}" />
+                    value="{{ $checkupAppointment->checkup->catatan }}" />
                 {{-- select obat --}}
                 <label for="obatSelect" class="block text-sm font-medium text-gray-900">Pilih Obat</label>
                 <select
@@ -28,11 +28,11 @@
                             focus:ring-primary-600 focus:border-primary-600 block w-full !my-2 p-2.5
                             {{ $errors->has('obat') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
                     name="obats[]" id="obatSelect" required multiple onchange="hitungBiayaPeriksa()">
-                    @foreach ($obats as $obat)
-                        <option value="{{ $obat->id }}" data-harga="{{ $obat->harga }}"
-                            {{ in_array($obat->id, $janjiPeriksa->periksa->detailPeriksas->pluck('id_obat')->toArray()) ? 'selected' : '' }}>
-                            {{ $obat->nama_obat }} -
-                            {{ $obat->kemasan }} (Rp.{{ number_format($obat->harga, 0, ',', '.') }})
+                    @foreach ($medicines as $medicine)
+                        <option value="{{ $medicine->id }}" data-harga="{{ $medicine->harga }}"
+                            {{ in_array($medicine->id, $checkupAppointment->checkup->checkupDetails->pluck('id_obat')->toArray()) ? 'selected' : '' }}>
+                            {{ $medicine->nama_obat }} -
+                            {{ $medicine->kemasan }} (Rp.{{ number_format($medicine->harga, 0, ',', '.') }})
                         </option>
                     @endforeach
                 </select>
@@ -41,11 +41,11 @@
                 </small>
                 {{-- Input untuk tampilan yang sudah diformat --}}
                 <x-text-input label='Biaya Pemeriksaan' id="biaya_periksa_display" placeholder="Biaya Pemeriksaan"
-                    readonly value="{{ number_format($janjiPeriksa->periksa->biaya_periksa, 0, ',', '.') }}" />
+                    readonly value="{{ number_format($checkupAppointment->checkup->biaya_periksa, 0, ',', '.') }}" />
 
                 {{-- Input tersembunyi untuk dikirim ke server --}}
                 <input type="hidden" id="biaya_periksa" name="biaya_periksa"
-                    value="{{ $janjiPeriksa->periksa->biaya_periksa }}">
+                    value="{{ $checkupAppointment->checkup->biaya_periksa }}">
 
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"

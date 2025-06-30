@@ -17,9 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PolyclinicSeeder::class,
             UserSeeder::class,
-            JadwalPeriksaSeeder::class,
-            // JanjiPeriksaSeeder::class,
-            ObatSeeder::class
+            CheckupScheduleSeeder::class,
+            MedicineSeeder::class
         ]);
     }
 }

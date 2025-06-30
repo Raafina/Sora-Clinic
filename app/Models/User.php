@@ -3,7 +3,6 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\JanjiPeriksa;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -56,14 +55,14 @@ class User extends Authenticatable
         ];
     }
 
-    public function janjiPeriksas()
+    public function checkupAppointments()
     {
-        return $this->hasMany(JanjiPeriksa::class, 'id_pasien', 'id');
+        return $this->hasMany(CheckupAppointment::class, 'id_pasien', 'id');
     }
 
-    public function jadwalPeriksas()
+    public function checkupSchedules()
     {
-        return $this->hasMany(JadwalPeriksa::class, 'id_dokter', 'id');
+        return $this->hasMany(CheckupSchedule::class, 'id_dokter', 'id');
     }
 
     public function polyclinic()
@@ -71,14 +70,14 @@ class User extends Authenticatable
         return $this->belongsTo(Polyclinic::class, 'id_poli', 'id');
     }
 
-    public function konsultasisPasien()
+    public function patientConsultations()
     {
-        return $this->hasMany(Konsultasi::class, 'id_user_pasien', 'id');
+        return $this->hasMany(Consultation::class, 'id_user_pasien', 'id');
     }
 
-    public function konsultasisDokter()
+    public function doctorConsultations()
     {
-        return $this->hasMany(Konsultasi::class, 'id_user_dokter', 'id');
+        return $this->hasMany(Consultation::class, 'id_user_dokter', 'id');
     }
     public function scopeFilter(Builder $query, array $filters): void
     {

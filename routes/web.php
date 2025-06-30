@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Pasien\ProfileController;
 
 
 Route::get('/', function () {
@@ -11,6 +10,6 @@ Route::get('/', function () {
 });
 
 require __DIR__ . '/auth.php';
-require __DIR__ . '/pasien.php';
-require __DIR__ . '/dokter.php';
+require __DIR__ . '/patient.php';
+require __DIR__ . '/doctor.php';
 require __DIR__ . '/admin.php';

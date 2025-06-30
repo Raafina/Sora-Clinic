@@ -91,7 +91,7 @@
                 </div>
                 <li>
                     <a href="{{ route('admin.doctor.index') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('admin/doctors') ? 'bg-primary text-white hover:bg-primary' : '' }}">
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('admin/dokter*') ? 'bg-primary text-white hover:bg-primary' : '' }}">
                         <svg width="24" height="24" viewBox="0 0 38 42" fill="none"
                             class="{{ Request()->is('admin/dokter') ? 'text-white' : '' }}"
                             xmlns="http://www.w3.org/2000/svg">
@@ -115,7 +115,7 @@
                 </li> --}}
                 <li>
                     <a href="{{ route('admin.polyclinic.index') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('admin/polyclinics') ? 'bg-primary text-white hover:bg-primary' : '' }}">
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('admin/poliklinik*') ? 'bg-primary text-white hover:bg-primary' : '' }}">
                         <svg width="24" height="24" viewBox="0 0 42 36" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"

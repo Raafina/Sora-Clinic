@@ -32,7 +32,7 @@
                     @foreach ($polyclinics as $polyclinic)
                         <option value="{{ $polyclinic->id }}"
                             {{ $doctor->id_poli == $polyclinic->id ? 'selected' : '' }}>
-                            {{ $polyclinic->nama }}
+                            {{ $polyclinic->name }}
                         </option>
                     @endforeach
                 </select>

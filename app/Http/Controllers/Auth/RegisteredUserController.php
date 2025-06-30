@@ -25,6 +25,7 @@ class RegisteredUserController extends Controller
 
             $dashboardRoute = match ($user->role) {
                 'dokter' => '/dokter/jadwal-periksa',
+                'admin' => '/admin/doctors',
                 default => '/pasien/daftar-poli'
             };
 
@@ -79,6 +80,6 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
 
-        return redirect(route('pasien.daftar-poli.index', absolute: false));
+        return redirect(route('patient.register_checkup.index', absolute: false));
     }
 }

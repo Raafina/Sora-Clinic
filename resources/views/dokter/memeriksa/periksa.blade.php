@@ -11,23 +11,24 @@
     </div>
 
     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-        <form action="{{ route('dokter.memeriksa.store', $janjiPeriksa->id) }}" method="POST">
+        <form action="{{ route('dokter.memeriksa.store', $checkupAppointment->id) }}" method="POST">
             @csrf
             <div class="space-y-4 max-w-xl ">
                 <x-text-input label='Nama' id="nama" placeholder="Nama pasien" readonly
-                    value="{{ $janjiPeriksa->pasien->nama }}" />
+                    value="{{ $checkupAppointment->patient->nama }}" />
                 <x-text-input label='Tanggal Periksa' id="tgl_periksa" type="datetime-local" />
                 <x-text-area label='Catatan' id="catatan" placeholder="Masukkan catatan" />
-                {{-- select obat --}}
-                <label for="obatSelect" class="block text-sm font-medium text-gray-900">Pilih Obat</label>
+                {{-- select medicine --}}
+                <label for="medicinesSelecet" class="block text-sm font-medium text-gray-900">Pilih Obat</label>
                 <select
                     class="bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded-lg
                             focus:ring-primary-600 focus:border-primary-600 block w-full !my-2 p-2.5
                             {{ $errors->has('obat') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
-                    name="obats[]" id="obatSelect" required multiple onchange="hitungBiayaPeriksa()">
-                    @foreach ($obats as $obat)
-                        <option value="{{ $obat->id }}" data-harga="{{ $obat->harga }}">{{ $obat->nama_obat }} -
-                            {{ $obat->kemasan }} ({{ number_format($obat->harga, 0, ',', '.') }})
+                    name="obats[]" id="medicinesSelecet" required multiple onchange="hitungBiayaPeriksa()">
+                    @foreach ($medicines as $medicine)
+                        <option value="{{ $medicine->id }}" data-harga="{{ $medicine->harga }}">
+                            {{ $medicine->nama_obat }} -
+                            {{ $medicine->kemasan }} ({{ number_format($medicine->harga, 0, ',', '.') }})
                         </option>
                     @endforeach
                 </select>
@@ -51,7 +52,7 @@
         function hitungBiayaPeriksa() {
             const baseBiayaPeriksa = 150000;
             let totalBiaya = baseBiayaPeriksa;
-            const select = document.getElementById('obatSelect');
+            const select = document.getElementById('medicinesSelecet');
             const selectedOptions = Array.from(select.selectedOptions);
 
             selectedOptions.forEach((option) => {

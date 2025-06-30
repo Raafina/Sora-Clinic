@@ -49,7 +49,7 @@
             name="id_poli" id="poliklinikSelect" required>
             @foreach ($polyclinics as $polyclinic)
                 <option value="{{ $polyclinic->id }}" @if ($polyclinic->id == $user->id_poli) selected @endif>
-                    {{ $polyclinic->nama }}
+                    {{ $polyclinic->name }}
                 </option>
             @endforeach
         </select>

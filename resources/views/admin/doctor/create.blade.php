@@ -27,7 +27,7 @@
                     <option value="" hidden>Pilih Poliklinik</option>
                     @foreach ($polyclinics as $polyclinic)
                         <option value="{{ $polyclinic->id }}">
-                            {{ $polyclinic->nama }}
+                            {{ $polyclinic->name }}
                         </option>
                     @endforeach
                 </select>

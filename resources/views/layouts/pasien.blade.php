@@ -15,7 +15,7 @@
 </head>
 
 <body class="h-full">
-    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
+    <nav class="fixed top-0 w-full bg-white border-b border-gray-200">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start rtl:justify-end">
@@ -30,9 +30,7 @@
                             </path>
                         </svg>
                     </button>
-                    <a href="/" class="flex ms-2 md:me-24">
-                        <img src="{{ asset('/images/logo/primary.svg') }}" class="h-9 me-3 sm:h-11" alt="Sora Clinic" />
-                    </a>
+
                 </div>
                 {{-- Profile Button --}}
                 <div class="flex items-center">
@@ -55,12 +53,11 @@
                         <div class="z-50 hidden my-4 text-base list-none rounded-xl bg-white divide-y divide-gray-100 shadow-md"
                             id="dropdown-user">
                             <ul class="py-1" role="none">
-                                {{-- <li>
+                                <li>
                                     <a href="{{ route('profile.edit') }}"
                                         class="block px-4 py-2  text-gray-900 hover:bg-gray-100 hover:cursor-pointer"
                                         role="menuitem">{{ __('Pengaturan') }}</a>
-                                </li> --}}
-
+                                </li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -83,12 +80,17 @@
     </nav>
 
     <aside id="logo-sidebar"
-        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0"
+        class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0"
         aria-label="Sidebar">
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white ">
             <ul class="space-y-2 font-medium">
+                <div class="flex flex-row w-full justify-center pt-5 pb-3  items-center">
+                    <a href="/" class="">
+                        <img src="{{ asset('/images/logo/primary.svg') }}" class="h-9 me-3 sm:h-12" alt="Sora Clinic" />
+                    </a>
+                </div>
                 <li>
-                    <a href="{{ route('pasien.daftar-poli.index') }}"
+                    <a href="{{ route('patient.register_checkup.index') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('pasien/daftar-poli*') ? 'bg-primary text-white hover:bg-primary' : '' }}">
                         <svg width="24" height="24" viewBox="0 0 42 36" fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -118,8 +120,8 @@
                         <svg class="{{ Request()->is('pasien/konsultasi*') ? 'text-white' : '' }}" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none"
                             viewBox="0 0 25 25">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M9 17h6l3 3v-3h2V9h-2M4 4h11v8H9l-3 3v-3H4V4Z" />
                         </svg>
 
                         <span class="ms-3">Konsultasi</span>

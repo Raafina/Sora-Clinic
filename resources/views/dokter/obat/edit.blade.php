@@ -11,15 +11,16 @@
     </div>
 
     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-        <form action="{{ route('dokter.obat.update', $obat->id) }}" method="POST">
+        <form action="{{ route('dokter.obat.update', $medicine->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="space-y-4 max-w-xl ">
                 <x-text-input label='Nama Obat' id="nama_obat" placeholder="Masukkan nama obat"
-                    value="{{ $obat->nama_obat }}" />
+                    value="{{ $medicine->nama_obat }}" />
                 <x-text-input label='Kemasan' id="kemasan" placeholder="Masukkan kemasan"
-                    value="{{ $obat->kemasan }}" />
-                <x-text-input label='Harga' id="harga" placeholder="Masukkan harga" value="{{ $obat->harga }}" />
+                    value="{{ $medicine->kemasan }}" />
+                <x-text-input label='Harga' id="harga" placeholder="Masukkan harga"
+                    value="{{ $medicine->harga }}" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
                         href="{{ route('dokter.obat.index') }}" />
