@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId("id_user_pasien")->references("id")->on("users")->onDelete("cascade");
             $table->foreignId("id_user_dokter")->references("id")->on("users")->onDelete("cascade");
             $table->string('subjek');
-            $table->string('pertanyaan');
+            $table->text('pertanyaan');
             $table->string('jawaban')->nullable();
             $table->timestamps();
         });

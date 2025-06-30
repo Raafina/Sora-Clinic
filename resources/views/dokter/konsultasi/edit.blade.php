@@ -1,6 +1,6 @@
 <x-dokter-layout id="add-dokter-layout" title="Jawab Konsultasi" maxWidth="md">
     <div class="flex items-center gap-3 mb-6">
-        <x-button class="!px-3" href="{{ route('pasien.konsultasi.index') }}">
+        <x-button class="!px-3" href="{{ route('dokter.konsultasi.index') }}">
             <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -19,8 +19,8 @@
                     value="{{ $konsultasi->id_user_dokter }}">
                 <input type="hidden" id="id_user_pasien" name="id_user_pasien"
                     value="{{ $konsultasi->id_user_pasien }}">
-                <x-text-input label='Dokter' id="show_dokter" placeholder="Masukkan dokter"
-                    value="{{ $konsultasi->dokter->nama }}" readonly />
+                <x-text-input label='Pasien' id="show_dokter" placeholder="Masukkan dokter"
+                    value="{{ $konsultasi->pasien->nama }}" readonly />
                 <x-text-input label='Subjek' id="subjek" placeholder="Masukkan subjek"
                     value="{{ $konsultasi->subjek }}" readonly />
                 <x-text-area label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan"

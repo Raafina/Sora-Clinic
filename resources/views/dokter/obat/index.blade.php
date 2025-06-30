@@ -15,8 +15,17 @@
                 <x-table-cell isHeader="true">{{ $obat->nama_obat }}</x-table-cell>
                 <x-table-cell>{{ $obat->kemasan }}</x-table-cell>
                 <x-table-cell> {{ 'Rp' . number_format($obat->harga, 0, ',', '.') }}</x-table-cell>
-                <x-table-action id="{{ $obat->id }}" deleteModalId="deleteModal-{{ $obat->id }}"
-                    editRoute="dokter.obat.edit" />
+                <x-table-cell>
+                    <div class="flex gap-2">
+                        <a href="{{ route('dokter.obat.edit', $obat->id) }}">
+                            <x-icons.pen />
+                        </a>
+                        <button type="button" data-modal-target="deleteModal-{{ $obat->id }}"
+                            data-modal-toggle="deleteModal-{{ $obat->id }}">
+                            <x-icons.trash />
+                        </button>
+                    </div>
+                </x-table-cell>
             </x-table-row>
         @empty
         @endforelse

@@ -16,8 +16,19 @@
                 <x-table-cell isHeader="true">{{ $konsultasi->subjek }}</x-table-cell>
                 <x-table-cell>{{ $konsultasi->pertanyaan }}</x-table-cell>
                 <x-table-cell>{{ $konsultasi->jawaban ? $konsultasi->jawaban : '-' }}</x-table-cell>
-                <x-table-action id="{{ $konsultasi->id }}" deleteModalId="deleteModal-{{ $konsultasi->id }}"
-                    editRoute="pasien.konsultasi.edit" />
+                <x-table-cell>
+                    <div class="flex gap-2">
+                        @if (is_null($konsultasi->jawaban))
+                            <a href="{{ route('pasien.konsultasi.edit', $konsultasi->id) }}">
+                                <x-icons.pen />
+                            </a>
+                        @endif
+                        <button type="button" data-modal-target="deleteModal-{{ $konsultasi->id }}"
+                            data-modal-toggle="deleteModal-{{ $konsultasi->id }}">
+                            <x-icons.trash />
+                        </button>
+                    </div>
+                </x-table-cell>
             </x-table-row>
         @empty
         @endforelse
