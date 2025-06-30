@@ -65,9 +65,9 @@ class User extends Authenticatable
         return $this->hasMany(JadwalPeriksa::class, 'id_dokter', 'id');
     }
 
-    public function poliklinik()
+    public function polyclinic()
     {
-        return $this->belongsTo(Poliklinik::class, 'id_poli', 'id');
+        return $this->belongsTo(Polyclinic::class, 'id_poli', 'id');
     }
 
     public function konsultasisPasien()

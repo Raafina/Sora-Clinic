@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Poliklinik;
+use App\Models\Polyclinic;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +27,7 @@ class DoctorController extends Controller
 
     public function create()
     {
-        $polyclinics = Poliklinik::all();
+        $polyclinics = Polyclinic::all();
         return view('admin.doctor.create', ['title' => 'Tambah Obat', 'polyclinics' => $polyclinics]);
     }
 
@@ -58,7 +58,7 @@ class DoctorController extends Controller
 
     public function edit(string $id)
     {
-        $polyclinics = Poliklinik::all();
+        $polyclinics = Polyclinic::all();
         $doctor = User::findOrFail($id);
         return view('admin.doctor.edit', ['title' => 'Ubah Dokter', 'doctor' => $doctor, 'polyclinics' => $polyclinics]);
     }

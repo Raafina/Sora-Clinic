@@ -13,7 +13,7 @@
                 <x-table-cell>{{ $doctors->firstItem() + $loop->index }}</x-table-cell>
                 <x-table-cell isHeader="true">{{ $doctor->nama }}</x-table-cell>
                 <x-table-cell>{{ $doctor->email }}</x-table-cell>
-                <x-table-cell>{{ $doctor->poliklinik->nama }}</x-table-cell>
+                <x-table-cell>{{ $doctor->polyclinic->name }}</x-table-cell>
                 <x-table-cell>
                     <div class="flex gap-2">
                         <a href="{{ route('admin.doctor.edit', $doctor->id) }}">

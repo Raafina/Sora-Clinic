@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Pasien\ProfileController;
+use App\Http\Controllers\Dokter\ProfileController;
 use App\Http\Controllers\Dokter\JadwalPeriksaController;
 use App\Http\Controllers\Dokter\MemeriksaController;
 use App\Http\Controllers\Dokter\ObatController;

@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class poliklinik extends Model
+class Polyclinic extends Model
 {
     protected $fillable = [
-        'nama',
-        'deskripsi'
+        'name',
+        'description',
     ];
 
     public function users()

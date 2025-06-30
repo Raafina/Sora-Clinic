@@ -113,18 +113,18 @@
                         <span class="ms-3">Pasien</span>
                     </a>
                 </li> --}}
-                {{-- <li>
+                <li>
                     <a href="{{ route('admin.polyclinic.index') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 {{ Request()->is('admin/polyclinics') ? 'bg-primary text-white hover:bg-primary' : '' }}">
                         <svg width="24" height="24" viewBox="0 0 42 36" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M35.5644 8.00108H29.0014V0.299072H13.0884V8.00108H6.68143C3.22943 8.00108 0.274414 10.7861 0.274414 14.3941V29.1431C0.274414 32.7521 3.22943 35.7071 6.68143 35.7071H35.5654C39.0174 35.7071 41.9724 32.7521 41.9724 29.1431V14.3941C41.9724 10.7861 39.0174 8.00108 35.5644 8.00108ZM16.0434 3.25407H26.0594V8.00108H16.0434V3.25407ZM36.0614 23.7441H31.3024V28.4911H27.5234V23.7441H22.7634V19.9651H27.5234V15.2191H31.3024V19.9651H36.0614V23.7441Z"
-                                fill="#595959" />
+                                fill="currentColor" />
                         </svg>
                         <span class="ms-3">Poliklinik</span>
                     </a>
-                </li> --}}
+                </li>
                 {{-- <li>
                     <a href="{{ route('admin.medicine.index') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">

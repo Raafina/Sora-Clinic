@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Pasien;
+namespace App\Http\Controllers\Dokter;
 
 use Illuminate\View\View;
-use App\Models\Poliklinik;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Polyclinic;
 
 class ProfileController extends Controller
 {
@@ -18,13 +18,13 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        $polikliniks = Poliklinik::all();
+        $polyclinics = Polyclinic::all();
         $user = Auth::user();
         return view('dokter.profile.pengaturan', [
             'user' => $request->user(),
             'title' => 'Profile',
             'user' => $user,
-            'polikliniks' => $polikliniks
+            'polyclinics' => $polyclinics
         ]);
     }
 
