@@ -80,6 +80,6 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
 
-        return redirect(route('patient.register_checkup.index', absolute: false));
+        return redirect(route('patient.checkup_register.index', absolute: false));
     }
 }

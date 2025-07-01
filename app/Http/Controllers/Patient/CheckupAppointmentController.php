@@ -26,7 +26,7 @@ class CheckupAppointmentController extends Controller
             ->where('role', 'dokter')
             ->get();
 
-        return view('patient.register_checkup.index', [
+        return view('patient.checkup_register.index', [
             'title' => 'Daftar Poli',
             'no_rm' => $no_rm,
             'doctors' => $doctors
@@ -48,7 +48,7 @@ class CheckupAppointmentController extends Controller
             ->first();
 
         if (!$checkupSchedule) {
-            return Redirect::route('patient.register_checkup.index')
+            return Redirect::route('patient.checkup_register.index')
                 ->with('error', 'Jadwal periksa untuk dokter ini tidak tersedia atau tidak aktif.');
         }
 
@@ -62,7 +62,7 @@ class CheckupAppointmentController extends Controller
             'no_antrian' => $queue
         ]);
 
-        return Redirect::route('patient.register_checkup.index')
+        return Redirect::route('patient.checkup_register.index')
             ->with('success', 'Jadwal periksa berhasil ditambahkan');
     }
 }

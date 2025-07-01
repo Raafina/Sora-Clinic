@@ -18,13 +18,13 @@ class RestoreMedicineController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('dokter.restore-obat.index', ['title' => 'Daftar Obat Terhapus', 'medicines' => $medicines]);
+        return view('doctor.restore_medicine.index', ['title' => 'Daftar Obat Terhapus', 'medicines' => $medicines]);
     }
 
     public function restore($id)
     {
         Medicine::onlyTrashed()->findOrFail($id)->restore();
 
-        return redirect()->route('dokter.restore-obat.index')->with('success', 'Obat berhasil di-restore');
+        return redirect()->route('doctor.restore_medicine.index')->with('success', 'Obat berhasil di-restore');
     }
 }

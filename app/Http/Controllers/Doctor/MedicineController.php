@@ -18,12 +18,12 @@ class MedicineController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('dokter.obat.index', ['title' => 'Daftar Obat', 'medicines' => $medicines]);
+        return view('doctor.medicine.index', ['title' => 'Daftar Obat', 'medicines' => $medicines]);
     }
 
     public function create()
     {
-        return view('dokter.obat.create', ['title' => 'Tambah Obat']);
+        return view('doctor.medicine.create', ['title' => 'Tambah Obat']);
     }
 
     /**
@@ -39,13 +39,13 @@ class MedicineController extends Controller
 
         Medicine::create($validated);
 
-        return redirect()->route('dokter.obat.index')->with('success', 'Obat berhasil ditambahkan!');
+        return redirect()->route('doctor.medicine.index')->with('success', 'Obat berhasil ditambahkan!');
     }
 
     public function edit(string $id)
     {
         $medicine = Medicine::findOrFail($id);
-        return view('dokter.obat.edit', ['title' => 'Ubah Obat', 'medicine' => $medicine]);
+        return view('doctor.medicine.edit', ['title' => 'Ubah Obat', 'medicine' => $medicine]);
     }
     /**
      * Update the specified resource in storage.
@@ -60,7 +60,7 @@ class MedicineController extends Controller
 
         $medicine = Medicine::findOrFail($id);
         $medicine->update($validated);
-        return redirect()->route('dokter.obat.index')->with('success', 'Obat berhasil diubah!');
+        return redirect()->route('doctor.medicine.index')->with('success', 'Obat berhasil diubah!');
     }
 
     /**

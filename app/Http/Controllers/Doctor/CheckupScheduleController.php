@@ -20,12 +20,12 @@ class CheckupScheduleController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('dokter.jadwal-periksa.index', ['title' => 'Jadwal Periksa', 'jadwalPeriksas' => $jadwalPeriksas]);
+        return view('doctor.checkup_schedule.index', ['title' => 'Jadwal Periksa', 'jadwalPeriksas' => $jadwalPeriksas]);
     }
 
     public function create()
     {
-        return view('dokter.jadwal-periksa.create', ['title' => 'Tambah Jadwal Periksa']);
+        return view('doctor.checkup_schedule.create', ['title' => 'Tambah Jadwal Periksa']);
     }
 
 
@@ -89,13 +89,13 @@ class CheckupScheduleController extends Controller
             $jadwalPeriksa->update(['status' => true]);
 
             $jadwalPeriksa->save();
-            return redirect()->route('dokter.jadwal-periksa.index')->with('success', 'Status jadwal periksa berhasil diubah');
+            return redirect()->route('doctor.checkup_schedule.index')->with('success', 'Status jadwal periksa berhasil diubah!');
         }
 
         // if $jadwalPeriksa is active, then false it
         $jadwalPeriksa->status = false;
         $jadwalPeriksa->save();
-        return redirect()->route('dokter.jadwal-periksa.index')->with('success', 'Status jadwal periksa berhasil diubah');
+        return redirect()->route('doctor.checkup_schedule.index')->with('success', 'Status jadwal periksa berhasil diubah!');
     }
 
     /**

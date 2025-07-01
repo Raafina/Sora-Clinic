@@ -22,7 +22,7 @@ class AuthenticatedSessionController extends Controller
             $dashboardRoute = match ($user->role) {
                 'dokter' => '/dokter/jadwal-periksa',
                 'admin' => '/admin/doctors',
-                default => '/pasien/register_checkup'
+                default => '/pasien/daftar-poli'
             };
 
             return redirect($dashboardRoute);
@@ -42,12 +42,12 @@ class AuthenticatedSessionController extends Controller
 
             $user = Auth::user();
             if ($user->role === 'dokter') {
-                return redirect()->intended(route('dokter.jadwal-periksa.index', absolute: false));
+                return redirect()->intended(route('doctor.checkup_schedule.index', absolute: false));
             } else if ($user->role === 'admin') {
                 return redirect()->intended(route('admin.doctor.index', absolute: false));
             }
 
-            return redirect()->intended(route('patient.register_checkup.index', absolute: false));
+            return redirect()->intended(route('patient.checkup_register.index', absolute: false));
         }
 
         return back()->with('error', 'Login gagal! Email atau Kata Sandi salah.')->withInput();

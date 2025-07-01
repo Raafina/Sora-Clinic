@@ -14,7 +14,7 @@ class CheckupHistoryController extends Controller
     public function index()
     {
         $checkupAppointments = CheckupAppointment::where('id_pasien', Auth::user()->id)->paginate(10);
-        return view('pasien.riwayat-periksa.index', [
+        return view('patient.checkup_history.index', [
             'title' => 'Riwayat Periksa',
             'checkupAppointments' => $checkupAppointments
         ]);
@@ -22,7 +22,7 @@ class CheckupHistoryController extends Controller
     public function detail($id)
     {
         $checkupAppointment = CheckupAppointment::with(['checkupSchedule.doctor'])->findOrFail($id);
-        return view('pasien.riwayat-periksa.detail', [
+        return view('patient.checkup_history.detail', [
             'title' => 'Riwayat Periksa',
             'checkupAppointment' => $checkupAppointment
         ]);
@@ -31,7 +31,7 @@ class CheckupHistoryController extends Controller
     public function riwayat($id)
     {
         $checkupAppointment = CheckupAppointment::with(['checkupSchedule.doctor'])->findOrFail($id);
-        return view('pasien.riwayat-periksa.riwayat', [
+        return view('patient.checkup_history.history', [
             'title' => 'Riwayat Periksa',
             'checkupAppointment' => $checkupAppointment
         ]);

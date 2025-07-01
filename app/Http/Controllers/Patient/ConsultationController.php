@@ -22,13 +22,13 @@ class ConsultationController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('pasien.konsultasi.index', ['title' => 'Konsultasi', 'consultations' => $consultations]);
+        return view('patient.consultation.index', ['title' => 'Konsultasi', 'consultations' => $consultations]);
     }
 
     public function create()
     {
         $doctors = User::where('role', 'dokter')->get();
-        return view('pasien.konsultasi.create', ['title' => 'Konsultasi Dokter', 'doctors' => $doctors]);
+        return view('patient.consultation.create', ['title' => 'Konsultasi Dokter', 'doctors' => $doctors]);
     }
 
     /**
@@ -49,14 +49,14 @@ class ConsultationController extends Controller
             'subjek' => $validated['subjek'],
         ]);
 
-        return redirect()->route('pasien.konsultasi.index')->with('success', 'Konsultasi berhasil ditambahkan!');
+        return redirect()->route('patient.consultation.index')->with('success', 'Konsultasi berhasil ditambahkan!');
     }
 
     public function edit(string $id)
     {
         $doctors = User::where('role', 'dokter')->get();
         $consultation = Consultation::findOrFail($id);
-        return view('pasien.konsultasi.edit', ['title' => 'Ubah Konsultasi Dokter', 'consultation' => $consultation, 'doctors' => $doctors]);
+        return view('patient.consultation.edit', ['title' => 'Ubah Konsultasi Dokter', 'consultation' => $consultation, 'doctors' => $doctors]);
     }
     /**
      * Update the specified resource in storage.
@@ -76,7 +76,7 @@ class ConsultationController extends Controller
             'subjek' => $validated['subjek'],
         ]);
 
-        return redirect()->route('pasien.konsultasi.index')->with('success', 'Konsultasi berhasil diubah!');
+        return redirect()->route('patient.consultation.index')->with('success', 'Konsultasi berhasil diubah!');
     }
 
     /**

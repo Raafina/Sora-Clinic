@@ -22,7 +22,7 @@ class ConsultationController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('dokter.konsultasi.index', ['title' => 'Konsultasi', 'consultations' => $consultations]);
+        return view('doctor.consultation.index', ['title' => 'Konsultasi', 'consultations' => $consultations]);
     }
 
     /**
@@ -36,7 +36,7 @@ class ConsultationController extends Controller
     public function edit(string $id)
     {
         $consultation = Consultation::findOrFail($id);
-        return view('dokter.konsultasi.edit', ['title' => 'Ubah Konsultasi Dokter', 'consultation' => $consultation]);
+        return view('doctor.consultation.edit', ['title' => 'Ubah Konsultasi Dokter', 'consultation' => $consultation]);
     }
     /**
      * Update the specified resource in storage.
@@ -58,7 +58,7 @@ class ConsultationController extends Controller
             'jawaban' => $validated['jawaban'],
         ]);
 
-        return redirect()->route('dokter.konsultasi.index')->with('success', 'Konsultasi berhasil dijawab!');
+        return redirect()->route('doctor.consultation.index')->with('success', 'Konsultasi berhasil dijawab!');
     }
 
     /**

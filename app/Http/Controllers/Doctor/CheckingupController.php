@@ -31,7 +31,7 @@ class CheckingupController extends Controller
             ->oldest()
             ->paginate(10);
 
-        return view('dokter.memeriksa.index', [
+        return view('doctor.chekingup.index', [
             'title' => 'Periksa Pasien',
             'checkupAppointments' => $checkupAppointments
         ]);
@@ -41,7 +41,7 @@ class CheckingupController extends Controller
     {
         $checkupAppointment = CheckupAppointment::findOrFail($id);
         $medicines = Medicine::all();
-        return view('dokter.memeriksa.periksa', [
+        return view('doctor.chekingup.periksa', [
             'title' => 'Periksa Pasien',
             'checkupAppointment' => $checkupAppointment,
             'medicines' => $medicines
@@ -76,14 +76,14 @@ class CheckingupController extends Controller
                 'id_obat' => $obatId,
             ]);
         }
-        return redirect()->route('dokter.memeriksa.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan.');
+        return redirect()->route('doctor.chekingup.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan.');
     }
 
     public function edit(string $id)
     {
         $medicines = Medicine::all();
         $checkupAppointment = CheckupAppointment::findOrFail($id);
-        return view('dokter.memeriksa.edit', [
+        return view('doctor.chekingup.edit', [
             'medicines' => $medicines,
             'checkupAppointment' => $checkupAppointment
         ]);
@@ -121,6 +121,6 @@ class CheckingupController extends Controller
                 'id_obat' => $obatId,
             ]);
         }
-        return redirect()->route('dokter.memeriksa.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan.');
+        return redirect()->route('doctor.chekingup.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan.');
     }
 }
