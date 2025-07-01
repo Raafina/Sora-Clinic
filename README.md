@@ -7,8 +7,8 @@ Sora Clinic is a web-based polyclinic management system designed to streamline p
 
 ## 🚀 Key Feature
 <ul>
-    <li>Multirole Auth (Doctor, Patient, Admin)</li>
-    <li>Doctor, Polyclinic, Medicine, Patient Management</li>
+    <li>Multirole Auth (Admin, Doctor, and Patient)</li>
+    <li>Doctor, Polyclinic, Medicine, and Patient Management</li>
     <li>Checkup schedule, appointment, and checking up feature</li>
     <li>Online consultation feature</li>
     <li>Restore feature</li>
@@ -60,15 +60,18 @@ Sora Clinic is a web-based polyclinic management system designed to streamline p
 ## 🔐 Login Credentials
 
 Use the following credentials to access the application after running the seeders:
-Admin
-- **Email:** admin@example.com  
-- **Password:** 123
-Doctor
-- **Email:** anisa_farida@example.com  
-- **Password:** 123
-Patient
-- **Email:** andi.prasetyo@example.com  
-- **Password:** 123
 
-> You can use these credentials after seeding database.
+### 🛠️ Admin
+- **Email:** `admin@example.com`  
+- **Password:** `123`
+
+### 🩺 Doctor
+- **Email:** `anisa_farida@example.com`  
+- **Password:** `123`
+
+### 🧑‍⚕️ Patient
+- **Email:** `andi.prasetyo@example.com`  
+- **Password:** `123`
+
+> ⚠️ Make sure to run the database seeders before using these credentials.
 
