@@ -11,8 +11,6 @@ use App\Models\Checkup;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-use function Ramsey\Uuid\v1;
-
 class CheckingupController extends Controller
 {
     /**
@@ -21,12 +19,12 @@ class CheckingupController extends Controller
     public function index()
     {
         // find checkup appointment from authenticated dokter with active status
-        $checkupAppointment = CheckupSchedule::where('id_dokter', Auth::user()->id)
+        $checkupAppointment = CheckupSchedule::where('id_doctor', Auth::user()->id)
             ->where('status', true)
             ->first();
 
         // find checkup appointment from jadwal periksa
-        $checkupAppointments = CheckupAppointment::where('id_jadwal_periksa', $checkupAppointment->id)
+        $checkupAppointments = CheckupAppointment::where('id_checkup_schedule', $checkupAppointment->id)
             ->filter(request(['search']))
             ->oldest()
             ->paginate(10);
@@ -54,9 +52,9 @@ class CheckingupController extends Controller
     public function store($id, Request $request)
     {
         $validatedData = $request->validate([
-            'tgl_periksa' => ['required', 'date'],
-            'catatan' => ['nullable'],
-            'biaya_periksa' => ['required', 'numeric', 'min:0'],
+            'checkup_date' => ['required', 'date'],
+            'note' => ['nullable'],
+            'checkup_fee' => ['required', 'numeric', 'min:0'],
             'obats' => ['array'],
             'obats.*' => ['exists:medicines,id'],
         ]);
@@ -64,19 +62,19 @@ class CheckingupController extends Controller
         $checkupAppointment = CheckupAppointment::findOrFail($id);
 
         $checkup = Checkup::create([
-            'id_janji_periksa' => $checkupAppointment->id,
-            'tgl_periksa' => $validatedData['tgl_periksa'],
-            'catatan' => $validatedData['catatan'],
-            'biaya_periksa' => $validatedData['biaya_periksa'],
+            'id_checkup_appointment' => $checkupAppointment->id,
+            'checkup_date' => $validatedData['checkup_date'],
+            'note' => $validatedData['note'],
+            'checkup_fee' => $validatedData['checkup_fee'],
         ]);
 
         foreach ($validatedData['obats'] as $obatId) {
             CheckupDetail::create([
-                'id_periksa' => $checkup->id,
-                'id_obat' => $obatId,
+                'id_checkup' => $checkup->id,
+                'id_medicine' => $obatId,
             ]);
         }
-        return redirect()->route('doctor.chekingup.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan.');
+        return redirect()->route('doctor.chekingup.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan!');
     }
 
     public function edit(string $id)
@@ -95,32 +93,32 @@ class CheckingupController extends Controller
     public function update(Request $request, string $id)
     {
         $validatedData = $request->validate([
-            'tgl_periksa' => ['required', 'date'],
-            'catatan' => ['nullable'],
-            'biaya_periksa' => ['required', 'numeric', 'min:0'],
+            'checkup_date' => ['required', 'date'],
+            'note' => ['nullable'],
+            'checkup_fee' => ['required', 'numeric', 'min:0'],
             'obats' => ['array'],
             'obats.*' => ['exists:medicines,id'],
         ]);
 
         $checkupAppointment = CheckupAppointment::findOrFail($id);
 
-        $checkup = Checkup::where('id_janji_periksa', $checkupAppointment->id)->first();
+        $checkup = Checkup::where('id_checkup_appointment', $checkupAppointment->id)->first();
         $checkup->update([
-            'tgl_periksa' => $validatedData['tgl_periksa'],
-            'catatan' => $validatedData['catatan'],
-            'biaya_periksa' => $validatedData['biaya_periksa'],
+            'checkup_date' => $validatedData['checkup_date'],
+            'note' => $validatedData['catatan'],
+            'checkup_fee' => $validatedData['checkup_fee'],
         ]);
 
         // Delete existing checkup detail 
-        CheckupDetail::where('id_periksa', $checkup->id)->delete();
+        CheckupDetail::where('id_checkup', $checkup->id)->delete();
 
         // Create new checkup detail
         foreach ($validatedData['obats'] as $obatId) {
             CheckupDetail::create([
-                'id_periksa' => $checkup->id,
-                'id_obat' => $obatId,
+                'id_checkup' => $checkup->id,
+                'id_medicine' => $obatId,
             ]);
         }
-        return redirect()->route('doctor.chekingup.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan.');
+        return redirect()->route('doctor.chekingup.index')->with('success', 'Data pemeriksaan pasien berhasil disimpan!');
     }
 }

@@ -15,12 +15,12 @@
             @csrf
             @method('PUT')
             <div class="space-y-4 max-w-xl ">
-                <x-text-input label='Nama Obat' id="nama_obat" placeholder="Masukkan nama obat"
-                    value="{{ $medicine->nama_obat }}" />
-                <x-text-input label='Kemasan' id="kemasan" placeholder="Masukkan kemasan"
-                    value="{{ $medicine->kemasan }}" />
-                <x-text-input label='Harga' id="harga" placeholder="Masukkan harga"
-                    value="{{ $medicine->harga }}" />
+                <x-text-input label='Nama Obat' id="medicine_name" placeholder="Masukkan nama obat"
+                    value="{{ $medicine->medicine_name }}" />
+                <x-text-input label='Kemasan' id="packaging" placeholder="Masukkan kemasan"
+                    value="{{ $medicine->packaging }}" />
+                <x-text-input label='Harga' id="price" placeholder="Masukkan harga"
+                    value="{{ $medicine->price }}" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
                         href="{{ route('doctor.medicine.index') }}" />

@@ -20,13 +20,13 @@
                 <select
                     class="bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded-lg
                     focus:ring-primary-600 focus:border-primary-600 block w-full !my-2 p-2.5
-                    {{ $errors->has('id_user_dokter') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
-                    name="id_user_dokter" id="doctorSelect" required>
+                    {{ $errors->has('id_user_doctor') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
+                    name="id_user_doctor" id="doctorSelect" required>
                     <option value="" hidden>Pilih Dokter</option>
                     @foreach ($doctors as $doctor)
                         <option value={{ $doctor->id }}
-                            {{ $doctor->id == $consultation->id_user_dokter ? 'selected' : '' }}>
-                            {{ $doctor->nama }}
+                            {{ $doctor->id == $consultation->id_user_doctor ? 'selected' : '' }}>
+                            {{ $doctor->name }}
                         </option>
                     @endforeach
                 </select>

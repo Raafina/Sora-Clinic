@@ -17,26 +17,26 @@ class CheckupScheduleSeeder extends Seeder
 
         if ($dokter) {
             $schedules = [
-                ['hari' => 'Senin', 'jam_mulai' => '08:00', 'jam_selesai' => '10:00', 'status' => true],
-                ['hari' => 'Senin', 'jam_mulai' => '12:00', 'jam_selesai' => '14:00', 'status' => false],
-                ['hari' => 'Senin', 'jam_mulai' => '13:00', 'jam_selesai' => '15:00', 'status' => false],
-                ['hari' => 'Selasa', 'jam_mulai' => '08:00', 'jam_selesai' => '10:00', 'status' => false],
-                ['hari' => 'Selasa', 'jam_mulai' => '12:00', 'jam_selesai' => '14:00', 'status' => false],
-                ['hari' => 'Selasa', 'jam_mulai' => '13:00', 'jam_selesai' => '15:00', 'status' => false],
-                ['hari' => 'Rabu', 'jam_mulai' => '08:00', 'jam_selesai' => '10:00', 'status' => false],
-                ['hari' => 'Rabu', 'jam_mulai' => '12:00', 'jam_selesai' => '14:00', 'status' => false],
-                ['hari' => 'Rabu', 'jam_mulai' => '13:00', 'jam_selesai' => '15:00', 'status' => false],
-                ['hari' => 'Kamis', 'jam_mulai' => '08:00', 'jam_selesai' => '10:00', 'status' => false],
-                ['hari' => 'Kamis', 'jam_mulai' => '12:00', 'jam_selesai' => '14:00', 'status' => false],
-                ['hari' => 'Kamis', 'jam_mulai' => '13:00', 'jam_selesai' => '15:00', 'status' => false],
+                ['day' => 'Senin', 'start_time' => '08:00', 'end_time' => '10:00', 'status' => true],
+                ['day' => 'Senin', 'start_time' => '12:00', 'end_time' => '14:00', 'status' => false],
+                ['day' => 'Senin', 'start_time' => '13:00', 'end_time' => '15:00', 'status' => false],
+                ['day' => 'Selasa', 'start_time' => '08:00', 'end_time' => '10:00', 'status' => false],
+                ['day' => 'Selasa', 'start_time' => '12:00', 'end_time' => '14:00', 'status' => false],
+                ['day' => 'Selasa', 'start_time' => '13:00', 'end_time' => '15:00', 'status' => false],
+                ['day' => 'Rabu', 'start_time' => '08:00', 'end_time' => '10:00', 'status' => false],
+                ['day' => 'Rabu', 'start_time' => '12:00', 'end_time' => '14:00', 'status' => false],
+                ['day' => 'Rabu', 'start_time' => '13:00', 'end_time' => '15:00', 'status' => false],
+                ['day' => 'Kamis', 'start_time' => '08:00', 'end_time' => '10:00', 'status' => false],
+                ['day' => 'Kamis', 'start_time' => '12:00', 'end_time' => '14:00', 'status' => false],
+                ['day' => 'Kamis', 'start_time' => '13:00', 'end_time' => '15:00', 'status' => false],
             ];
 
             foreach ($schedules as $schedule) {
                 CheckupSchedule::create([
-                    'id_dokter' => $dokter->id,
-                    'hari' => $schedule['hari'],
-                    'jam_mulai' => $schedule['jam_mulai'],
-                    'jam_selesai' => $schedule['jam_selesai'],
+                    'id_doctor' => $dokter->id,
+                    'day' => $schedule['day'],
+                    'start_time' => $schedule['start_time'],
+                    'end_time' => $schedule['end_time'],
                     'status' => $schedule['status']
                 ]);
             }

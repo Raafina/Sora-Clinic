@@ -25,6 +25,6 @@ class RestoreMedicineController extends Controller
     {
         Medicine::onlyTrashed()->findOrFail($id)->restore();
 
-        return redirect()->route('doctor.restore_medicine.index')->with('success', 'Obat berhasil di-restore');
+        return redirect()->route('doctor.restore_medicine.index')->with('success', 'Obat berhasil di-restore!');
     }
 }

@@ -16,22 +16,22 @@ class CheckupAppointment extends Model
 
     public function patient()
     {
-        return $this->belongsTo(User::class, 'id_pasien');
+        return $this->belongsTo(User::class, 'id_patient');
     }
 
     public function checkupSchedule()
     {
-        return $this->belongsTo(CheckupSchedule::class, 'id_jadwal_periksa', 'id');
+        return $this->belongsTo(CheckupSchedule::class, 'id_checkup_schedule', 'id');
     }
 
     public function checkupDetails()
     {
-        return $this->hasMany(CheckupDetail::class, 'id_periksa', 'id');
+        return $this->hasMany(CheckupDetail::class, 'id_checkup', 'id');
     }
 
     public function checkup()
     {
-        return $this->hasOne(Checkup::class, 'id_janji_periksa', 'id');
+        return $this->hasOne(Checkup::class, 'id_checkup_appointment', 'id');
     }
 
     public function scopeFilter(Builder $query, array $filters): void
@@ -39,8 +39,8 @@ class CheckupAppointment extends Model
         $query->when(
             $filters['search'] ?? false,
             fn($query, $search) =>
-            $query->whereHas('pasien', function ($q) use ($search) {
-                $q->where('nama', 'like', '%' . $search . '%');
+            $query->whereHas('patient', function ($q) use ($search) {
+                $q->where('name', 'like', '%' . $search . '%');
             })
         );
     }

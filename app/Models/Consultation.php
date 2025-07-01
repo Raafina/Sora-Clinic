@@ -10,16 +10,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Consultation extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['id_user_pasien', 'id_user_dokter', 'subjek', 'pertanyaan', 'jawaban'];
+    protected $fillable = ['id_user_patient', 'id_user_doctor', 'subjek', 'pertanyaan', 'jawaban'];
 
     public function dokter()
     {
-        return $this->belongsTo(User::class, 'id_user_dokter', 'id');
+        return $this->belongsTo(User::class, 'id_user_doctor', 'id');
     }
 
-    public function pasien()
+    public function patient()
     {
-        return $this->belongsTo(User::class, 'id_user_pasien', 'id');
+        return $this->belongsTo(User::class, 'id_user_patient', 'id');
     }
 
     public function scopeFilter(Builder $query, array $filters): void

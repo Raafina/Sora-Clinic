@@ -32,9 +32,9 @@ class MedicineController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_obat' => ['required', 'string', 'max:255'],
-            'kemasan' => ['required', 'string', 'max:255'],
-            'harga' => ['required', 'numeric', 'min:0'],
+            'medicine_name' => ['required', 'string', 'max:255'],
+            'packaging' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'numeric', 'min:0'],
         ]);
 
         Medicine::create($validated);
@@ -53,9 +53,9 @@ class MedicineController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'nama_obat' => ['required', 'string', 'max:255'],
-            'kemasan' => ['required', 'string', 'max:255'],
-            'harga' => ['required', 'numeric', 'min:0'],
+            'medicine_name' => ['required', 'string', 'max:255'],
+            'packaging' => ['required', 'string', 'max:255'],
+            'price' => ['required', 'numeric', 'min:0'],
         ]);
 
         $medicine = Medicine::findOrFail($id);

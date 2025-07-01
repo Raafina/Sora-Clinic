@@ -15,7 +15,7 @@ class CheckupScheduleController extends Controller
     public function index()
     {
         $jadwalPeriksas = CheckupSchedule::filter(request(['search']))
-            ->where('id_dokter', Auth::user()->id)
+            ->where('id_doctor', Auth::user()->id)
             ->latest()
             ->paginate(10)
             ->withQueryString();
@@ -35,29 +35,29 @@ class CheckupScheduleController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'hari' => ['required', 'string', 'max:10'],
-            'jam_mulai' => ['required', 'date_format:H:i'],
-            'jam_selesai' => ['required', 'date_format:H:i', 'after:jam_mulai'],
+            'day' => ['required', 'string', 'max:10'],
+            'start_time' => ['required', 'date_format:H:i'],
+            'end_time' => ['required', 'date_format:H:i', 'after:start_time'],
         ]);
 
-        if (CheckupSchedule::where('id_dokter', Auth::user()->id)->where(
-            'hari',
-            $validated['hari']
+        if (CheckupSchedule::where('id_doctor', Auth::user()->id)->where(
+            'day',
+            $validated['day']
         )->where(
-            'jam_mulai',
-            $validated['jam_mulai']
+            'start_time',
+            $validated['start_time']
         )->where(
-            'jam_selesai',
-            $validated['jam_selesai']
+            'end_time',
+            $validated['end_time']
         )->exists()) {
             return back()->withInput()->with('error', 'Jadwal periksa sudah ada');
         }
 
         CheckupSchedule::create([
-            'id_dokter' => Auth::user()->id,
-            'hari' => $validated['hari'],
-            'jam_mulai' => $validated['jam_mulai'],
-            'jam_selesai' => $validated['jam_selesai'],
+            'id_doctor' => Auth::user()->id,
+            'day' => $validated['day'],
+            'start_time' => $validated['start_time'],
+            'end_time' => $validated['end_time'],
             'status' => false
         ]);
 
@@ -83,7 +83,7 @@ class CheckupScheduleController extends Controller
         // if $jadwalPeriksa is non active, then active it
         if (!$jadwalPeriksa->status) {
             // change status except in $jadwalPeriksa to false
-            CheckupSchedule::where('id_dokter', Auth::user()->id)->update(['status' => false]);
+            CheckupSchedule::where('id_doctor', Auth::user()->id)->update(['status' => false]);
 
             // change status jadwalPeriksa to true 
             $jadwalPeriksa->update(['status' => true]);

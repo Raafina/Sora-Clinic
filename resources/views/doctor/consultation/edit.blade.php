@@ -15,12 +15,12 @@
             @csrf
             @method('PUT')
             <div class="space-y-4 max-w-xl ">
-                <input type="hidden" id="id_user_dokter" name="id_user_dokter"
-                    value="{{ $consultation->id_user_dokter }}">
-                <input type="hidden" id="id_user_pasien" name="id_user_pasien"
-                    value="{{ $consultation->id_user_pasien }}">
+                <input type="hidden" id="id_user_doctor" name="id_user_doctor"
+                    value="{{ $consultation->id_user_doctor }}">
+                <input type="hidden" id="id_user_patient" name="id_user_patient"
+                    value="{{ $consultation->id_user_patient }}">
                 <x-text-input label='Pasien' id="show_dokter" placeholder="Masukkan dokter"
-                    value="{{ $consultation->pasien->nama }}" readonly />
+                    value="{{ $consultation->patient->name }}" readonly />
                 <x-text-input label='Subjek' id="subjek" placeholder="Masukkan subjek"
                     value="{{ $consultation->subjek }}" readonly />
                 <x-text-area label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan"
@@ -29,7 +29,7 @@
                     value="{{ $consultation->jawaban }}" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
-                        href="{{ route('patient.consultation.index') }}" />
+                        href="{{ route('doctor.consultation.index') }}" />
                     <x-button label="Simpan" variant="primary" type="submit" />
                 </div>
             </div>

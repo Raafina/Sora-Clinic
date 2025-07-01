@@ -23,27 +23,27 @@
                 <div class="px-4 py-3 border-0 rounded-md bg-slate-100">
                     <div class="flex justify-between">
                         <span class="text-gray-700">Nama Dokter</span>
-                        <span class="font-medium">{{ $checkupAppointment->checkupSchedule->doctor->nama }}</span>
+                        <span class="font-medium">{{ $checkupAppointment->checkupSchedule->doctor->name }}</span>
                     </div>
                 </div>
                 <div class="px-4 py-3 border-0 rounded-md bg-slate-100">
                     <div class="flex justify-between">
                         <span class="text-gray-700">Hari Pemeriksaan</span>
-                        <span class="font-medium">{{ $checkupAppointment->checkupSchedule->hari }}</span>
+                        <span class="font-medium">{{ $checkupAppointment->checkupSchedule->day }}</span>
                     </div>
                 </div>
                 <div class="px-4 py-3 border-0 rounded-md bg-slate-100">
                     <div class="flex justify-between">
                         <span class="text-gray-700">Jam Mulai</span>
                         <span
-                            class="font-medium">{{ \Carbon\Carbon::parse($checkupAppointment->checkupSchedule->jam_mulai)->format('H:i') }}</span>
+                            class="font-medium">{{ \Carbon\Carbon::parse($checkupAppointment->checkupSchedule->start_time)->format('H:i') }}</span>
                     </div>
                 </div>
                 <div class="px-4 py-3 border-0 rounded-md bg-slate-100">
                     <div class="flex justify-between">
                         <span class="text-gray-700">Jam Selesai</span>
                         <span
-                            class="font-medium">{{ \Carbon\Carbon::parse($checkupAppointment->checkupSchedule->jam_selesai)->format('H:i') }}</span>
+                            class="font-medium">{{ \Carbon\Carbon::parse($checkupAppointment->checkupSchedule->end_time)->format('H:i') }}</span>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <h5 class="mb-3 text-gray-700">Nomor Antrian Anda</h5>
                     <div class="text-white rounded-lg bg-primary flex items-center justify-center"
                         style="width: 100px; height: 100px;">
-                        <span class="font-bold text-4xl">{{ $checkupAppointment->no_antrian }}</span>
+                        <span class="font-bold text-4xl">{{ $checkupAppointment->queue_number }}</span>
                     </div>
                 </div>
             </div>

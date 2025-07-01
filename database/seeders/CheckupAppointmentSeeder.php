@@ -14,17 +14,17 @@ class CheckupAppointmentSeeder extends Seeder
     public function run(): void
     {
         $janji_periksas = [
-            ['id_pasien' => 6,  'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 6],
-            ['id_pasien' => 7,  'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 7],
-            ['id_pasien' => 8,  'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 8],
-            ['id_pasien' => 9,  'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 9],
-            ['id_pasien' => 10, 'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 10],
-            ['id_pasien' => 11, 'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 11],
-            ['id_pasien' => 12, 'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 12],
-            ['id_pasien' => 13, 'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 13],
-            ['id_pasien' => 14, 'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 14],
-            ['id_pasien' => 15, 'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 15],
-            ['id_pasien' => 16, 'id_jadwal_periksa' => 1, 'keluhan' => 'Lorem ipsum...', 'no_antrian' => 16],
+            ['id_patient' => 6,  'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 6],
+            ['id_patient' => 7,  'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 7],
+            ['id_patient' => 8,  'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 8],
+            ['id_patient' => 9,  'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 9],
+            ['id_patient' => 10, 'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 10],
+            ['id_patient' => 11, 'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 11],
+            ['id_patient' => 12, 'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 12],
+            ['id_patient' => 13, 'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 13],
+            ['id_patient' => 14, 'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 14],
+            ['id_patient' => 15, 'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 15],
+            ['id_patient' => 16, 'id_checkup_schedule' => 1, 'complaint' => 'Lorem ipsum...', 'queue_number' => 16],
 
         ];
 

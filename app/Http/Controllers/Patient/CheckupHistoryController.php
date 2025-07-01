@@ -13,7 +13,7 @@ class CheckupHistoryController extends Controller
      */
     public function index()
     {
-        $checkupAppointments = CheckupAppointment::where('id_pasien', Auth::user()->id)->paginate(10);
+        $checkupAppointments = CheckupAppointment::where('id_patient', Auth::user()->id)->paginate(10);
         return view('patient.checkup_history.index', [
             'title' => 'Riwayat Periksa',
             'checkupAppointments' => $checkupAppointments

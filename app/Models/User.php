@@ -19,17 +19,17 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'nama',
+        'name',
         'username',
         'email',
-        'alamat',
+        'address',
         'no_ktp',
         'no_hp',
         'no_rm',
         'poli',
         'role',
         'password',
-        'id_poli'
+        'id_polyclinic'
     ];
 
     /**
@@ -57,34 +57,34 @@ class User extends Authenticatable
 
     public function checkupAppointments()
     {
-        return $this->hasMany(CheckupAppointment::class, 'id_pasien', 'id');
+        return $this->hasMany(CheckupAppointment::class, 'id_patient', 'id');
     }
 
     public function checkupSchedules()
     {
-        return $this->hasMany(CheckupSchedule::class, 'id_dokter', 'id');
+        return $this->hasMany(CheckupSchedule::class, 'id_doctor', 'id');
     }
 
     public function polyclinic()
     {
-        return $this->belongsTo(Polyclinic::class, 'id_poli', 'id');
+        return $this->belongsTo(Polyclinic::class, 'id_polyclinic', 'id');
     }
 
     public function patientConsultations()
     {
-        return $this->hasMany(Consultation::class, 'id_user_pasien', 'id');
+        return $this->hasMany(Consultation::class, 'id_user_patient', 'id');
     }
 
     public function doctorConsultations()
     {
-        return $this->hasMany(Consultation::class, 'id_user_dokter', 'id');
+        return $this->hasMany(Consultation::class, 'id_user_doctor', 'id');
     }
     public function scopeFilter(Builder $query, array $filters): void
     {
         $query->when(
             $filters['search'] ?? false,
             fn($query, $search) =>
-            $query->where('nama', 'like', '%' . $search . '%')
+            $query->where('name', 'like', '%' . $search . '%')
         );
     }
 }

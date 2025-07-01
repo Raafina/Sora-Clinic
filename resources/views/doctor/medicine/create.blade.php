@@ -14,9 +14,9 @@
         <form action="{{ route('doctor.medicine.store') }}" method="POST">
             @csrf
             <div class="space-y-4 max-w-xl ">
-                <x-text-input label='Nama Obat' id="nama_obat" placeholder="Masukkan nama obat" />
-                <x-text-input label='Kemasan' id="kemasan" placeholder="Masukkan kemasan" />
-                <x-text-input label='Harga' id="harga" placeholder="Masukkan harga" />
+                <x-text-input label='Nama Obat' id="medicine_name" placeholder="Masukkan nama obat" />
+                <x-text-input label='Kemasan' id="packaging" placeholder="Masukkan kemasan" />
+                <x-text-input label='Harga' id="price" placeholder="Masukkan harga" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
                         href="{{ route('doctor.medicine.index') }}" />

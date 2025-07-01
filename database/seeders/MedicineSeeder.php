@@ -15,104 +15,104 @@ class MedicineSeeder extends Seeder
     {
         $medicines = [
             [
-                'nama_obat' => 'Paracetamol',
-                'kemasan' => 'Tablet 500mg',
-                'harga' => 5000
+                'medicine_name' => 'Paracetamol',
+                'packaging' => 'Tablet 500mg',
+                'price' => 5000
             ],
             [
-                'nama_obat' => 'Amoxicillin',
-                'kemasan' => 'Kapsul 500mg',
-                'harga' => 12000
+                'medicine_name' => 'Amoxicillin',
+                'packaging' => 'Kapsul 500mg',
+                'price' => 12000
             ],
             [
-                'nama_obat' => 'Cetirizine',
-                'kemasan' => 'Tablet 10mg',
-                'harga' => 8000
+                'medicine_name' => 'Cetirizine',
+                'packaging' => 'Tablet 10mg',
+                'price' => 8000
             ],
             [
-                'nama_obat' => 'Omeprazole',
-                'kemasan' => 'Kapsul 20mg',
-                'harga' => 15000
+                'medicine_name' => 'Omeprazole',
+                'packaging' => 'Kapsul 20mg',
+                'price' => 15000
             ],
             [
-                'nama_obat' => 'Ibuprofen',
-                'kemasan' => 'Tablet 400mg',
-                'harga' => 7000
+                'medicine_name' => 'Ibuprofen',
+                'packaging' => 'Tablet 400mg',
+                'price' => 7000
             ],
             [
-                'nama_obat' => 'Loratadine',
-                'kemasan' => 'Tablet 10mg',
-                'harga' => 9000
+                'medicine_name' => 'Loratadine',
+                'packaging' => 'Tablet 10mg',
+                'price' => 9000
             ],
             [
-                'nama_obat' => 'Metformin',
-                'kemasan' => 'Tablet 500mg',
-                'harga' => 10000
+                'medicine_name' => 'Metformin',
+                'packaging' => 'Tablet 500mg',
+                'price' => 10000
             ],
             [
-                'nama_obat' => 'Simvastatin',
-                'kemasan' => 'Tablet 20mg',
-                'harga' => 25000
+                'medicine_name' => 'Simvastatin',
+                'packaging' => 'Tablet 20mg',
+                'price' => 25000
             ],
             [
-                'nama_obat' => 'Aspirin',
-                'kemasan' => 'Tablet 80mg',
-                'harga' => 6000
+                'medicine_name' => 'Aspirin',
+                'packaging' => 'Tablet 80mg',
+                'price' => 6000
             ],
             [
-                'nama_obat' => 'Dexamethasone',
-                'kemasan' => 'Tablet 0.5mg',
-                'harga' => 18000
+                'medicine_name' => 'Dexamethasone',
+                'packaging' => 'Tablet 0.5mg',
+                'price' => 18000
             ],
             [
-                'nama_obat' => 'Furosemide',
-                'kemasan' => 'Tablet 40mg',
-                'harga' => 11000
+                'medicine_name' => 'Furosemide',
+                'packaging' => 'Tablet 40mg',
+                'price' => 11000
             ],
             [
-                'nama_obat' => 'Metronidazole',
-                'kemasan' => 'Tablet 500mg',
-                'harga' => 13000
+                'medicine_name' => 'Metronidazole',
+                'packaging' => 'Tablet 500mg',
+                'price' => 13000
             ],
             [
-                'nama_obat' => 'Ranitidine',
-                'kemasan' => 'Tablet 150mg',
-                'harga' => 14000
+                'medicine_name' => 'Ranitidine',
+                'packaging' => 'Tablet 150mg',
+                'price' => 14000
             ],
             [
-                'nama_obat' => 'Salbutamol',
-                'kemasan' => 'Inhaler 100mcg',
-                'harga' => 45000
+                'medicine_name' => 'Salbutamol',
+                'packaging' => 'Inhaler 100mcg',
+                'price' => 45000
             ],
             [
-                'nama_obat' => 'Ciprofloxacin',
-                'kemasan' => 'Tablet 500mg',
-                'harga' => 20000
+                'medicine_name' => 'Ciprofloxacin',
+                'packaging' => 'Tablet 500mg',
+                'price' => 20000
             ],
             [
-                'nama_obat' => 'Diazepam',
-                'kemasan' => 'Tablet 5mg',
-                'harga' => 22000
+                'medicine_name' => 'Diazepam',
+                'packaging' => 'Tablet 5mg',
+                'price' => 22000
             ],
             [
-                'nama_obat' => 'Losartan',
-                'kemasan' => 'Tablet 50mg',
-                'harga' => 30000
+                'medicine_name' => 'Losartan',
+                'packaging' => 'Tablet 50mg',
+                'price' => 30000
             ],
             [
-                'nama_obat' => 'Amlodipine',
-                'kemasan' => 'Tablet 5mg',
-                'harga' => 17000
+                'medicine_name' => 'Amlodipine',
+                'packaging' => 'Tablet 5mg',
+                'price' => 17000
             ],
             [
-                'nama_obat' => 'Vitamin C',
-                'kemasan' => 'Tablet 500mg',
-                'harga' => 5000
+                'medicine_name' => 'Vitamin C',
+                'packaging' => 'Tablet 500mg',
+                'price' => 5000
             ],
             [
-                'nama_obat' => 'Vitamin B Complex',
-                'kemasan' => 'Kapsul',
-                'harga' => 12000
+                'medicine_name' => 'Vitamin B Complex',
+                'packaging' => 'Kapsul',
+                'price' => 12000
             ]
         ];
 

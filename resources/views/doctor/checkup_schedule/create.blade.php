@@ -1,7 +1,7 @@
 <x-doctor-layout>
     <x-toast />
     <div class="flex items-center gap-3 mb-6">
-        <x-button class="!px-3" href="{{ route('doctor.medicine.index') }}">
+        <x-button class="!px-3" href="{{ route('doctor.checkup_schedule.index') }}">
             <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -15,7 +15,7 @@
         <form action="{{ route('doctor.checkup_schedule.store') }}" method="POST">
             @csrf
             <div class="space-y-4 max-w-xl ">
-                <x-select-input label='Hari' id="hari" placeholder="Masukkan hari" :options="[
+                <x-select-input label='Hari' id="day" placeholder="Masukkan hari" :options="[
                     'Senin' => 'Senin',
                     'Selasa' => 'Selasa',
                     'Rabu' => 'Rabu',
@@ -24,8 +24,8 @@
                     'Sabtu' => 'Sabtu',
                     'Minggu' => 'Minggu',
                 ]" />
-                <x-text-input label='Jam Mulai' id="jam_mulai" type="time" />
-                <x-text-input label='Jam Selesai' id="jam_selesai" type="time" />
+                <x-text-input label='Jam Mulai' id="start_time" type="time" />
+                <x-text-input label='Jam Selesai' id="end_time" type="time" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
                         href="{{ route('doctor.checkup_schedule.index') }}" />

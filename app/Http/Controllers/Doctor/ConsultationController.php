@@ -16,8 +16,8 @@ class ConsultationController extends Controller
     public function index()
     {
         $consultations = Consultation::filter(request(['search']))
-            ->where('id_user_dokter', Auth::user()->id)
-            ->with('pasien')
+            ->where('id_user_doctor', Auth::user()->id)
+            ->with('patient')
             ->latest()
             ->paginate(10)
             ->withQueryString();
@@ -44,15 +44,15 @@ class ConsultationController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'id_user_dokter' => ['required', 'string', 'max:255', 'exists:users,id'],
+            'id_user_doctor' => ['required', 'string', 'max:255', 'exists:users,id'],
             'subjek' => ['required', 'string', 'max:255'],
             'pertanyaan' => ['required', 'string', 'min:0'],
             'jawaban' => ['required', 'string', 'min:0'],
         ]);
 
         Consultation::findOrFail($id)->update([
-            'id_user_pasien' => $request->id_user_pasien,
-            'id_user_dokter' => $validated['id_user_dokter'],
+            'id_user_patient' => $request->id_user_patient,
+            'id_user_doctor' => $validated['id_user_doctor'],
             'pertanyaan' => $validated['pertanyaan'],
             'subjek' => $validated['subjek'],
             'jawaban' => $validated['jawaban'],

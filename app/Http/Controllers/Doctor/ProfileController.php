@@ -20,7 +20,7 @@ class ProfileController extends Controller
     {
         $polyclinics = Polyclinic::all();
         $user = Auth::user();
-        return view('dokter.profile.pengaturan', [
+        return view('doctor.profile.settings', [
             'user' => $request->user(),
             'title' => 'Profile',
             'user' => $user,
@@ -41,7 +41,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('success', 'Data profil berhasil diperbarui');
+        return Redirect::route('profile.edit')->with('success', 'Data profil berhasil diperbarui!');
     }
 
     /**
@@ -62,6 +62,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/login');
+        return Redirect::to('/login')->with('success', 'Akun berhasil dihapus!');
     }
 }

@@ -39,11 +39,11 @@ class CheckupAppointmentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_dokter' => ['required', 'exists:users,id'],
-            'keluhan' => ['required'],
+            'id_doctor' => ['required', 'exists:users,id'],
+            'complaint' => ['required'],
         ]);
 
-        $checkupSchedule = CheckupSchedule::where('id_dokter', $request->id_dokter)
+        $checkupSchedule = CheckupSchedule::where('id_doctor', $request->id_doctor)
             ->where('status', true)
             ->first();
 
@@ -52,14 +52,14 @@ class CheckupAppointmentController extends Controller
                 ->with('error', 'Jadwal periksa untuk dokter ini tidak tersedia atau tidak aktif.');
         }
 
-        $appointmentTotal = CheckupAppointment::where('id_jadwal_periksa', $checkupSchedule->id)->count();
+        $appointmentTotal = CheckupAppointment::where('id_checkup_schedule', $checkupSchedule->id)->count();
         $queue = $appointmentTotal + 1;
 
         CheckupAppointment::create([
-            'id_pasien' => Auth::user()->id,
-            'id_jadwal_periksa' => $checkupSchedule->id,
-            'keluhan' => $request->keluhan,
-            'no_antrian' => $queue
+            'id_patient' => Auth::user()->id,
+            'id_checkup_schedule' => $checkupSchedule->id,
+            'complaint' => $request->complaint,
+            'queue_number' => $queue
         ]);
 
         return Redirect::route('patient.checkup_register.index')

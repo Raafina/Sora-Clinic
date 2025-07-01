@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-medium">Jadwal Periksa</h1>
 
     <div class="flex justify-between py-4">
-        <x-search-input route="/dokter/jadwal-periksa" placeholder="Cari berdasarkan hari" />
+        <x-search-input route="{{ route('doctor.checkup_schedule.index') }}" placeholder="Cari berdasarkan hari" />
         <x-button label="Tambah Jadwal" modal-target="addModal" modal-toggle="addModal" variant="primary"
             href="{{ route('doctor.checkup_schedule.create') }}" />
     </div>
@@ -12,9 +12,9 @@
         @forelse ($jadwalPeriksas as $jadwalPeriksa)
             <x-table-row>
                 <x-table-cell>{{ $jadwalPeriksas->firstItem() + $loop->index }}</x-table-cell>
-                <x-table-cell isHeader="true">{{ $jadwalPeriksa->hari }}</x-table-cell>
-                <x-table-cell>{{ \Carbon\Carbon::parse($jadwalPeriksa->jam_mulai)->format('H:i') }}</x-table-cell>
-                <x-table-cell>{{ \Carbon\Carbon::parse($jadwalPeriksa->jam_selesai)->format('H:i') }}</x-table-cell>
+                <x-table-cell isHeader="true">{{ $jadwalPeriksa->day }}</x-table-cell>
+                <x-table-cell>{{ \Carbon\Carbon::parse($jadwalPeriksa->start_time)->format('H:i') }}</x-table-cell>
+                <x-table-cell>{{ \Carbon\Carbon::parse($jadwalPeriksa->end_time)->format('H:i') }}</x-table-cell>
                 <x-table-cell>
                     @if ($jadwalPeriksa->status)
                         <p class="bg-green-500 text-white font-medium w-1/2 text-center py-1 rounded-lg"> Aktif</p>

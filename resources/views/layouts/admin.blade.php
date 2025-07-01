@@ -39,7 +39,7 @@
                             <button data-dropdown-toggle="dropdown-user" type="button"
                                 class="inline-flex items-center px-3 py-2 border border-transparent  leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                 <span class="sr-only">Open user menu</span>
-                                <div>{{ Auth::user()->nama }}</div>
+                                <div>{{ Auth::user()->name }}</div>
                                 <div class="ms-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20">
@@ -53,11 +53,6 @@
                         <div class="z-50 hidden my-4 text-base list-none rounded-xl bg-white divide-y divide-gray-100 shadow-md"
                             id="dropdown-user">
                             <ul class="py-1" role="none">
-                                <li>
-                                    <a href="{{ route('profile.edit') }}"
-                                        class="block px-4 py-2  text-gray-900 hover:bg-gray-100 hover:cursor-pointer"
-                                        role="menuitem">{{ __('Pengaturan') }}</a>
-                                </li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf

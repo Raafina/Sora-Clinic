@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table("checkup_schedules", function (Blueprint $table) {
-            $table->foreign("id_dokter")->references("id")->on("users")->onDelete("cascade");
+            $table->foreign("id_doctor")->references("id")->on("users")->onDelete("cascade");
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table("checkup_schedules", function (Blueprint $table) {
-            $table->dropForeign(['id_dokter']);
+            $table->dropForeign(['id_doctor']);
         });
     }
 };

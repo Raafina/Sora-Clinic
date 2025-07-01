@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('checkup_appointments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("id_pasien");
-            $table->unsignedBigInteger("id_jadwal_periksa");
-            $table->longText("keluhan");
-            $table->integer("no_antrian");
+            $table->unsignedBigInteger("id_patient");
+            $table->unsignedBigInteger("id_checkup_schedule");
+            $table->longText("complaint");
+            $table->integer("queue_number");
             $table->softDeletes();
             $table->timestamps();
         });

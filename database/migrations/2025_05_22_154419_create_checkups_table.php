@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('checkups', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("id_janji_periksa");
-            $table->date("tgl_periksa");
-            $table->longText("catatan");
-            $table->bigInteger("biaya_periksa");
+            $table->unsignedBigInteger("id_checkup_appointment");
+            $table->date("checkup_date");
+            $table->longText("note");
+            $table->bigInteger("checkup_fee");
             $table->softDeletes();
             $table->timestamps();
         });

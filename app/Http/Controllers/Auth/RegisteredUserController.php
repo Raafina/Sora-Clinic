@@ -25,7 +25,7 @@ class RegisteredUserController extends Controller
 
             $dashboardRoute = match ($user->role) {
                 'dokter' => '/dokter/jadwal-periksa',
-                'admin' => '/admin/doctors',
+                'admin' => '/admin/dokter',
                 default => '/pasien/daftar-poli'
             };
 
@@ -42,11 +42,11 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'nama' => ['required', 'string', 'max:255', 'unique:' . User::class],
+            'name' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'alamat' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
             'no_ktp' => ['required', 'string', 'max:20'],
             'no_hp' => ['required', 'string', 'max:20', 'unique:' . User::class],
         ]);
@@ -64,11 +64,11 @@ class RegisteredUserController extends Controller
         $no_rm = $currentYearMonth . '-' . str_pad($patientCount + 1, 3, '0', STR_PAD_LEFT);
 
         $user = User::create([
-            'nama' => $request->nama,
+            'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'alamat' => $request->alamat,
+            'address' => $request->address,
             'no_ktp' => $request->no_ktp,
             'no_hp' => $request->no_hp,
             'no_rm' => $no_rm,
@@ -80,6 +80,6 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
 
-        return redirect(route('patient.checkup_register.index', absolute: false));
+        return redirect(route('patient.checkup_register.index', absolute: false))->with('success', 'Akun berhasil dibuat!');
     }
 }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('checkup_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("id_periksa");
-            $table->unsignedBigInteger("id_obat");
+            $table->unsignedBigInteger("id_checkup");
+            $table->unsignedBigInteger("id_medicine");
             $table->softDeletes();
             $table->timestamps();
         });

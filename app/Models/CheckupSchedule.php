@@ -15,21 +15,21 @@ class CheckupSchedule extends Model
     ];
 
     protected $fillable = [
-        'id_dokter',
-        'hari',
-        'jam_mulai',
-        'jam_selesai',
+        'id_doctor',
+        'day',
+        'start_time',
+        'end_time',
         'status',
     ];
 
     public function doctor()
     {
-        return $this->belongsTo(User::class, 'id_dokter', 'id');
+        return $this->belongsTo(User::class, 'id_doctor', 'id');
     }
 
     public function checkupAppointments()
     {
-        return $this->hasMany(CheckupAppointment::class, 'id_jadwal_periksa', 'id');
+        return $this->hasMany(CheckupAppointment::class, 'id_checkup_schedule', 'id');
     }
 
     public function scopeFilter(Builder $query, array $filters): void
@@ -37,7 +37,7 @@ class CheckupSchedule extends Model
         $query->when(
             $filters['search'] ?? false,
             fn($query, $search) =>
-            $query->where('hari', 'like', '%' . $search . '%')
+            $query->where('day', 'like', '%' . $search . '%')
         );
     }
 }

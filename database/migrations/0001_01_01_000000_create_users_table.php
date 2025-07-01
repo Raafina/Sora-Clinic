@@ -15,14 +15,14 @@ return new class extends Migration
             $table->id();
             $table->enum('role', ['pasien', 'dokter', 'admin'])->default('pasien');
             $table->string('username')->unique();
-            $table->string('nama')->unique();
+            $table->string('name')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->longText('alamat')->nullable();
+            $table->longText('address')->nullable();
             $table->string('no_ktp')->nullable();
             $table->string('no_hp')->nullable();
             $table->char('no_rm', 10)->nullable();
-            $table->unsignedBigInteger('id_poli')->nullable();
+            $table->unsignedBigInteger('id_polyclinic')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->softDeletes();
             $table->rememberToken();

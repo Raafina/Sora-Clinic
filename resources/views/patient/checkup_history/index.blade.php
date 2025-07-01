@@ -7,12 +7,13 @@
             <x-table-row>
                 <x-table-cell>{{ $checkupAppointments->firstItem() + $loop->index }}</x-table-cell>
                 <x-table-cell>{{ $checkupAppointment->checkupSchedule->doctor->polyclinic->name }}</x-table-cell>
-                <x-table-cell>{{ $checkupAppointment->checkupSchedule->doctor->nama }}</x-table-cell>
+                <x-table-cell>{{ $checkupAppointment->checkupSchedule->doctor->name }}</x-table-cell>
                 <x-table-cell>{{ $checkupAppointment->checkupSchedule->hari }}</x-table-cell>
-                <x-table-cell>{{ \Carbon\Carbon::parse($checkupAppointment->checkupSchedule->jam_mulai)->format('H:i') }}</x-table-cell>
-                <x-table-cell>{{ \Carbon\Carbon::parse($checkupAppointment->checkupSchedule->jam_selesai)->format('H:i') }}</x-table-cell>
+                <x-table-cell>{{ \Carbon\Carbon::parse($checkupAppointment->checkupSchedule->start_time)->format('H:i') }}</x-table-cell>
+                <x-table-cell>{{ \Carbon\Carbon::parse($checkupAppointment->checkupSchedule->end_time)->format('H:i') }}</x-table-cell>
                 <x-table-cell>
-                    <p class="bg-primary px-2 py-1 w-fit text-white rounded-lg">{{ $checkupAppointment->no_antrian }}</p>
+                    <p class="bg-primary px-2 py-1 w-fit text-white rounded-lg">{{ $checkupAppointment->queue_number }}
+                    </p>
                 </x-table-cell>
                 <x-table-cell>
                     @if (is_null($checkupAppointment->checkup))

@@ -7,11 +7,12 @@
         <x-button label="Tambah Dokter" variant="primary" href="{{ route('admin.doctor.create') }}" />
     </div>
 
-    <x-table :headers="['No', 'Nama', 'Email', 'Poliklinik', 'Aksi']">
+    <x-table :headers="['No', 'Nama', 'Username', 'Email', 'Poliklinik', 'Aksi']">
         @forelse ($doctors as $doctor)
             <x-table-row>
                 <x-table-cell>{{ $doctors->firstItem() + $loop->index }}</x-table-cell>
-                <x-table-cell isHeader="true">{{ $doctor->nama }}</x-table-cell>
+                <x-table-cell isHeader="true">{{ $doctor->name }}</x-table-cell>
+                <x-table-cell>{{ $doctor->username }}</x-table-cell>
                 <x-table-cell>{{ $doctor->email }}</x-table-cell>
                 <x-table-cell>{{ $doctor->polyclinic->name }}</x-table-cell>
                 <x-table-cell>

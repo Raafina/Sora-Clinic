@@ -15,8 +15,8 @@
             @csrf
             @method('PUT')
             <div class="space-y-4 max-w-xl ">
-                <x-text-input label='Nama lengkap' id="nama" placeholder="Masukkan nama lengkap"
-                    value="{{ $doctor->nama }}" />
+                <x-text-input label='Nama lengkap' id="name" placeholder="Masukkan nama lengkap"
+                    value="{{ $doctor->name }}" />
                 <x-text-input label='Username' id="username" placeholder="Masukkan username"
                     value="{{ $doctor->username }}" />
                 <x-text-input label='Email' id="email" placeholder="Masukkan email" type="email"
@@ -26,12 +26,12 @@
                 <select
                     class="bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded-lg
                     focus:ring-primary-600 focus:border-primary-600 block w-full !my-2 p-2.5
-                    {{ $errors->has('id_poli') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
-                    name="id_poli" id="polyclinicsSelect" required>
+                    {{ $errors->has('id_polyclinic') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
+                    name="id_polyclinic" id="polyclinicsSelect" required>
                     <option value="" hidden>Pilih Poliklinik</option>
                     @foreach ($polyclinics as $polyclinic)
                         <option value="{{ $polyclinic->id }}"
-                            {{ $doctor->id_poli == $polyclinic->id ? 'selected' : '' }}>
+                            {{ $doctor->id_polyclinic == $polyclinic->id ? 'selected' : '' }}>
                             {{ $polyclinic->name }}
                         </option>
                     @endforeach

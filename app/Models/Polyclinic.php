@@ -17,7 +17,7 @@ class Polyclinic extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class, 'id_poli', 'id');
+        return $this->hasMany(User::class, 'id_polyclinic', 'id');
     }
 
     public function scopeFilter(Builder $query, array $filters): void

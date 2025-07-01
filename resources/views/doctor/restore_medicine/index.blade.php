@@ -3,16 +3,16 @@
     <h1 class="text-3xl font-medium">Daftar Obat Terhapus</h1>
 
     <div class="flex justify-between py-4">
-        <x-search-input route="/dokter/restore-obat" placeholder="Cari berdasarkan nama obat" />
+        <x-search-input route="{{ route('doctor.restore_medicine.index') }}" placeholder="Cari berdasarkan nama obat" />
     </div>
 
     <x-table :headers="['No', 'Nama Obat', 'Kemasan', 'Harga', 'Penghapusan', 'Aksi']">
         @forelse ($medicines as $medicine)
             <x-table-row>
                 <x-table-cell>{{ $medicines->firstItem() + $loop->index }}</x-table-cell>
-                <x-table-cell isHeader="true">{{ $medicine->nama_obat }}</x-table-cell>
-                <x-table-cell>{{ $medicine->kemasan }}</x-table-cell>
-                <x-table-cell> {{ 'Rp' . number_format($medicine->harga, 0, ',', '.') }}</x-table-cell>
+                <x-table-cell isHeader="true">{{ $medicine->medicine_name }}</x-table-cell>
+                <x-table-cell>{{ $medicine->packaging }}</x-table-cell>
+                <x-table-cell> {{ 'Rp' . number_format($medicine->price, 0, ',', '.') }}</x-table-cell>
                 <x-table-cell>
                     {{ \Carbon\Carbon::parse($medicine->deleted_at)->locale('id')->translatedFormat('d F Y H.i') }}</x-table-cell>
                 <x-table-cell>

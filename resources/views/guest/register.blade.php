@@ -14,10 +14,10 @@
                 @csrf
                 <div class="grid md:grid-cols-2 gap-4">
                     <div class="space-y-4">
-                        <x-text-input label='Nama lengkap' id="nama" placeholder="Masukkan nama lengkap" />
+                        <x-text-input label='Nama lengkap' id="name" placeholder="Masukkan nama lengkap" />
                         <x-text-input label='No HP' id="no_hp" placeholder="Masukkan nomor HP" />
                         <x-text-input label='No KTP' id="no_ktp" placeholder="Masukkan nomor KTP" />
-                        <x-text-area label='Alamat' id="alamat" placeholder="Masukkan alamat" />
+                        <x-text-area label='Alamat' id="address" placeholder="Masukkan alamat" />
                     </div>
 
                     <div class="space-y-4">

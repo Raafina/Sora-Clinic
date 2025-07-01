@@ -14,10 +14,10 @@
         <form action="{{ route('doctor.chekingup.store', $checkupAppointment->id) }}" method="POST">
             @csrf
             <div class="space-y-4 max-w-xl ">
-                <x-text-input label='Nama' id="nama" placeholder="Nama pasien" readonly
-                    value="{{ $checkupAppointment->patient->nama }}" />
-                <x-text-input label='Tanggal Periksa' id="tgl_periksa" type="datetime-local" />
-                <x-text-area label='Catatan' id="catatan" placeholder="Masukkan catatan" />
+                <x-text-input label='Nama' id="name" placeholder="Nama pasien" readonly
+                    value="{{ $checkupAppointment->patient->name }}" />
+                <x-text-input label='Tanggal Periksa' id="checkup_date" type="datetime-local" />
+                <x-text-area label='Catatan' id="note" placeholder="Masukkan catatan" />
                 {{-- select medicine --}}
                 <label for="medicinesSelecet" class="block text-sm font-medium text-gray-900">Pilih Obat</label>
                 <select
@@ -26,9 +26,9 @@
                             {{ $errors->has('obat') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
                     name="obats[]" id="medicinesSelecet" required multiple onchange="hitungBiayaPeriksa()">
                     @foreach ($medicines as $medicine)
-                        <option value="{{ $medicine->id }}" data-harga="{{ $medicine->harga }}">
-                            {{ $medicine->nama_obat }} -
-                            {{ $medicine->kemasan }} ({{ number_format($medicine->harga, 0, ',', '.') }})
+                        <option value="{{ $medicine->id }}" data-price="{{ $medicine->price }}">
+                            {{ $medicine->medicine_name }} -
+                            {{ $medicine->packaging }} ({{ number_format($medicine->price, 0, ',', '.') }})
                         </option>
                     @endforeach
                 </select>
@@ -36,10 +36,10 @@
                     Tekan Ctrl (Windows) atau Command (Mac) untuk memilih lebih dari satu obat
                 </small>
 
-                <x-text-input label='Biaya Pemeriksaan' id="biaya_periksa_display" placeholder="Biaya Pemeriksaan"
+                <x-text-input label='Biaya Pemeriksaan' id="checkup_fee_display" placeholder="Biaya Pemeriksaan"
                     readonly value="150.000" />
 
-                <input type="hidden" id="biaya_periksa" name="biaya_periksa" value="150000">
+                <input type="hidden" id="checkup_fee" name="checkup_fee" value="150000">
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
                         href="{{ route('doctor.chekingup.index') }}" />
@@ -56,17 +56,17 @@
             const selectedOptions = Array.from(select.selectedOptions);
 
             selectedOptions.forEach((option) => {
-                const harga = parseFloat(option.getAttribute('data-harga'));
-                totalBiaya += harga;
+                const price = parseFloat(option.getAttribute('data-price'));
+                totalBiaya += price;
             });
 
-            document.getElementById('biaya_periksa').value = totalBiaya;
+            document.getElementById('checkup_fee').value = totalBiaya;
 
             const formatted = new Intl.NumberFormat('id-ID', {
                 minimumFractionDigits: 0
             }).format(totalBiaya);
 
-            document.getElementById('biaya_periksa_display').value = formatted;
+            document.getElementById('checkup_fee_display').value = formatted;
         }
     </script>
 </x-doctor-layout>

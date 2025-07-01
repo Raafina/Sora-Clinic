@@ -3,14 +3,14 @@
     <h1 class="text-3xl font-medium">Daftar Konsultasi Pasien</h1>
 
     <div class="flex justify-between py-4">
-        <x-search-input route="/dokter/konsultasi" placeholder="Cari berdasarkan subjek" />
+        <x-search-input route="{{ route('doctor.consultation.index') }}" placeholder="Cari berdasarkan subjek" />
     </div>
 
     <x-table :headers="['No', 'Pasien', 'Subjek', 'Pertanyaan', 'Jawaban', 'Aksi']">
         @forelse ($consultations as $consultation)
             <x-table-row>
                 <x-table-cell>{{ $consultations->firstItem() + $loop->index }}</x-table-cell>
-                <x-table-cell isHeader="true">{{ $consultation->pasien->nama }}</x-table-cell>
+                <x-table-cell isHeader="true">{{ $consultation->patient->name }}</x-table-cell>
                 <x-table-cell isHeader="true">{{ $consultation->subjek }}</x-table-cell>
                 <x-table-cell>{{ $consultation->pertanyaan }}</x-table-cell>
                 <x-table-cell>{{ $consultation->jawaban ? $consultation->jawaban : '-' }}</x-table-cell>

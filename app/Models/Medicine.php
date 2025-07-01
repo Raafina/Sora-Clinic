@@ -16,7 +16,7 @@ class Medicine extends Model
 
     public function checkupDetail()
     {
-        $this->hasMany(CheckupDetail::class, 'id_obat', 'id');
+        $this->hasMany(CheckupDetail::class, 'id_medicine', 'id');
     }
 
     public function scopeFilter(Builder $query, array $filters): void
@@ -24,7 +24,7 @@ class Medicine extends Model
         $query->when(
             $filters['search'] ?? false,
             fn($query, $search) =>
-            $query->where('nama_obat', 'like', '%' . $search . '%')
+            $query->where('medicine_name', 'like', '%' . $search . '%')
         );
     }
 }

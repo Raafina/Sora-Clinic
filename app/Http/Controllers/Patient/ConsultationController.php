@@ -16,7 +16,7 @@ class ConsultationController extends Controller
     public function index()
     {
         $consultations = Consultation::filter(request(['search']))
-            ->where('id_user_pasien', Auth::user()->id)
+            ->where('id_user_patient', Auth::user()->id)
             ->with('dokter')
             ->latest()
             ->paginate(10)
@@ -37,14 +37,14 @@ class ConsultationController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id_user_dokter' => ['required', 'string', 'max:255', 'exists:users,id'],
+            'id_user_doctor' => ['required', 'string', 'max:255', 'exists:users,id'],
             'subjek' => ['required', 'string', 'max:255'],
             'pertanyaan' => ['required', 'string', 'min:0'],
         ]);
 
         Consultation::create([
-            'id_user_pasien' => Auth::user()->id,
-            'id_user_dokter' => $validated['id_user_dokter'],
+            'id_user_patient' => Auth::user()->id,
+            'id_user_doctor' => $validated['id_user_doctor'],
             'pertanyaan' => $validated['pertanyaan'],
             'subjek' => $validated['subjek'],
         ]);
@@ -64,14 +64,14 @@ class ConsultationController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'id_user_dokter' => ['required', 'string', 'max:255', 'exists:users,id'],
+            'id_user_doctor' => ['required', 'string', 'max:255', 'exists:users,id'],
             'subjek' => ['required', 'string', 'max:255'],
             'pertanyaan' => ['required', 'string', 'min:0'],
         ]);
 
         Consultation::findOrFail($id)->update([
-            'id_user_pasien' => Auth::user()->id,
-            'id_user_dokter' => $validated['id_user_dokter'],
+            'id_user_patient' => Auth::user()->id,
+            'id_user_doctor' => $validated['id_user_doctor'],
             'pertanyaan' => $validated['pertanyaan'],
             'subjek' => $validated['subjek'],
         ]);

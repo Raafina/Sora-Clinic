@@ -22,14 +22,14 @@
                     <p class="font-semibold text-gray-700 ">Tanggal
                         Periksa</p>
                     <p>
-                        {{ \Carbon\Carbon::parse($checkupAppointment->checkup->tgl_periksa)->locale('id')->translatedFormat('l, d F Y H.i') }}
+                        {{ \Carbon\Carbon::parse($checkupAppointment->checkup->checkup_date)->locale('id')->translatedFormat('l, d F Y H.i') }}
                     </p>
                 </div>
 
                 <div class="w-full sm:w-1/2">
                     <p class="font-semibold text-gray-700">Catatan</p>
                     <p>
-                        {{ $checkupAppointment->checkup->catatan }}
+                        {{ $checkupAppointment->checkup->note }}
                     </p>
                 </div>
             </div>
@@ -40,8 +40,8 @@
             <ul class="p-4">
                 @foreach ($checkupAppointment->checkup->checkupDetails as $checkupDetail)
                     <li class="px-0 list-group-item d-flex justify-content-between align-items-center border-bottom">
-                        <span>{{ $checkupDetail->medicine->nama_obat }}</span>
-                        <span class="badge bg-slate-100 text-dark">{{ $checkupDetail->medicine->kemasan }}</span>
+                        <span>{{ $checkupDetail->medicine->medicine_name }}</span>
+                        <span class="badge bg-slate-100 text-dark">{{ $checkupDetail->medicine->packaging }}</span>
                     </li>
                 @endforeach
             </ul>
@@ -52,7 +52,7 @@
                 <div class="p-4 flex justify-between items-center">
                     <span class="font-semibold text-gray-800">Biaya Periksa</span>
                     <span class="text-primary font-bold">
-                        Rp.{{ number_format($checkupAppointment->checkup->biaya_periksa, 0, ',', '.') }}
+                        Rp.{{ number_format($checkupAppointment->checkup->checkup_fee, 0, ',', '.') }}
                     </span>
                 </div>
             </div>

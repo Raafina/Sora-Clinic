@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-medium">Daftar Konsultasi Dokter</h1>
 
     <div class="flex justify-between py-4">
-        <x-search-input route="/pasien/konsultasi" placeholder="Cari berdasarkan subjek" />
+        <x-search-input route="{{ route('patient.consultation.index') }}" placeholder="Cari berdasarkan subjek" />
         <x-button label="Tambah Konsultasi" modal-target="addModal" modal-toggle="addModal" variant="primary"
             href="{{ route('patient.consultation.create') }}" />
     </div>
@@ -12,7 +12,7 @@
         @forelse ($consultations as $consultation)
             <x-table-row>
                 <x-table-cell>{{ $consultations->firstItem() + $loop->index }}</x-table-cell>
-                <x-table-cell isHeader="true">{{ $consultation->dokter->nama }}</x-table-cell>
+                <x-table-cell isHeader="true">{{ $consultation->dokter->name }}</x-table-cell>
                 <x-table-cell isHeader="true">{{ $consultation->subjek }}</x-table-cell>
                 <x-table-cell>{{ $consultation->pertanyaan }}</x-table-cell>
                 <x-table-cell>{{ $consultation->jawaban ? $consultation->jawaban : '-' }}</x-table-cell>

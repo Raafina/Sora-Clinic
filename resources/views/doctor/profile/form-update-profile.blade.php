@@ -15,8 +15,8 @@
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-4">
         @csrf
         @method('patch')
-        <x-text-input label='Nama lengkap' id="nama" placeholder="Masukkan nama lengkap"
-            value="{{ $user->nama }}" />
+        <x-text-input label='Nama lengkap' id="name" placeholder="Masukkan nama lengkap"
+            value="{{ $user->name }}" />
         <div>
             <x-text-input label='Email' id="email" placeholder="Masukkan email" type="email"
                 value="{{ $user->email }}" />
@@ -45,15 +45,15 @@
         <select
             class="bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded-lg
                     focus:ring-primary-600 focus:border-primary-600 block w-full !my-2 p-2.5
-                    {{ $errors->has('id_poli') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
-            name="id_poli" id="poliklinikSelect" required>
+                    {{ $errors->has('id_polyclinic') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
+            name="id_polyclinic" id="poliklinikSelect" required>
             @foreach ($polyclinics as $polyclinic)
-                <option value="{{ $polyclinic->id }}" @if ($polyclinic->id == $user->id_poli) selected @endif>
+                <option value="{{ $polyclinic->id }}" @if ($polyclinic->id == $user->id_polyclinic) selected @endif>
                     {{ $polyclinic->name }}
                 </option>
             @endforeach
         </select>
-        <x-text-area label='Alamat' id="alamat" placeholder="Masukkan alamat" value="{{ $user->alamat }}" />
+        <x-text-area label='Alamat' id="address" placeholder="Masukkan alamat" value="{{ $user->address }}" />
         <div class="flex items-center gap-4">
             <x-button type="submit">{{ __('Simpan') }}</x-button>
         </div>

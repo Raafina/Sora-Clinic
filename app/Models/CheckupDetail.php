@@ -14,17 +14,17 @@ class CheckupDetail extends Model
     ];
 
     protected $fillable = [
-        'id_periksa',
-        'id_obat'
+        'id_checkup',
+        'id_medicine'
     ];
 
     public function checkup()
     {
-        return $this->belongsTo(Checkup::class, 'id_periksa', 'id');
+        return $this->belongsTo(Checkup::class, 'id_checkup', 'id');
     }
 
     public function medicine()
     {
-        return $this->belongsTo(Medicine::class, 'id_obat', 'id');
+        return $this->belongsTo(Medicine::class, 'id_medicine', 'id');
     }
 }

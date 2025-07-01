@@ -38,19 +38,19 @@ class DoctorController extends Controller
     public function store(Request $request)
     {
         $validated =  $request->validate([
-            'nama' => ['required', 'string', 'max:255', 'unique:' . User::class],
+            'name' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
-            'id_poli' => ['required'],
+            'id_polyclinic' => ['required'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         User::create([
             'role' => 'dokter',
-            'nama' => $validated['nama'],
+            'name' => $validated['name'],
             'username' => $validated['username'],
             'email' => $validated['email'],
-            'id_poli' => $validated['id_poli'],
+            'id_polyclinic' => $validated['id_polyclinic'],
             'password' => Hash::make($validated['password']),
         ]);
 
@@ -70,7 +70,7 @@ class DoctorController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'nama' => [
+            'name' => [
                 'required',
                 'string',
                 'max:255',
@@ -82,7 +82,7 @@ class DoctorController extends Controller
                 'max:255',
                 Rule::unique(User::class)->ignore($id),
             ],
-            'id_poli' => ['required'],
+            'id_polyclinic' => ['required'],
             'email' => [
                 'required',
                 'string',

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_user_pasien")->references("id")->on("users")->onDelete("cascade");
-            $table->foreignId("id_user_dokter")->references("id")->on("users")->onDelete("cascade");
+            $table->foreignId("id_user_patient")->references("id")->on("users")->onDelete("cascade");
+            $table->foreignId("id_user_doctor")->references("id")->on("users")->onDelete("cascade");
             $table->string('subjek');
             $table->text('pertanyaan');
             $table->string('jawaban')->nullable();

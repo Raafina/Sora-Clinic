@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('checkup_schedules', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger("id_dokter");
-            $table->enum('hari', ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']);
-            $table->time('jam_mulai');
-            $table->time('jam_selesai');
+            $table->unsignedBigInteger("id_doctor");
+            $table->enum('day', ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']);
+            $table->time('start_time');
+            $table->time('end_time');
             $table->boolean("status");
             $table->softDeletes();
         });

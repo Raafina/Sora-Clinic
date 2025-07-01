@@ -14,23 +14,23 @@ class Checkup extends Model
     ];
 
     protected $fillable = [
-        'id_janji_periksa',
-        'tgl_periksa',
-        'catatan',
-        'biaya_periksa',
+        'id_checkup_appointment',
+        'checkup_date',
+        'note',
+        'checkup_fee',
     ];
 
     protected $casts = [
-        'tgl_periksa' => 'datetime',
+        'checkup_date' => 'datetime',
     ];
 
     public function checkupAppointment()
     {
-        return $this->belongsTo(CheckupAppointment::class, 'id_janji_periksa', 'id');
+        return $this->belongsTo(CheckupAppointment::class, 'id_checkup_appointment', 'id');
     }
 
     public function checkupDetails()
     {
-        return $this->hasMany(CheckupDetail::class, 'id_periksa');
+        return $this->hasMany(CheckupDetail::class, 'id_checkup');
     }
 }

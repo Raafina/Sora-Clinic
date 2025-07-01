@@ -13,21 +13,21 @@
                 <select
                     class="bg-gray-50 border border-gray-300 text-gray-900 placeholder:text-gray-400 rounded-lg
                             focus:ring-primary-600 focus:border-primary-600 block w-full !my-2 p-2.5
-                            {{ $errors->has('id_dokter') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
-                    name="id_dokter" id="doctorSelect" required>
+                            {{ $errors->has('id_doctor') ? 'bg-red-100 border-red-500' : 'bg-gray-50 border-gray-300' }}"
+                    name="id_doctor" id="doctorSelect" required>
                     <option value="" hidden>Pilih Dokter</option>
                     @foreach ($doctors as $doctor)
                         @foreach ($doctor->checkupSchedules as $checkupSchedule)
                             <option value="{{ $doctor->id }}">
-                                {{ $doctor->nama }} - {{ $doctor->polyclinic->name }} |
-                                {{ $checkupSchedule->hari }},
-                                {{ \Carbon\Carbon::parse($checkupSchedule->jam_mulai)->format('H.i') }} -
-                                {{ \Carbon\Carbon::parse($checkupSchedule->jam_selesai)->format('H.i') }}
+                                {{ $doctor->name }} - {{ $doctor->polyclinic->name }} |
+                                {{ $checkupSchedule->day }},
+                                {{ \Carbon\Carbon::parse($checkupSchedule->start_time)->format('H.i') }} -
+                                {{ \Carbon\Carbon::parse($checkupSchedule->end_time)->format('H.i') }}
                             </option>
                         @endforeach
                     @endforeach
                 </select>
-                <x-text-area label='Keluhan' id="keluhan" placeholder="Masukkan keluhan" />
+                <x-text-area label='Keluhan' id="complaint" placeholder="Masukkan keluhan" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Daftar" variant="primary" type="submit" />
                 </div>
