@@ -39,11 +39,10 @@
                 <small>
                     Tekan Ctrl (Windows) atau Command (Mac) untuk memilih lebih dari satu obat
                 </small>
-                {{-- Input untuk tampilan yang sudah diformat --}}
+
                 <x-text-input label='Biaya Pemeriksaan' id="checkup_fee_display" placeholder="Biaya Pemeriksaan"
                     readonly value="{{ number_format($checkupAppointment->checkup->checkup_fee, 0, ',', '.') }}" />
 
-                {{-- Input tersembunyi untuk dikirim ke server --}}
                 <input type="hidden" id="checkup_fee" name="checkup_fee"
                     value="{{ $checkupAppointment->checkup->checkup_fee }}">
 

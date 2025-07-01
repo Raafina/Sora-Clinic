@@ -26,7 +26,6 @@
         <main>
             {{ $slot }}
         </main>
-        <x-footer-landing></x-footer-landing>
     </div>
 
 </body>
