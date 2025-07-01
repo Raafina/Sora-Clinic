@@ -9,7 +9,7 @@ Sora Clinic is a web-based polyclinic management system designed to streamline p
 <ul>
     <li>Multirole Auth (Admin, Doctor, and Patient)</li>
     <li>Doctor, Polyclinic, Medicine, and Patient Management</li>
-    <li>Checkup schedule, appointment, and checking up feature</li>
+    <li>Checkup schedule, appointment, and checking up patient with automatic pricing feature</li>
     <li>Online consultation feature</li>
     <li>Restore feature</li>
     <li>Update profile, password, and forgot password via SMTP email</li>
