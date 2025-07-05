@@ -28,8 +28,8 @@
                         </option>
                     @endforeach
                 </select>
-                <x-text-input label='Subjek' id="subjek" placeholder="Masukkan subjek" />
-                <x-text-area label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan" />
+                <x-text-input label='Subjek' id="subjek" placeholder="Masukkan subjek" height="h-64" />
+                <x-text-area label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan" height="h-64" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"
                         href="{{ route('patient.consultation.index') }}" />

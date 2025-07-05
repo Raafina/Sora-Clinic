@@ -27,7 +27,7 @@
                         @endforeach
                     @endforeach
                 </select>
-                <x-text-area label='Keluhan' id="complaint" placeholder="Masukkan keluhan" />
+                <x-text-area label='Keluhan' id="complaint" placeholder="Masukkan keluhan" height="h-56" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Daftar" variant="primary" type="submit" />
                 </div>

@@ -32,7 +32,7 @@
                 </select>
                 <x-text-input label='Subjek' id="subjek" placeholder="Masukkan subjek"
                     value="{{ $consultation->subjek }}" />
-                <x-text-input label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan"
+                <x-text-area label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan" height="h-64"
                     value="{{ $consultation->pertanyaan }}" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"

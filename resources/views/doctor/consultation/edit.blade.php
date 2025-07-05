@@ -23,9 +23,9 @@
                     value="{{ $consultation->patient->name }}" readonly />
                 <x-text-input label='Subjek' id="subjek" placeholder="Masukkan subjek"
                     value="{{ $consultation->subjek }}" readonly />
-                <x-text-area label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan"
+                <x-text-area label='Pertanyaan' id="pertanyaan" placeholder="Masukkan pertanyaan" height="h-64"
                     value="{{ $consultation->pertanyaan }}" readonly />
-                <x-text-area label='Jawaban' id="jawaban" placeholder="Masukkan jawaban"
+                <x-text-area label='Jawaban' id="jawaban" placeholder="Masukkan jawaban" height="h-64"
                     value="{{ $consultation->jawaban }}" />
                 <div class="mt-6 flex justify-start gap-2">
                     <x-button label="Batal" variant="danger" type="button" data-modal-hide="addModal"

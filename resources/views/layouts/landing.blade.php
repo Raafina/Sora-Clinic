@@ -22,7 +22,6 @@
 
 <body class="text-poppins">
     <div class="min-h-full w-full relative">
-        <x-navbar></x-navbar>
         <main>
             {{ $slot }}
         </main>
